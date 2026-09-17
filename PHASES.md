@@ -106,7 +106,7 @@ it leave behind. Page counts are rough sizing, not a contract.
 | # | Module | Backend domain | Manuals touched | ~Pages |
 |---|---|---|---|---|
 | 1 | Getting in | `identity` | all four | 6 |
-| 2 | Caretaker onboarding & standing | `identity`, `fieldops` | admin, caretaker | 5 |
+| 2 | Caretaker onboarding & standing | `identity`, `fieldops` | admin, caretaker | 4 |
 | 3 | Zones, clusters and the rota | `geography`, `fieldops` | admin, caretaker | 5 |
 | 4 | Species, pricing and the nursery | `catalogue`, `nursery` | admin, customer | 5 |
 | 5 | Sponsoring a tree | `orders`, `payments` | customer, admin | 7 |
@@ -120,7 +120,7 @@ it leave behind. Page counts are rough sizing, not a contract.
 | 13 | Motivation and recognition | — (client-side) | caretaker | 5 |
 | 14 | Running the programme | `identity`, `audit`, `catalogue` | admin | 6 |
 
-Roughly 80 pages, against the ~70 the brief estimated — close enough that the
+Roughly 79 pages, against the ~70 the brief estimated — close enough that the
 estimate looks sound.
 
 ### What each one covers
@@ -149,11 +149,32 @@ Tanzania" — exists on the branch `a-second-front-door` and is **not merged int
 "email": one is an address on your account, the other is a way in. When the
 second one lands, it changes this module's first page and nothing else.
 
-**2. Caretaker onboarding & standing.** The review queue, approving somebody,
-issuing kit, and what the caretaker sees of their own profile and
-certifications. Ends with an active caretaker who can be given work.
-*Routes:* admin `caretakers`, `kit`, `invite`; caretaker `profile`,
-`edit-profile`, `certifications`.
+**2. Caretaker onboarding & standing.** Registering somebody, the review queue,
+finding them afterwards, and what the caretaker sees of their own standing. Ends
+with an active caretaker who can be given work.
+*Routes:* admin `caretakers` (directory, review queue, the New caretaker
+dialog); caretaker `(tabs)/profile`.
+
+**Certifications is not documented, and should not be.** The screen exists at
+`(app)/certifications`, but the entry point on the profile is wrapped in
+`<StaticOnly>` and the code beside it says why: *"Certification — invented.
+`profile.cert` and `profile.badges` are `mocks/use-role-data`: a progress bar to
+a level nobody can reach and four badges nobody can earn. Gated rather than
+deleted so the ladder survives to be made real."* It renders in the demo build
+and nowhere else. Writing it up would document a feature that does not exist —
+the same failure as the phantom sign-in screen, except here the code warns you.
+That takes this module to four pages.
+
+**Two routes I had wrong in the first itemisation**, found by opening them:
+`kit` is the admin console's own UI component gallery, not caretaker equipment,
+and `invite` is staff password setup — that belongs to module 14. Neither is
+part of this module. The page list is the five below.
+
+The subject that makes this module worth writing as one piece: registering
+somebody offers **two paths with different accountability** — *"Yes, enrol them
+now. Active immediately, with you recorded as the approver"* against *"Not yet —
+file for review. Nobody is recorded as approving."* One of those creates a
+record of who decided; the other defers it.
 
 **3. Zones, clusters and the rota.** Where trees live and who tends them.
 Directly downstream of 2 — an approved caretaker with no section is the warning
@@ -287,7 +308,7 @@ where the trial left us, not a head start.
 |---|---|---|---|---|
 | 0 | Phase 0 — refs, shot lists, deep links | ✓ | — | 17 Sep 2026 |
 | 1 | Getting in | ✓ | 6 / 6 | 17 Sep 2026 |
-| 2 | Caretaker onboarding & standing | — | 1 / 5 | |
+| 2 | Caretaker onboarding & standing | ✓ | 4 / 4 | 18 Sep 2026 |
 | 3 | Zones, clusters and the rota | — | 0 / 5 | |
 | 4 | Species, pricing and the nursery | — | 0 / 5 | |
 | 5 | Sponsoring a tree | — | 0 / 7 | |

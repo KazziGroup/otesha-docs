@@ -152,6 +152,26 @@ async function runStep(page, step, baseUrl) {
     case "pause":
       await new Promise((r) => setTimeout(r, arg));
       return;
+    case "park":
+      /*
+       * Put the pointer and the focus somewhere harmless.
+       *
+       * A click leaves the mouse where it landed, and a dialog opening under it
+       * opens with something hovered. The New caretaker figure came back with a
+       * black "Close" tooltip over its heading — real, but an artefact of how
+       * the screenshot was taken rather than anything a reader would meet.
+       *
+       * Moving the mouse was not enough: that tooltip is on *focus*, and the
+       * dialog autofocuses its close button. Both have to be cleared, which is
+       * why this is one step and not two.
+       */
+      await page.mouse.move(8, 8);
+      await page.evaluate(() => {
+        const el = document.activeElement;
+        if (el && el !== document.body && typeof el.blur === "function") el.blur();
+      });
+      await new Promise((r) => setTimeout(r, 300));
+      return;
     case "hide": {
       // For things that exist only because this is a development stack — the
       // mock SMS panel prints the sign-in code on screen, and a reader would

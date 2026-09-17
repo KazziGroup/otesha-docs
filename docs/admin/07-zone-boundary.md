@@ -1,7 +1,7 @@
 ---
-id: release-payout
-number: 3
-title: Release a payout run
+id: zone-boundary
+number: 7
+title: Trace a zone boundary
 category: admin
 categoryTitle: Admin portal
 description: Placeholder.

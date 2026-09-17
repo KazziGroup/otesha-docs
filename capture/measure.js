@@ -35,17 +35,53 @@
    * is meant to prevent. The smallest match wins, since a label usually appears
    * on both the control and the card around it.
    */
-  function find({ sel, text }) {
+  function find({ sel, text, nth }) {
     if (sel) return document.querySelector(sel);
     if (!text) return null;
-    const matches = [...document.querySelectorAll("button, a, input, select, [role=tab], td, th, h1, h2")]
-      .filter((el) => (el.textContent || "").includes(text))
-      .sort((a, b) => {
-        const ra = a.getBoundingClientRect();
-        const rb = b.getBoundingClientRect();
-        return ra.width * ra.height - rb.width * rb.height;
-      });
-    return matches[0] ?? null;
+
+    // Anything that can carry words a reader would recognise. The narrow list
+    // this replaced — buttons, links and table cells — missed labels, help
+    // text and paragraphs, which is where most of what a manual points at
+    // actually lives.
+    //
+    // Placeholders are matched too, because "Search name or phone…" is visible
+    // on screen and absent from `textContent`; a shot list naming what it can
+    // see should not have to know that.
+    const candidates = [
+      ...document.querySelectorAll(
+        "button, a, input, select, textarea, label, p, li, span, div, td, th, h1, h2, h3, [role=tab]",
+      ),
+    ].filter((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.width <= 0 || r.height <= 0) return false;
+      return (
+        (el.textContent || "").includes(text) ||
+        (el.getAttribute && (el.getAttribute("placeholder") || "").includes(text))
+      );
+    });
+
+    // `nth` picks by position among the matches, in document order, for a
+    // control that legitimately repeats — a row of Approve buttons, one per
+    // caretaker. Without it the smallest match wins, which for repeated
+    // controls is whichever happens to be a pixel narrower.
+    //
+    // It counts innermost matches only. Every wrapper up to the page container
+    // also "contains" the word, and they come first in document order, so
+    // `nth: 0` over the raw list framed a box the height of the screen.
+    if (Number.isInteger(nth)) {
+      const innermost = candidates.filter(
+        (el) => ![...el.children].some((child) => (child.textContent || "").includes(text)),
+      );
+      return innermost[nth] ?? null;
+    }
+
+    // Smallest wins: the words appear on the control and on every box around
+    // it, and the control is what is being pointed at.
+    return candidates.sort((a, b) => {
+      const ra = a.getBoundingClientRect();
+      const rb = b.getBoundingClientRect();
+      return ra.width * ra.height - rb.width * rb.height;
+    })[0] ?? null;
   }
 
   spec.forEach((item, i) => {

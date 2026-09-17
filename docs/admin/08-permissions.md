@@ -1,7 +1,7 @@
 ---
-id: assign-cluster
-number: 4
-title: Assign a caretaker to a cluster
+id: permissions
+number: 8
+title: Edit the permissions matrix
 category: admin
 categoryTitle: Admin portal
 description: Placeholder.

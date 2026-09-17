@@ -1,0 +1,43 @@
+{
+  "app": "caretaker-mobile-app-live",
+  "page": "caretaker/profile",
+  "note": "The dev client against the local backend, signed in as the seeded caretaker on 0700 000 011. The static-demo build shows fixture numbers rather than a real record.",
+  "figures": [
+    {
+      "id": "caretaker-profile-01-en",
+      "title": "Your standing",
+      "steps": [
+        {
+          "pause": 2000
+        },
+        {
+          "tapIfPresent": ".*8081.*"
+        },
+        {
+          "pause": 10000
+        },
+        {
+          "tapIfPresent": "Back"
+        },
+        {
+          "tapIfPresent": "Profile"
+        },
+        {
+          "pause": 3000
+        }
+      ],
+      "callouts": [
+        {
+          "match": "Zone 87 \u00b7 Active",
+          "note": "Your zone, and whether you are active.",
+          "side": "right"
+        },
+        {
+          "match": "Your trees",
+          "note": "Trees in your care, logs this month, days worked.",
+          "side": "left"
+        }
+      ]
+    }
+  ]
+}

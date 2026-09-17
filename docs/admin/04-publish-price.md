@@ -1,6 +1,6 @@
 ---
 id: publish-price
-number: 2
+number: 4
 title: Publish a price
 category: admin
 categoryTitle: Admin portal

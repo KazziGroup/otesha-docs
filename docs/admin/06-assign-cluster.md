@@ -1,7 +1,7 @@
 ---
-id: zone-boundary
-number: 5
-title: Trace a zone boundary
+id: assign-cluster
+number: 6
+title: Assign a caretaker to a cluster
 category: admin
 categoryTitle: Admin portal
 description: Placeholder.

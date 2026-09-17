@@ -1,0 +1,74 @@
+[
+  {
+    "id": "open",
+    "text": "Module two. How somebody becomes a caretaker, and what they see of it afterwards.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-2/open.wav",
+    "seconds": 4.928
+  },
+  {
+    "id": "register",
+    "text": "Registering is a form: name, the number they will sign in with, and a zone.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-2/register.wav",
+    "seconds": 4.714667
+  },
+  {
+    "id": "choice",
+    "text": "Then a question worth slowing down for. Enrol them now, and you are recorded as the approver. Or file them for review, and nobody is.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-2/choice.wav",
+    "seconds": 8.362667
+  },
+  {
+    "id": "id",
+    "text": "A national ID scan goes to a restricted bucket and is never displayed — not on the form, not in the directory, not through the API. The record says only that one is on file.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-2/id.wav",
+    "seconds": 11.754667
+  },
+  {
+    "id": "queue",
+    "text": "Whoever was filed for review waits here. Each card is one person, with when they registered — some have been waiting months.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-2/queue.wav",
+    "seconds": 7.338667
+  },
+  {
+    "id": "approve",
+    "text": "Approving records who decided. That is the whole reason this queue exists rather than everyone being enrolled on sight.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-2/approve.wav",
+    "seconds": 7.296
+  },
+  {
+    "id": "section",
+    "text": "And approving is not the end of it. A caretaker with no section has an app listing no trees, and the evening sweep then holds their pay for not logging work nobody assigned.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-2/section.wav",
+    "seconds": 10.688
+  },
+  {
+    "id": "directory",
+    "text": "The directory is everybody, whatever their status — searchable by name or by the number they sign in with.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-2/directory.wav",
+    "seconds": 6.485333
+  },
+  {
+    "id": "standing",
+    "text": "On the phone, the same decision reads as one line: your zone, and whether you are active.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-2/standing.wav",
+    "seconds": 5.418667
+  },
+  {
+    "id": "counts",
+    "text": "Under it, what the month adds up to. Trees in your care, logs recorded, days worked.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-2/counts.wav",
+    "seconds": 5.034667
+  },
+  {
+    "id": "cut",
+    "text": "One screen was deliberately left out. The certification ladder is mock data — a level nobody can reach and badges nobody can earn — so documenting it would describe a feature that does not exist.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-2/cut.wav",
+    "seconds": 12.693333
+  },
+  {
+    "id": "close",
+    "text": "Four pages, two surfaces, one person's path into the programme.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-2/close.wav",
+    "seconds": 4.117333
+  }
+]

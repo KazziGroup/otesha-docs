@@ -6,7 +6,7 @@
  * through a capture session — which is the expensive place to find out.
  */
 
-export const WEB_STEPS = ["goto", "wait", "fill", "click", "press", "pause", "hide", "hideText", "eval"];
+export const WEB_STEPS = ["goto", "wait", "fill", "click", "press", "pause", "park", "hide", "hideText", "eval"];
 export const IOS_STEPS = ["tap", "tapIfPresent", "scroll", "pause"];
 
 /** A callout must say which element it points at, and what it means. */

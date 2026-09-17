@@ -1,10 +1,10 @@
 {
   "app": "admin-panel",
-  "page": "admin/approve-caretaker",
+  "page": "admin/find-a-caretaker",
   "figures": [
     {
-      "id": "admin-approve-caretaker-01-en",
-      "title": "The review queue",
+      "id": "admin-find-a-caretaker-01-en",
+      "title": "The caretaker directory",
       "steps": [
         {
           "goto": "/login"
@@ -37,25 +37,18 @@
           "wait": "table"
         },
         {
-          "click": "button:has-text('Review queue')"
-        },
-        {
-          "wait": "button:has-text('Approve')"
-        },
-        {
           "pause": 1500
         }
       ],
       "callouts": [
         {
-          "text": "No identity document uploaded",
-          "note": "Whether an ID scan is on file. It is not shown, only noted.",
+          "text": "Search name or phone",
+          "note": "Find somebody by name or by the number they sign in with.",
           "side": "left"
         },
         {
-          "text": "Approve",
-          "nth": 0,
-          "note": "Approving records you as the approver.",
+          "text": "All statuses",
+          "note": "Filter by status \u2014 pending, active, suspended, rejected.",
           "side": "right"
         }
       ]
