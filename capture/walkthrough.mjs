@@ -175,7 +175,6 @@ for (const manual of ["Customer app", "Admin portal", "Corporate portal", "Caret
   await sleep(300);
 }
 await say("repo");
-await say("sidebar");
 
 await click("text=Sign in to your account");
 await overlay();
@@ -193,11 +192,13 @@ await overlay();
 await scrollBy(380);
 await say("mobile");
 
-// The console manuals, and what each figure records about itself.
+// The console manuals, and the recipe behind every figure.
 await click("text=Approve a caretaker");
 await overlay();
 await scrollBy(400);
-await say("provenance");
+await say("recipe");
+await say("rebuilt");
+await say("refs");
 
 // The search proof. These words are written on no page — they are a callout
 // inside a screenshot.

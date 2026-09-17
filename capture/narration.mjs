@@ -53,20 +53,21 @@ const SPEED = Number(process.env.OTESHA_DOCS_SPEED ?? 0.95);
  * sentences, no parentheses, nothing that needs punctuation to parse.
  */
 export const LINES = [
-  ["open", "These are the Otesha manuals. A working trial, not a mockup."],
-  ["repo", "One repository holds all four: the customer app, the admin console, the corporate portal, and the caretaker's phone."],
-  ["sidebar", "Every manual is a folder of markdown, and the sidebar is just the folders."],
-  ["template", "Each task page follows the same seven parts. Who can do this. What you need first. The steps. How you know it worked. And what to do when it does not."],
+  ["open", "These are the Otesha manuals. Four of them, in one repository."],
+  ["repo", "One for each person who uses Otesha: the sponsor, the operations console, the corporate portal, and the caretaker's phone."],
+  ["template", "Every task page follows the same seven parts. Who can do this. What you need first. The steps. How you know it worked. And what to do when it does not."],
   ["shots", "The screenshots are generated, not taken by hand."],
   ["callouts", "Markers sit in the margin and never cover a control, and the legend is drawn into the picture, so a screenshot still explains itself when somebody pastes it into a chat."],
-  ["mobile", "The caretaker's app is a real phone build on a simulator. Its markers are anchored to accessibility labels, the same way the web ones are anchored to elements."],
-  ["provenance", "Every image records the app, the branch and the commit it was taken from. A screenshot is only true relative to a commit."],
+  ["mobile", "The caretaker's app is a real phone build. Its markers are anchored to accessibility labels, the same way the web ones are anchored to elements."],
+  ["recipe", "Every figure has a recipe committed beside it: which app, which commit, the steps to reach the screen, and what each marker means."],
+  ["rebuilt", "To prove it, every screenshot in these manuals was deleted and rebuilt from those recipes alone."],
+  ["refs", "And a capture refuses to run against an app on the wrong branch. One of these figures once came from a stray server and documented a screen that does not exist."],
   ["search", "Now the part that matters for pictures. These words appear on no page. They are a callout inside a screenshot."],
   ["found", "Search finds them anyway. The figure is indexed, so an image is not a hole in the documentation."],
   ["ai", "The same text is what the built-in assistant reads. It never receives the image itself, only the words attached to it."],
   ["external", "Same repository, second build. This is what a client outside Otesha gets."],
   ["absent", "The admin and caretaker manuals are not hidden here. They are not in the bundle at all."],
-  ["close", "One repository, two builds. That is the recommendation."],
+  ["close", "One repository, two builds, and every picture rebuildable on demand."],
 ];
 
 const audioPath = (id) => join(AUDIO_DIR, `${id}.wav`);

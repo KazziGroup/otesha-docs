@@ -1,27 +1,21 @@
 [
   {
     "id": "open",
-    "text": "These are the Otesha manuals. A working trial, not a mockup.",
+    "text": "These are the Otesha manuals. Four of them, in one repository.",
     "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/open.wav",
-    "seconds": 3.776
+    "seconds": 4.074667
   },
   {
     "id": "repo",
-    "text": "One repository holds all four: the customer app, the admin console, the corporate portal, and the caretaker's phone.",
+    "text": "One for each person who uses Otesha: the sponsor, the operations console, the corporate portal, and the caretaker's phone.",
     "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/repo.wav",
-    "seconds": 7.232
-  },
-  {
-    "id": "sidebar",
-    "text": "Every manual is a folder of markdown, and the sidebar is just the folders.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/sidebar.wav",
-    "seconds": 4.693333
+    "seconds": 7.594667
   },
   {
     "id": "template",
-    "text": "Each task page follows the same seven parts. Who can do this. What you need first. The steps. How you know it worked. And what to do when it does not.",
+    "text": "Every task page follows the same seven parts. Who can do this. What you need first. The steps. How you know it worked. And what to do when it does not.",
     "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/template.wav",
-    "seconds": 9.472
+    "seconds": 9.685333
   },
   {
     "id": "shots",
@@ -37,15 +31,27 @@
   },
   {
     "id": "mobile",
-    "text": "The caretaker's app is a real phone build on a simulator. Its markers are anchored to accessibility labels, the same way the web ones are anchored to elements.",
+    "text": "The caretaker's app is a real phone build. Its markers are anchored to accessibility labels, the same way the web ones are anchored to elements.",
     "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/mobile.wav",
-    "seconds": 9.941333
+    "seconds": 8.725333
   },
   {
-    "id": "provenance",
-    "text": "Every image records the app, the branch and the commit it was taken from. A screenshot is only true relative to a commit.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/provenance.wav",
-    "seconds": 7.36
+    "id": "recipe",
+    "text": "Every figure has a recipe committed beside it: which app, which commit, the steps to reach the screen, and what each marker means.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/recipe.wav",
+    "seconds": 7.573333
+  },
+  {
+    "id": "rebuilt",
+    "text": "To prove it, every screenshot in these manuals was deleted and rebuilt from those recipes alone.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/rebuilt.wav",
+    "seconds": 5.930667
+  },
+  {
+    "id": "refs",
+    "text": "And a capture refuses to run against an app on the wrong branch. One of these figures once came from a stray server and documented a screen that does not exist.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/refs.wav",
+    "seconds": 9.706667
   },
   {
     "id": "search",
@@ -79,8 +85,8 @@
   },
   {
     "id": "close",
-    "text": "One repository, two builds. That is the recommendation.",
+    "text": "One repository, two builds, and every picture rebuildable on demand.",
     "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/close.wav",
-    "seconds": 3.584
+    "seconds": 4.586667
   }
 ]
