@@ -258,3 +258,96 @@ Proposed, so a phase closes on a checklist rather than a judgement:
 3. Cross-links added in both directions, resolving in both builds.
 4. `npm run check` green — all eight.
 5. Walkthrough recorded and reviewed.
+
+---
+
+# Progress
+
+**Keep this section current.** It is the part of this file that goes stale
+fastest and the only part anybody reads to find out where things are. Update it
+when a module opens, when it closes, and when a decision is made — not in a
+batch at the end.
+
+## Where things stand
+
+*Updated 17 Sep 2026.*
+
+Phase 0 is done. No module has been opened yet.
+
+Four pages exist and are real; sixteen are stubs carrying a `Placeholder` line,
+written during the trial so the navigation could be judged at something like its
+eventual size. **Those four belong to four different modules** — which is
+precisely the scattering that phasing by module is meant to prevent, and it is
+where the trial left us rather than a head start:
+
+| Page | Module it belongs to | State |
+|---|---|---|
+| `customer/01-sign-in` | 1 · Getting in | written, but its figures are stale against `origin/main` |
+| `admin/01-approve-caretaker` | 2 · Caretaker onboarding | written, one figure |
+| `caretaker/01-today` | 7 · The daily round | written, one figure |
+| `corporate/02-esg-report` | 11 · Corporate partnership | written, one figure |
+
+Six figures, all rebuildable from committed shot lists. All eight checks green.
+
+**Known work carried into module 1:** `login.tsx` moved by 339 lines on
+`origin/main` after these figures were taken. `input[name=code]` no longer
+exists — code entry is now `app/components/ui/otp-input.tsx` — and the submit
+button reads "Continue" rather than "Sign in", so two of the three customer
+recipes will fail until they are updated. The `welcome` screen is shipped and
+undocumented.
+
+## Modules
+
+`—` not started · `▶` open · `✓` done
+
+| # | Module | Status | Pages | Closed |
+|---|---|---|---|---|
+| 0 | Phase 0 — refs, shot lists, deep links | ✓ | — | 17 Sep 2026 |
+| 1 | Getting in | — | 0 / 6 | |
+| 2 | Caretaker onboarding & standing | — | 1 / 5 | |
+| 3 | Zones, clusters and the rota | — | 0 / 5 | |
+| 4 | Species, pricing and the nursery | — | 0 / 5 | |
+| 5 | Sponsoring a tree | — | 0 / 7 | |
+| 6 | Gifting a tree | — | 0 / 3 | |
+| 7 | The daily round | — | 1 / 7 | |
+| 8 | Caretaker pay | — | 0 / 5 | |
+| 9 | Watching your tree | — | 0 / 6 | |
+| 10 | Money and invoices | — | 0 / 5 | |
+| 11 | Corporate partnership | — | 1 / 7 | |
+| 12 | The developer platform | — | 0 / 8 | |
+| 13 | Motivation and recognition | — | 0 / 5 | |
+| 14 | Running the programme | — | 0 / 6 | |
+
+A page counts once it meets the definition of done above — seven parts filled,
+figures captured from a pinned ref with a shot list behind them, links
+resolving, checks green. A page with prose and no figure is not done.
+
+## Decisions
+
+Recorded with the reason, because in six months the reason is the part nobody
+can reconstruct.
+
+| Date | Decision | Why |
+|---|---|---|
+| 17 Sep 2026 | **One repository, four manuals** | They share the capture pipeline, the viewer, cross-links and one search index. Four repos means four of everything and four chances to drift. |
+| 17 Sep 2026 | **Two builds, not two repositories** | The corporate manual goes to clients; the admin manual describes payout release. That is a build question. `DOCS_AUDIENCE=external` ships a bundle the internal manuals are absent from — filtering in code leaves the text in `index-*.js`. |
+| 17 Sep 2026 | **Filed per app, phased per module** | A reader arrives holding a phone or sitting at a console, so navigation stays app-shaped. But the payout page and the earnings page are two ends of one event, and written months apart they drift — so they get written together. |
+| 17 Sep 2026 | **Prose is written, not generated** | Figures regenerate from recipes. What a reader needs told — which control matters, what an error means — is judgement, and generating it produces descriptions of screenshots rather than instructions. |
+| 17 Sep 2026 | **`origin/main` is the documented ref** | Decided per module for the apps it touches, not globally. For module 1 all four apps agree; corporate's `staging` differs only in `developers/*`, which is module 12's problem if it ever becomes one. |
+| 17 Sep 2026 | **English only** | The audience is English-speaking for now. docs-viewer has no language support at all, so parity would have meant building one first — see "English only" above. |
+
+## Open questions
+
+Things deliberately not decided, so they are not quietly forgotten:
+
+- **docs-viewer's `figure-blocks` is uncommitted.** Image support, figure
+  rendering, alt-text indexing and the deep-link scroll exist only in a working
+  tree, reached by `file:../docs-viewer`. Not blocking — the site builds and the
+  checks pass — but it is unversioned and nobody else can build the site.
+- **Seeded data is not pinned.** Shot lists hardcode fixtures
+  (`admin@otesha.co.tz`, `+255717763373`, `0700 000 012`). A reseed with
+  different data breaks recipes in a way that reads as a UI change.
+- **Whether module 12 defers.** The developer platform is the largest block and
+  the most self-contained; nothing depends on it. An obvious candidate to move
+  late if value is wanted sooner.
+
