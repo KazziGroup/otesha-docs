@@ -1,0 +1,10 @@
+{
+  "app": "caretaker-mobile-app",
+  "platform": "ios-simulator",
+  "bundleId": "com.otesha.app.demo",
+  "note": "EXPO_PUBLIC_STATIC_DEMO=1 — bundled fixtures, no backend",
+  "device": "F4E2CA7A-DFD7-4DEC-9A58-09DC96CF749D",
+  "commit": "4f7227e",
+  "branch": "honest-app",
+  "documentedRef": "origin/main"
+}

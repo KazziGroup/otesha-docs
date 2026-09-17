@@ -1,0 +1,29 @@
+{
+  "app": "corporate-portal",
+  "page": "corporate/esg-report",
+  "figures": [
+    {
+      "id": "corporate-esg-report-01-en",
+      "title": "Reports, Carbon and ESG",
+      "steps": [
+        { "goto": "/login" },
+        { "wait": "input[name=phone]" },
+        { "fill": ["input[name=phone]", "+255717763373"] },
+        { "click": "button[type=submit]" },
+        { "wait": "input[name=code]" },
+        { "eval": "(() => { const p = [...document.querySelectorAll('p')].find(e => /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()" },
+        { "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()" },
+        { "click": "button[type=submit]" },
+        { "wait": "nav" },
+        { "click": "a:has-text('Reports')" },
+        { "wait": "text=Generate ESG report" },
+        { "pause": 1200 }
+      ],
+      "callouts": [
+        { "text": "Generate ESG report", "note": "Produces the report for the dates above.", "side": "right" },
+        { "text": "SDG indicators", "note": "The indicators the report will cover.", "side": "left" }
+      ],
+      "note": "The sign-in code is read off the page because SMS_PROVIDER=mock prints it there. Against a real gateway this shot list needs a different way in."
+    }
+  ]
+}

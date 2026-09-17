@@ -1,0 +1,6 @@
+[2026-09-17T11:37:29.487Z] GET http://localhost:5282/?v=deep → 200 (12ms, 399B)
+[2026-09-17T11:37:29.500Z] GET http://localhost:5282/assets/index-DG-mrDV2.js → 200 (18ms, 805521B)
+[2026-09-17T11:37:29.500Z] GET http://localhost:5282/assets/index-CKlgi77d.css → 200 (3ms, 34431B)
+[2026-09-17T11:37:29.606Z] GET http://localhost:5282/img/customer-sign-in-01-en.png → 200 (5ms, 27864B)
+[2026-09-17T11:37:29.606Z] GET http://localhost:5282/img/customer-sign-in-02-en.png → 200 (5ms, 29998B)
+[2026-09-17T11:37:29.606Z] GET http://localhost:5282/img/customer-sign-in-03-en.png → 200 (5ms, 45557B)

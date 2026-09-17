@@ -1,0 +1,56 @@
+{
+  "_comment": [
+    "Which build each manual documents, and where to find it running.",
+    "",
+    "`ref` is the branch a capture session is expected to be on. It is checked",
+    "before anything is shot, because the alternative has already happened once:",
+    "a figure was captured from a dev server left running on an unmerged feature",
+    "branch, and documented a sign-in screen that does not exist in the product.",
+    "Nothing about the image showed it.",
+    "",
+    "As of writing, three of these four repos have a feature branch checked out,",
+    "so `npm run shoot` will refuse until somebody checks out the documented ref.",
+    "That refusal is the feature. `ALLOW_REF_DRIFT=1` overrides it and the drift",
+    "is written into every provenance file it produces, so a figure taken off-ref",
+    "says so.",
+    "",
+    "`url` can be overridden per app with the named environment variable, because",
+    "dev servers move: these apps pick the next free port, and the port that",
+    "served the customer app one afternoon served the corporate portal the next."
+  ],
+  "apps": {
+    "customer-app": {
+      "dir": "../otesha/customer-app",
+      "ref": "origin/main",
+      "url": "http://localhost:5250",
+      "urlEnv": "OTESHA_CUSTOMER_URL",
+      "surface": "phone"
+    },
+    "admin-panel": {
+      "dir": "../otesha/admin-panel",
+      "ref": "origin/main",
+      "url": "http://localhost:5200",
+      "urlEnv": "OTESHA_ADMIN_URL",
+      "surface": "console"
+    },
+    "corporate-portal": {
+      "dir": "../otesha/corporate-portal",
+      "ref": "origin/main",
+      "url": "http://localhost:5350",
+      "urlEnv": "OTESHA_CORPORATE_URL",
+      "surface": "console"
+    },
+    "caretaker-mobile-app": {
+      "dir": "../otesha/caretaker-mobile-app",
+      "ref": "origin/main",
+      "surface": "ios",
+      "bundleId": "com.otesha.app.demo",
+      "deviceEnv": "OTESHA_DEVICE",
+      "note": "EXPO_PUBLIC_STATIC_DEMO=1 — bundled fixtures, no backend"
+    }
+  },
+  "surfaces": {
+    "phone": { "width": 390, "height": 844, "cropX": false },
+    "console": { "width": 1440, "height": 900, "cropX": true }
+  }
+}

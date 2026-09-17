@@ -1,0 +1,16 @@
+node_modules/
+
+# Both builds are reproducible from source — `npm run build` and
+# `DOCS_AUDIENCE=external npm run build`.
+dist/
+dist-external/
+
+# Narration is rendered locally by Kokoro and cached on a hash of the voice,
+# speed and text. The script lives in capture/narration.mjs; the wavs are just
+# what it produced, and they are large.
+capture/audio/*.wav
+capture/audio/*.key
+capture/audio/.render.py
+
+# Figures are committed on purpose — they are the deliverable, and
+# capture/provenance records which commit of which app each came from.

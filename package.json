@@ -1,0 +1,37 @@
+{
+  "name": "otesha-docs",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "build:external": "DOCS_AUDIENCE=external vite build --outDir dist-external",
+    "check:links": "node scripts/check-links.mjs",
+    "check:audience": "bash scripts/check-audience-builds.sh",
+    "check": "npm run check:links && npm run check:alt && npm run check:shots && npm run check:audience && npm run check:renders",
+    "check:alt": "node scripts/check-alt-text.mjs",
+    "check:renders": "node scripts/check-renders.mjs",
+    "narrate": "node capture/narration.mjs",
+    "walkthrough": "node capture/walkthrough.mjs && node capture/assemble.mjs",
+    "audition": "node capture/audition.mjs",
+    "shoot": "node capture/shoot.mjs",
+    "check:shots": "node scripts/check-shots.mjs"
+  },
+  "dependencies": {
+    "@jestrux/docs-viewer": "file:../docs-viewer",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^5.6.2",
+    "vite": "^6.0.0"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "app": "caretaker-mobile-app",
+  "page": "caretaker/today",
+  "figures": [
+    {
+      "id": "caretaker-today-01-en",
+      "title": "Today",
+      "steps": [
+        {
+          "pause": 2500
+        },
+        {
+          "tapIfPresent": "Open"
+        },
+        {
+          "pause": 3000
+        }
+      ],
+      "callouts": [
+        {
+          "match": "Today's tasks",
+          "note": "What needs doing today, and how much is done.",
+          "side": "right"
+        },
+        {
+          "match": "Open earnings",
+          "note": "What you have earned this month.",
+          "side": "left"
+        }
+      ],
+      "note": "`tapIfPresent: Open` dismisses the simulator's 'Open in Otesha (Demo)?' prompt, which appears on some launches and not others and blocks the app when it does."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/*
+ * The import above is the whole ballgame, and it was missing.
+ *
+ * This file was empty, inherited that way from kinpay-docs, which gets its
+ * styles instead from a `cdn.tailwindcss.com` script tag in `index.html` that
+ * compiles classes in the reader's browser at runtime. That works, at the cost
+ * of shipping a 400 kB compiler to every reader, rendering unstyled if the CDN
+ * is unreachable, and a console warning telling you not to do it in
+ * production. Removing the script tag without this line took the built CSS
+ * from 34 kB to 1.9 kB and the site to unstyled HTML.
+ *
+ * `@source` adds docs-viewer's components to what Tailwind scans. It is worth
+ * a line but it is not the fix: automatic detection already reaches most of
+ * the linked package, and this only recovers about 300 bytes of utilities it
+ * misses. Keeping it means a class used in exactly one docs-viewer component
+ * cannot go quietly missing.
+ */
+@source "../../docs-viewer/src";

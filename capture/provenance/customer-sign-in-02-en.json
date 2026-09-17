@@ -1,0 +1,9 @@
+{
+  "url": "http://localhost:5250/login",
+  "capturedFrom": "http://localhost:5250",
+  "app": "customer-app",
+  "commit": "11c986d",
+  "branch": "pay-by-the-field",
+  "documentedRef": "origin/main",
+  "refDrift": true
+}

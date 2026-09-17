@@ -1,0 +1,25 @@
+{
+  "app": "admin-panel",
+  "page": "admin/approve-caretaker",
+  "figures": [
+    {
+      "id": "admin-approve-caretaker-01-en",
+      "title": "Caretakers, review queue",
+      "steps": [
+        { "goto": "/login" },
+        { "wait": "input[name=email]" },
+        { "fill": ["input[name=email]", "admin@otesha.co.tz"] },
+        { "fill": ["input[name=password]", "otesha-dev-2026"] },
+        { "click": "button[type=submit]" },
+        { "wait": "nav" },
+        { "goto": "/caretakers" },
+        { "wait": "table" },
+        { "pause": 1200 }
+      ],
+      "callouts": [
+        { "text": "Review queue", "note": "Caretakers waiting to be approved. The number is how many.", "side": "right" },
+        { "text": "All statuses", "note": "Filter the directory by status.", "side": "left" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "url": "http://localhost:5200/caretakers",
+  "capturedFrom": "http://localhost:5200",
+  "app": "admin-panel",
+  "commit": "4507d0b",
+  "branch": "promote-a-customer",
+  "documentedRef": "origin/main",
+  "refDrift": true
+}
