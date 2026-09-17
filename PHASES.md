@@ -221,14 +221,27 @@ reader and the most likely to churn.
 *Routes:* admin `settings`, `settings.programme`, `settings.roles`,
 `settings.account`, `users`.
 
+## English only
+
+Fred's brief asks for EN and SW parity. **We are not doing Kiswahili** — the
+audience for these manuals is English-speaking for now (decided 17 Sep 2026).
+
+Worth recording why that is a relief rather than a deferral: docs-viewer has no
+language support of any kind, so parity would have meant building one — separate
+builds per language, a switcher, or a filename convention with sidebar
+filtering. None of that is hard, but all of it is much harder to retrofit across
+eighty pages than to design in at six, which is why it needed deciding before
+module 1 rather than after.
+
+If Kiswahili is ever wanted, the shape to reach for is a second audience
+alongside `internal` and `external` in `src/audience/` — the machinery for
+building two sites from one tree already exists and is tested.
+
 ## Not modules
 
-Three things cut across every module and should not become phases of their own —
+Two things cut across every module and should not become phases of their own —
 a module is only done when it has handled them:
 
-- **Kiswahili.** Fred's brief asks for EN and SW parity. That is a property of
-  every page, so it belongs in each module's definition of done, not in a
-  "translation phase" at the end that never happens.
 - **Notifications.** SMS and email land inside other flows — a code, a payout, an
   order. Document them where they occur.
 - **Working offline.** Real for the caretaker app throughout. It gets one page of
@@ -240,8 +253,8 @@ Proposed, so a phase closes on a checklist rather than a judgement:
 
 1. Every page's seven parts filled — no stubs left in the module.
 2. Every figure captured from a **pinned ref per app**, recorded in
-   `capture/provenance/`, with its callout notes carried into the alt text.
-3. EN and SW at parity.
-4. Cross-links added in both directions, resolving in both builds.
-5. `npm run check` green.
-6. Walkthrough recorded and reviewed.
+   `capture/provenance/`, with its callout notes carried into the alt text, and
+   a committed shot list behind it.
+3. Cross-links added in both directions, resolving in both builds.
+4. `npm run check` green — all eight.
+5. Walkthrough recorded and reviewed.
