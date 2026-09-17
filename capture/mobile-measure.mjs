@@ -72,12 +72,21 @@ const nodes = [];
 const missing = [];
 const targets = [];
 
-callouts.forEach(({ match, note, side = "right" }, i) => {
-  // Smallest match wins. A label often appears on both a control and the card
-  // wrapping it, and the control is the thing being pointed at.
-  const found = nodes
+callouts.forEach(({ match, note, side = "right", pick = "smallest" }, i) => {
+  /*
+   * Smallest match wins by default. A label usually appears on both a control
+   * and the card wrapping it, and the control is the thing being pointed at.
+   *
+   * `pick: "largest"` is for the opposite case, which the caretaker sign-in
+   * screen turns out to be: the field and the small caption above it carry the
+   * same accessibility label, and the caption is smaller. Framing a caption and
+   * calling it "the number your zone lead registered" points at the wrong
+   * thing while looking entirely deliberate.
+   */
+  const matches = nodes
     .filter((n) => n.label.includes(match))
-    .sort((a, b) => a.rect.w * a.rect.h - b.rect.w * b.rect.h)[0];
+    .sort((a, b) => a.rect.w * a.rect.h - b.rect.w * b.rect.h);
+  const found = pick === "largest" ? matches[matches.length - 1] : matches[0];
   if (!found) {
     missing.push(match);
     return;

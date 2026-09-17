@@ -1,0 +1,61 @@
+{
+  "app": "customer-app",
+  "page": "customer/welcome",
+  "note": "Welcome only exists on a first sign-in \u2014 /welcome redirects to My trees for an account that already exists. Hence {{uniquePhone}}; see resolveValue in capture/shoot.mjs.",
+  "figures": [
+    {
+      "id": "customer-welcome-01-en",
+      "title": "Karibu Otesha",
+      "steps": [
+        {
+          "goto": "/logout"
+        },
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "{{uniquePhone}}"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=code]"
+        },
+        {
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=full_name]"
+        },
+        {
+          "pause": 1200
+        }
+      ],
+      "callouts": [
+        {
+          "sel": "input[name=full_name]",
+          "note": "Your name. This is required.",
+          "side": "left"
+        },
+        {
+          "sel": "input[name=email]",
+          "note": "Optional \u2014 where receipts go. You can add it later.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

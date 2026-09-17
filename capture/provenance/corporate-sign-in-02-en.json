@@ -1,0 +1,8 @@
+{
+  "url": "http://localhost:5350/login",
+  "capturedFrom": "http://localhost:5350",
+  "app": "corporate-portal",
+  "commit": "53cb9a9",
+  "branch": "main",
+  "documentedRef": "origin/main"
+}

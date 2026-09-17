@@ -1,7 +1,7 @@
 ---
-id: redeem-gift
-number: 5
-title: Redeem a gift code
+id: checkout
+number: 4
+title: Pay for a tree
 category: customer
 categoryTitle: Customer app
 description: Placeholder.

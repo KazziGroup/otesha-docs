@@ -7,7 +7,7 @@
  */
 
 export const WEB_STEPS = ["goto", "wait", "fill", "click", "press", "pause", "hide", "eval"];
-export const IOS_STEPS = ["tap", "tapIfPresent", "pause"];
+export const IOS_STEPS = ["tap", "tapIfPresent", "scroll", "pause"];
 
 /** A callout must say which element it points at, and what it means. */
 export function calloutProblems(callout) {

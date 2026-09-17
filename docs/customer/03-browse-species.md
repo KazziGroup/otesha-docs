@@ -1,7 +1,7 @@
 ---
-id: tree-detail
-number: 6
-title: See how your tree is doing
+id: browse-species
+number: 3
+title: Choose a tree to sponsor
 category: customer
 categoryTitle: Customer app
 description: Placeholder.

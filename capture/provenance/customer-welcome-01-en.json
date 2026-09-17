@@ -1,5 +1,5 @@
 {
-  "url": "http://localhost:5250/login",
+  "url": "http://localhost:5250/welcome",
   "capturedFrom": "http://localhost:5250",
   "app": "customer-app",
   "commit": "9a5a048",

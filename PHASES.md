@@ -272,29 +272,12 @@ batch at the end.
 
 *Updated 17 Sep 2026.*
 
-Phase 0 is done. No module has been opened yet.
+Phase 0 done. **Module 1 done.** All four apps captured from `origin/main`.
 
-Four pages exist and are real; sixteen are stubs carrying a `Placeholder` line,
-written during the trial so the navigation could be judged at something like its
-eventual size. **Those four belong to four different modules** — which is
-precisely the scattering that phasing by module is meant to prevent, and it is
-where the trial left us rather than a head start:
-
-| Page | Module it belongs to | State |
-|---|---|---|
-| `customer/01-sign-in` | 1 · Getting in | written, but its figures are stale against `origin/main` |
-| `admin/01-approve-caretaker` | 2 · Caretaker onboarding | written, one figure |
-| `caretaker/01-today` | 7 · The daily round | written, one figure |
-| `corporate/02-esg-report` | 11 · Corporate partnership | written, one figure |
-
-Six figures, all rebuildable from committed shot lists. All eight checks green.
-
-**Known work carried into module 1:** `login.tsx` moved by 339 lines on
-`origin/main` after these figures were taken. `input[name=code]` no longer
-exists — code entry is now `app/components/ui/otp-input.tsx` — and the submit
-button reads "Continue" rather than "Sign in", so two of the three customer
-recipes will fail until they are updated. The `welcome` screen is shipped and
-undocumented.
+Twenty-four pages, eleven figures, every one rebuildable from a committed shot
+list. All eight checks green. Three pages left over from the trial belong to
+modules 2, 7 and 11 and are not counted as those modules' progress — they are
+where the trial left us, not a head start.
 
 ## Modules
 
@@ -303,7 +286,7 @@ undocumented.
 | # | Module | Status | Pages | Closed |
 |---|---|---|---|---|
 | 0 | Phase 0 — refs, shot lists, deep links | ✓ | — | 17 Sep 2026 |
-| 1 | Getting in | — | 0 / 6 | |
+| 1 | Getting in | ✓ | 6 / 6 | 17 Sep 2026 |
 | 2 | Caretaker onboarding & standing | — | 1 / 5 | |
 | 3 | Zones, clusters and the rota | — | 0 / 5 | |
 | 4 | Species, pricing and the nursery | — | 0 / 5 | |
@@ -335,6 +318,28 @@ can reconstruct.
 | 17 Sep 2026 | **Prose is written, not generated** | Figures regenerate from recipes. What a reader needs told — which control matters, what an error means — is judgement, and generating it produces descriptions of screenshots rather than instructions. |
 | 17 Sep 2026 | **`origin/main` is the documented ref** | Decided per module for the apps it touches, not globally. For module 1 all four apps agree; corporate's `staging` differs only in `developers/*`, which is module 12's problem if it ever becomes one. |
 | 17 Sep 2026 | **English only** | The audience is English-speaking for now. docs-viewer has no language support at all, so parity would have meant building one first — see "English only" above. |
+
+## What module 1 taught the pipeline
+
+Each of these was a capture that failed, and each fix is in the runner rather
+than in a note somebody has to remember:
+
+- **`{{uniquePhone}}`.** The customer welcome screen exists only on a first
+  sign-in — `/welcome` redirects for an account that already exists. A recipe
+  with a fixed number would work once and then silently document a different
+  screen. The screen never shows the number, so a fresh one each run gives an
+  identical figure.
+- **Maestro launches the phone app, not `simctl`.** `simctl launch` returns as
+  soon as the process exists; sleeping afterwards is a guess, and it was wrong
+  often enough to capture the simulator's home screen.
+- **`scroll` and `pick: "largest"`.** Signing out is three screens down a
+  settings page, and the sign-in field shares its accessibility label with the
+  caption above it — where "smallest match wins" frames the caption and looks
+  entirely deliberate.
+- **The static-demo build cannot document signing in.** It opens already signed
+  in, by design. The live dev client is registered separately as
+  `caretaker-mobile-app-live`, and the recipe signs out first so it works from
+  either state.
 
 ## Open questions
 

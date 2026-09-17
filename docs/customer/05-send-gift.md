@@ -1,7 +1,7 @@
 ---
-id: browse-species
-number: 2
-title: Choose a tree to sponsor
+id: send-gift
+number: 5
+title: Send a tree as a gift
 category: customer
 categoryTitle: Customer app
 description: Placeholder.

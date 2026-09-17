@@ -106,6 +106,29 @@ function preflight(appName, app) {
   };
 }
 
+/**
+ * `{{uniquePhone}}` — a number Otesha has never seen.
+ *
+ * The customer app's welcome screen only exists on a first sign-in; visiting
+ * `/welcome` as an existing account redirects to My trees. So a recipe that
+ * hardcoded a number would work once and then quietly document a different
+ * screen, which is the failure this whole pipeline exists to prevent.
+ *
+ * The screen never displays the number — it asks for a name and an optional
+ * email — so a different one each run produces an identical figure. The cost is
+ * an abandoned account per capture in the development database, which is a fair
+ * price for a figure that rebuilds.
+ *
+ * `07` then nine digits off the clock. Seeded numbers are in ranges this will
+ * not reach, and a collision fails loudly rather than silently: the run lands
+ * on My trees and the measure step cannot find the name field.
+ */
+function resolveValue(value) {
+  if (typeof value !== "string" || !value.includes("{{uniquePhone}}")) return value;
+  const digits = String(Date.now()).slice(-9);
+  return value.replace("{{uniquePhone}}", `07${digits}`);
+}
+
 /** The steps a shot list may use. Deliberately few — a shot list is a recipe,
  *  not a program, and anything that needs branching belongs in a test. */
 async function runStep(page, step, baseUrl) {
@@ -118,7 +141,7 @@ async function runStep(page, step, baseUrl) {
       await page.locator(arg).first().waitFor({ state: "visible", timeout: 30_000 });
       return;
     case "fill":
-      await page.locator(arg[0]).first().fill(arg[1]);
+      await page.locator(arg[0]).first().fill(resolveValue(arg[1]));
       return;
     case "click":
       await page.locator(arg).first().click();
@@ -270,8 +293,15 @@ async function shootIos(browser, list, appName, app, provenance) {
     } catch {
       // not running
     }
-    execFileSync("xcrun", ["simctl", "launch", device, app.bundleId], { stdio: "ignore" });
-    await new Promise((r) => setTimeout(r, 6000));
+
+    // Launched through Maestro rather than `simctl launch`, which returns as
+    // soon as the process exists and tells you nothing about whether the app
+    // came up. Sleeping afterwards is a guess, and it was wrong often enough to
+    // produce a capture of the simulator's home screen — which fails as a
+    // missing callout and reads like the app changed.
+    const launch = join(WORK, `${figure.id}.launch.yml`);
+    writeFileSync(launch, `appId: ${app.bundleId}\n---\n- launchApp\n`);
+    execFileSync("maestro", ["--device", device, "test", launch], { stdio: "ignore" });
 
     for (const step of figure.steps ?? []) {
       const [verb, arg] = Object.entries(step)[0];
@@ -290,6 +320,14 @@ async function shootIos(browser, list, appName, app, provenance) {
             ? `- tapOn:\n    text: ${JSON.stringify(arg)}\n    optional: true\n`
             : `- tapOn: ${JSON.stringify(arg)}\n`;
         writeFileSync(flow, `appId: ${app.bundleId}\n---\n${body}`);
+        execFileSync("maestro", ["--device", device, "test", flow], { stdio: "ignore" });
+      } else if (verb === "scroll") {
+        // Repeated rather than parameterised by distance: Maestro scrolls by a
+        // screenful, and "three screens down" is the unit a shot list actually
+        // wants when it is hunting for something at the bottom of a settings
+        // page.
+        const flow = join(WORK, `${figure.id}.scroll.yml`);
+        writeFileSync(flow, `appId: ${app.bundleId}\n---\n${"- scroll\n".repeat(Number(arg) || 1)}`);
         execFileSync("maestro", ["--device", device, "test", flow], { stdio: "ignore" });
       } else if (verb === "pause") {
         await new Promise((r) => setTimeout(r, arg));

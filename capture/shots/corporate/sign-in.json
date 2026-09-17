@@ -1,0 +1,88 @@
+{
+  "app": "corporate-portal",
+  "page": "corporate/sign-in",
+  "note": "Corporate accounts have no password at all \u2014 the API refuses password login for them. The code arrives by SMS, printed on screen here because SMS_PROVIDER=mock.",
+  "figures": [
+    {
+      "id": "corporate-sign-in-01-en",
+      "title": "Corporate portal sign-in",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "+255717763373"
+          ]
+        },
+        {
+          "pause": 500
+        }
+      ],
+      "callouts": [
+        {
+          "sel": "input[name=phone]",
+          "note": "The number on your corporate account.",
+          "side": "left"
+        },
+        {
+          "sel": "button[type=submit]",
+          "note": "Sends a six-digit code by SMS.",
+          "side": "right"
+        }
+      ]
+    },
+    {
+      "id": "corporate-sign-in-02-en",
+      "title": "The corporate code screen",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "+255717763373"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=code]"
+        },
+        {
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
+        },
+        {
+          "hide": "p.font-mono"
+        },
+        {
+          "pause": 500
+        }
+      ],
+      "callouts": [
+        {
+          "sel": "input[name=code]",
+          "note": "The six digits from the SMS.",
+          "side": "left"
+        },
+        {
+          "sel": "button[type=submit]",
+          "note": "Signs you into your organisation.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

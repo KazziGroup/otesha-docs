@@ -1,7 +1,7 @@
 ---
-id: send-gift
-number: 4
-title: Send a tree as a gift
+id: redeem-gift
+number: 6
+title: Redeem a gift code
 category: customer
 categoryTitle: Customer app
 description: Placeholder.

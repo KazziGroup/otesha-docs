@@ -46,11 +46,27 @@
       "surface": "ios",
       "bundleId": "com.otesha.app.demo",
       "deviceEnv": "OTESHA_DEVICE",
-      "note": "EXPO_PUBLIC_STATIC_DEMO=1 — bundled fixtures, no backend"
+      "note": "EXPO_PUBLIC_STATIC_DEMO=1 \u2014 bundled fixtures, no backend"
+    },
+    "caretaker-mobile-app-live": {
+      "dir": "../otesha/caretaker-mobile-app",
+      "ref": "origin/main",
+      "surface": "ios",
+      "bundleId": "com.otesha.app",
+      "deviceEnv": "OTESHA_DEVICE",
+      "note": "Expo dev client against the local backend \u2014 needs Metro on 8081 with EXPO_PUBLIC_API_PORT matching the API. The static-demo build cannot document signing in, because it opens already signed in."
     }
   },
   "surfaces": {
-    "phone": { "width": 390, "height": 844, "cropX": false },
-    "console": { "width": 1440, "height": 900, "cropX": true }
+    "phone": {
+      "width": 390,
+      "height": 844,
+      "cropX": false
+    },
+    "console": {
+      "width": 1440,
+      "height": 900,
+      "cropX": true
+    }
   }
 }

@@ -1,0 +1,46 @@
+{
+  "app": "admin-panel",
+  "page": "admin/sign-in",
+  "note": "The only Otesha front door with a password. Staff accounts are created by an administrator, not by signing in.",
+  "figures": [
+    {
+      "id": "admin-sign-in-01-en",
+      "title": "Admin console sign-in",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "pause": 500
+        }
+      ],
+      "callouts": [
+        {
+          "sel": "input[name=email]",
+          "note": "Your work email address.",
+          "side": "left"
+        },
+        {
+          "sel": "button[type=submit]",
+          "note": "No code is sent \u2014 this door uses a password.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

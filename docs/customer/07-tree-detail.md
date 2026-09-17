@@ -1,7 +1,7 @@
 ---
-id: checkout
-number: 3
-title: Pay for a tree
+id: tree-detail
+number: 7
+title: See how your tree is doing
 category: customer
 categoryTitle: Customer app
 description: Placeholder.

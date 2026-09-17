@@ -1,5 +1,5 @@
 ---
-id: log-watering
+id: today
 number: 1
 title: Start your day on Today
 category: caretaker

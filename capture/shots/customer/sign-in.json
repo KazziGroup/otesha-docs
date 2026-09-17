@@ -1,6 +1,7 @@
 {
   "app": "customer-app",
   "page": "customer/sign-in",
+  "note": "The mock SMS panel prints the code on screen because SMS_PROVIDER=mock. `hide` removes it, and fails if it stops matching rather than shipping a live code into a manual.",
   "figures": [
     {
       "id": "customer-sign-in-01-en",
@@ -10,11 +11,11 @@
           "goto": "/login"
         },
         {
-          "wait": "button[type=submit]"
+          "wait": "input[name=phone]"
         },
         {
           "fill": [
-            "input[type=tel]",
+            "input[name=phone]",
             "0712 345 678"
           ]
         },
@@ -24,7 +25,7 @@
       ],
       "callouts": [
         {
-          "sel": "input[type=tel]",
+          "sel": "input[name=phone]",
           "note": "Your phone number, starting 07.",
           "side": "left"
         },
@@ -43,11 +44,11 @@
           "goto": "/login"
         },
         {
-          "wait": "input[type=tel]"
+          "wait": "input[name=phone]"
         },
         {
           "fill": [
-            "input[type=tel]",
+            "input[name=phone]",
             "0700 000 012"
           ]
         },
@@ -58,10 +59,10 @@
           "wait": "input[name=code]"
         },
         {
-          "fill": [
-            "input[name=code]",
-            "237809"
-          ]
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
         },
         {
           "hide": "p.font-mono"
@@ -81,8 +82,7 @@
           "note": "Signs you in.",
           "side": "right"
         }
-      ],
-      "note": "`hide` removes the mock-SMS debug panel: it exists only because SMS_PROVIDER=mock locally, and a reader would never see it."
+      ]
     },
     {
       "id": "customer-sign-in-03-en",
@@ -92,11 +92,11 @@
           "goto": "/login"
         },
         {
-          "wait": "input[type=tel]"
+          "wait": "input[name=phone]"
         },
         {
           "fill": [
-            "input[type=tel]",
+            "input[name=phone]",
             "0700 000 012"
           ]
         },
@@ -107,13 +107,13 @@
           "wait": "input[name=code]"
         },
         {
-          "eval": "(() => { const p = [...document.querySelectorAll('p')].find(e => /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
         },
         {
           "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
         },
         {
-          "click": "button:has-text('Sign in')"
+          "click": "button[type=submit]"
         },
         {
           "wait": "main h1"
@@ -133,8 +133,7 @@
           "note": "Plant your first tree, if you have none yet.",
           "side": "left"
         }
-      ],
-      "note": "Reads the sign-in code off the page, which only works because SMS_PROVIDER=mock prints it there."
+      ]
     }
   ]
 }

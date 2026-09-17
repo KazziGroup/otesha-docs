@@ -1,0 +1,50 @@
+{
+  "app": "caretaker-mobile-app-live",
+  "page": "caretaker/sign-in",
+  "note": "Shot from the dev client against the local backend, not the static-demo build \u2014 that one opens already signed in and can never show this screen. The steps sign out first if a session is already there, so the recipe works from either state.",
+  "figures": [
+    {
+      "id": "caretaker-sign-in-01-en",
+      "title": "The caretaker sign-in screen",
+      "steps": [
+        {
+          "pause": 2000
+        },
+        {
+          "tapIfPresent": ".*8081.*"
+        },
+        {
+          "pause": 12000
+        },
+        {
+          "tapIfPresent": "Profile"
+        },
+        {
+          "pause": 2000
+        },
+        {
+          "scroll": 3
+        },
+        {
+          "tapIfPresent": "Sign out"
+        },
+        {
+          "pause": 5000
+        }
+      ],
+      "callouts": [
+        {
+          "match": "Phone number",
+          "note": "The number your zone lead registered for you.",
+          "side": "left",
+          "pick": "largest"
+        },
+        {
+          "match": "Send me a code",
+          "note": "Sends a six-digit code by SMS.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}
