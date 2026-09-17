@@ -14,10 +14,11 @@
     "check:alt": "node scripts/check-alt-text.mjs",
     "check:renders": "node scripts/check-renders.mjs",
     "narrate": "node capture/narration.mjs",
-    "walkthrough": "node capture/walkthrough.mjs && node capture/assemble.mjs",
+    "walkthrough": "node capture/walkthrough.mjs",
     "audition": "node capture/audition.mjs",
     "shoot": "node capture/shoot.mjs",
-    "check:shots": "node scripts/check-shots.mjs"
+    "check:shots": "node scripts/check-shots.mjs",
+    "assemble": "node capture/assemble.mjs"
   },
   "dependencies": {
     "@jestrux/docs-viewer": "github:jestrux/docs-viewer#figure-blocks",

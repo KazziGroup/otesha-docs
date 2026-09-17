@@ -1,5 +1,5 @@
 ---
-id: sign-in
+id: console-sign-in
 number: 0
 title: Sign in to the console
 category: admin

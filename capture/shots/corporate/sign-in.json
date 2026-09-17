@@ -68,6 +68,9 @@
           "hide": "p.font-mono"
         },
         {
+          "hideText": "TEST ENVIRONMENT"
+        },
+        {
           "pause": 500
         }
       ],
@@ -82,7 +85,8 @@
           "note": "Signs you into your organisation.",
           "side": "right"
         }
-      ]
+      ],
+      "note": "Two development-only artefacts are removed: the printed code, and the TEST ENVIRONMENT banner. This is the client-facing manual, so neither may ship."
     }
   ]
 }

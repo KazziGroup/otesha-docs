@@ -176,6 +176,45 @@ async function runStep(page, step, baseUrl) {
       }
       return;
     }
+    case "hideText": {
+      /*
+       * Hide by what it says, not by how it is styled.
+       *
+       * `hide` takes a CSS selector, which for a development banner means
+       * coupling to somebody else's Tailwind classes — and this is the second
+       * dev artefact to nearly ship in a figure. The first was the mock SMS
+       * panel; the second was a "TEST ENVIRONMENT — NO SMS SENT" banner sitting
+       * in the middle of the corporate sign-in shot, which is the manual that
+       * goes to clients.
+       *
+       * The wording is the durable part. A banner may be restyled; it will not
+       * quietly stop saying what it says.
+       */
+      const hidden = await page.evaluate((text) => {
+        const wanted = text.toLowerCase();
+        const matches = [...document.querySelectorAll("body *")].filter(
+          (el) =>
+            (el.textContent || "").toLowerCase().includes(wanted) &&
+            ![...el.children].some((child) =>
+              (child.textContent || "").toLowerCase().includes(wanted),
+            ),
+        );
+        // The innermost match, then the box around it, so a bordered banner
+        // does not leave its border behind.
+        matches.forEach((el) => {
+          const box = el.closest("div") ?? el;
+          box.style.visibility = "hidden";
+        });
+        return matches.length;
+      }, arg);
+      if (!hidden) {
+        throw new Error(
+          `hideText "${arg}" matched nothing — if that notice is gone the step should go ` +
+            `too, and if it was reworded this figure would have shipped it`,
+        );
+      }
+      return;
+    }
     case "eval":
       await page.evaluate(arg);
       return;

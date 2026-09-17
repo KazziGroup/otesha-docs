@@ -1,0 +1,68 @@
+[
+  {
+    "id": "open",
+    "text": "Module one. Getting in — the four front doors, written together.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-1/open.wav",
+    "seconds": 3.648
+  },
+  {
+    "id": "why",
+    "text": "They differ more than the phrase suggests, which is exactly why they were documented in one sitting rather than four.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-1/why.wav",
+    "seconds": 6.570667
+  },
+  {
+    "id": "customer",
+    "text": "The sponsor signs in with a phone number and a six-digit code. There is no password anywhere in this flow.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-1/customer.wav",
+    "seconds": 6.250667
+  },
+  {
+    "id": "creates",
+    "text": "A number Otesha has never seen creates an account. That matters, because on the caretaker's app the same action creates nothing at all.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-1/creates.wav",
+    "seconds": 8.021333
+  },
+  {
+    "id": "welcome",
+    "text": "First time in, the sponsor meets this: a name, and an optional email. It was shipped and undocumented — a new sponsor met a screen the manual did not mention.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-1/welcome.wav",
+    "seconds": 10.133333
+  },
+  {
+    "id": "caretaker",
+    "text": "The caretaker's app looks similar and behaves oppositely. Only a number Otesha has already enrolled can sign in; if yours does not work, your supervisor registers it.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-1/caretaker.wav",
+    "seconds": 10.645333
+  },
+  {
+    "id": "corporate",
+    "text": "The corporate portal also sends a code — to an account that has no password at all. That is deliberate: no shared secret to circulate when somebody joins or leaves.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-1/corporate.wav",
+    "seconds": 10.773333
+  },
+  {
+    "id": "admin",
+    "text": "And the operations console is the one door with a password. Staff accounts only, made for you by an administrator.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-1/admin.wav",
+    "seconds": 7.018667
+  },
+  {
+    "id": "figures",
+    "text": "Eleven figures, every one captured from the main branch with a committed recipe behind it.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-1/figures.wav",
+    "seconds": 5.312
+  },
+  {
+    "id": "caught",
+    "text": "Two things only looking caught. A development banner reading TEST ENVIRONMENT sat in the middle of the corporate shot — in the manual that goes to clients.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-1/caught.wav",
+    "seconds": 9.088
+  },
+  {
+    "id": "close",
+    "text": "Six pages, four doors, one module. Checks green.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-1/close.wav",
+    "seconds": 3.306667
+  }
+]

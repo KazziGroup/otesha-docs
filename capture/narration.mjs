@@ -23,7 +23,16 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const AUDIO_DIR = resolve(HERE, "audio");
+/**
+ * Which walkthrough to render, and where its audio lives.
+ *
+ * One directory per walkthrough. They shared one before, which meant recording
+ * module 1 silently overwrote phase 0's narration — and the video with it,
+ * since both wrote to the same file. A phase you cannot show again is a phase
+ * nobody can review.
+ */
+const NAME = process.argv[2] ?? "phase-0";
+const AUDIO_DIR = resolve(HERE, "audio", NAME);
 const KOKORO = join(homedir(), ".kokoro");
 const PYTHON = join(KOKORO, "venv", "bin", "python");
 
@@ -45,30 +54,8 @@ const PYTHON = join(KOKORO, "venv", "bin", "python");
 const VOICE = process.env.OTESHA_DOCS_VOICE ?? "af_heart";
 const SPEED = Number(process.env.OTESHA_DOCS_SPEED ?? 0.95);
 
-/**
- * The script.
- *
- * Ids are matched by the recorder, so these are the single source of both what
- * is said and how long the picture holds. Written to be read aloud: short
- * sentences, no parentheses, nothing that needs punctuation to parse.
- */
-export const LINES = [
-  ["open", "These are the Otesha manuals. Four of them, in one repository."],
-  ["repo", "One for each person who uses Otesha: the sponsor, the operations console, the corporate portal, and the caretaker's phone."],
-  ["template", "Every task page follows the same seven parts. Who can do this. What you need first. The steps. How you know it worked. And what to do when it does not."],
-  ["shots", "The screenshots are generated, not taken by hand."],
-  ["callouts", "Markers sit in the margin and never cover a control, and the legend is drawn into the picture, so a screenshot still explains itself when somebody pastes it into a chat."],
-  ["mobile", "The caretaker's app is a real phone build. Its markers are anchored to accessibility labels, the same way the web ones are anchored to elements."],
-  ["recipe", "Every figure has a recipe committed beside it: which app, which commit, the steps to reach the screen, and what each marker means."],
-  ["rebuilt", "To prove it, every screenshot in these manuals was deleted and rebuilt from those recipes alone."],
-  ["refs", "And a capture refuses to run against an app on the wrong branch. One of these figures once came from a stray server and documented a screen that does not exist."],
-  ["search", "Now the part that matters for pictures. These words appear on no page. They are a callout inside a screenshot."],
-  ["found", "Search finds them anyway. The figure is indexed, so an image is not a hole in the documentation."],
-  ["ai", "The same text is what the built-in assistant reads. It never receives the image itself, only the words attached to it."],
-  ["external", "Same repository, second build. This is what a client outside Otesha gets."],
-  ["absent", "The admin and caretaker manuals are not hidden here. They are not in the bundle at all."],
-  ["close", "One repository, two builds, and every picture rebuildable on demand."],
-];
+const walkthrough = await import(`./walkthroughs/${NAME}.mjs`);
+export const LINES = walkthrough.lines;
 
 const audioPath = (id) => join(AUDIO_DIR, `${id}.wav`);
 const keyPath = (id) => join(AUDIO_DIR, `${id}.key`);
@@ -132,7 +119,10 @@ const manifest = LINES.map(([id, text]) => ({
   seconds: seconds(audioPath(id)),
 }));
 
-const out = process.argv[2] ?? join(AUDIO_DIR, "manifest.json");
+// Always beside its audio. This used to be overridable on argv, which became a
+// collision the moment argv[2] started naming the walkthrough — the manifest
+// was written to a file called "module-1" and the recorder could not find it.
+const out = join(AUDIO_DIR, "manifest.json");
 writeFileSync(out, JSON.stringify(manifest, null, 2) + "\n");
 console.log(
   `  ${manifest.length} lines · ${manifest.reduce((a, l) => a + l.seconds, 0).toFixed(1)}s of speech → ${out}`,

@@ -47,6 +47,31 @@ for (const category of readdirSync(DOCS, { withFileTypes: true })) {
 }
 
 let failures = 0;
+
+/*
+ * Page ids must be unique across every manual, not merely within one.
+ *
+ * docs-viewer keys its lookup on the id alone — `buildSectionMap` does
+ * `map[section.id] = …` with no category in the key — so two pages sharing an
+ * id silently collapse into whichever was parsed last. Module 1 gave all four
+ * sign-in pages `id: sign-in`, and every one of `/customer/sign-in`,
+ * `/admin/sign-in`, `/corporate/sign-in` and `/caretaker/sign-in` rendered the
+ * caretaker page. Nothing else caught it: the links resolved, the figures
+ * existed, the builds mounted, and the sidebar listed all four.
+ */
+const byId = new Map();
+for (const page of pages) {
+  const id = page.key.split("/")[1];
+  if (byId.has(id)) {
+    console.error(
+      `  FAIL  ${page.file} and ${byId.get(id)} share the id "${id}" — ` +
+        `docs-viewer keys pages by id alone, so one will render in place of the other`,
+    );
+    failures++;
+  }
+  byId.set(id, page.file);
+}
+
 for (const [audience, categories] of Object.entries(AUDIENCES)) {
   const shipped = pages.filter((p) => categories.includes(p.category));
   const keys = new Set(shipped.map((p) => p.key));

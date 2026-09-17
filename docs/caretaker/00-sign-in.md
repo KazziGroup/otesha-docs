@@ -1,5 +1,5 @@
 ---
-id: sign-in
+id: app-sign-in
 number: 0
 title: Sign in to the app
 category: caretaker

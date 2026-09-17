@@ -2,91 +2,91 @@
   {
     "id": "open",
     "text": "These are the Otesha manuals. Four of them, in one repository.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/open.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/open.wav",
     "seconds": 4.074667
   },
   {
     "id": "repo",
     "text": "One for each person who uses Otesha: the sponsor, the operations console, the corporate portal, and the caretaker's phone.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/repo.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/repo.wav",
     "seconds": 7.594667
   },
   {
     "id": "template",
     "text": "Every task page follows the same seven parts. Who can do this. What you need first. The steps. How you know it worked. And what to do when it does not.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/template.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/template.wav",
     "seconds": 9.685333
   },
   {
     "id": "shots",
     "text": "The screenshots are generated, not taken by hand.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/shots.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/shots.wav",
     "seconds": 3.114667
   },
   {
     "id": "callouts",
     "text": "Markers sit in the margin and never cover a control, and the legend is drawn into the picture, so a screenshot still explains itself when somebody pastes it into a chat.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/callouts.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/callouts.wav",
     "seconds": 10.090667
   },
   {
     "id": "mobile",
     "text": "The caretaker's app is a real phone build. Its markers are anchored to accessibility labels, the same way the web ones are anchored to elements.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/mobile.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/mobile.wav",
     "seconds": 8.725333
   },
   {
     "id": "recipe",
     "text": "Every figure has a recipe committed beside it: which app, which commit, the steps to reach the screen, and what each marker means.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/recipe.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/recipe.wav",
     "seconds": 7.573333
   },
   {
     "id": "rebuilt",
     "text": "To prove it, every screenshot in these manuals was deleted and rebuilt from those recipes alone.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/rebuilt.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/rebuilt.wav",
     "seconds": 5.930667
   },
   {
     "id": "refs",
     "text": "And a capture refuses to run against an app on the wrong branch. One of these figures once came from a stray server and documented a screen that does not exist.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/refs.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/refs.wav",
     "seconds": 9.706667
   },
   {
     "id": "search",
     "text": "Now the part that matters for pictures. These words appear on no page. They are a callout inside a screenshot.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/search.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/search.wav",
     "seconds": 6.592
   },
   {
     "id": "found",
     "text": "Search finds them anyway. The figure is indexed, so an image is not a hole in the documentation.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/found.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/found.wav",
     "seconds": 6.037333
   },
   {
     "id": "ai",
     "text": "The same text is what the built-in assistant reads. It never receives the image itself, only the words attached to it.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/ai.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/ai.wav",
     "seconds": 7.210667
   },
   {
     "id": "external",
     "text": "Same repository, second build. This is what a client outside Otesha gets.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/external.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/external.wav",
     "seconds": 5.013333
   },
   {
     "id": "absent",
     "text": "The admin and caretaker manuals are not hidden here. They are not in the bundle at all.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/absent.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/absent.wav",
     "seconds": 4.992
   },
   {
     "id": "close",
     "text": "One repository, two builds, and every picture rebuildable on demand.",
-    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/close.wav",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/phase-0/close.wav",
     "seconds": 4.586667
   }
 ]

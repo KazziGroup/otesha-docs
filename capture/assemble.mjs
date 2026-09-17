@@ -27,15 +27,16 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const RAW_DIR = "/tmp/otesha-walkthrough";
+const NAME = process.argv[3] ?? process.env.WALKTHROUGH ?? "phase-0";
+const RAW_DIR = `/tmp/otesha-walkthrough-${NAME}`;
 const SILENT = join(RAW_DIR, "silent.webm");
-const OUT = process.argv[2] ?? join(homedir(), "Downloads", "otesha-e2e-videos", "otesha-docs-trial.mp4");
+const OUT = process.argv[2] ?? join(homedir(), "Downloads", "otesha-e2e-videos", `otesha-docs-${NAME}.mp4`);
 
 const MUSIC_DIR = resolve(HERE, "..", "..", "otesha", "e2e", "demo", "assets", "music");
 /** Quiet enough to sit under a voice before the compressor even acts on it. */
 const MUSIC_GAIN = 0.16;
 
-for (const p of [SILENT, join(RAW_DIR, "timings.json"), resolve(HERE, "audio", "manifest.json")]) {
+for (const p of [SILENT, join(RAW_DIR, "timings.json"), resolve(HERE, "audio", NAME, "manifest.json")]) {
   if (!existsSync(p)) {
     console.error(`missing ${p} — run narration.mjs then walkthrough.mjs first`);
     process.exit(2);
@@ -43,7 +44,7 @@ for (const p of [SILENT, join(RAW_DIR, "timings.json"), resolve(HERE, "audio", "
 }
 
 const { timings } = JSON.parse(readFileSync(join(RAW_DIR, "timings.json"), "utf8"));
-const manifest = JSON.parse(readFileSync(resolve(HERE, "audio", "manifest.json"), "utf8"));
+const manifest = JSON.parse(readFileSync(resolve(HERE, "audio", NAME, "manifest.json"), "utf8"));
 const pathById = new Map(manifest.map((l) => [l.id, l.path]));
 
 const track = (id) => {

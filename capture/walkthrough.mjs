@@ -47,7 +47,8 @@ const { chromium } = await (async () => {
 const HERE = dirname(fileURLToPath(import.meta.url));
 const INTERNAL = "http://localhost:5282";
 const EXTERNAL = "http://localhost:5281";
-const RAW_DIR = "/tmp/otesha-walkthrough";
+const NAME = process.argv[2] ?? "phase-0";
+const RAW_DIR = `/tmp/otesha-walkthrough-${NAME}`;
 const SIZE = { width: 1440, height: 900 };
 
 /** A breath after each line, so beats do not run into one another. */
@@ -55,7 +56,7 @@ const GAP_MS = 600;
 /** Silence before the first word, so the opening frame is seen before it is talked over. */
 const LEAD_IN_MS = 1200;
 
-const script = JSON.parse(readFileSync(resolve(HERE, "audio", "manifest.json"), "utf8"));
+const script = JSON.parse(readFileSync(resolve(HERE, "audio", NAME, "manifest.json"), "utf8"));
 const byId = new Map(script.map((line) => [line.id, line]));
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -162,60 +163,11 @@ async function scrollBy(amount, steps = 16) {
 
 // ── the walkthrough ──────────────────────────────────────────────────────────
 
-await page.goto(`${INTERNAL}/#/overview/intro`, { waitUntil: "networkidle" });
-await overlay();
+const { beats } = await import(`./walkthroughs/${NAME}.mjs`);
+
 t0 = Date.now();
 await sleep(LEAD_IN_MS);
-
-await say("open");
-
-for (const manual of ["Customer app", "Admin portal", "Corporate portal", "Caretaker app"]) {
-  await click(`text=${manual}`);
-  await sleep(300);
-}
-await say("repo");
-
-await click("text=Sign in to your account");
-await overlay();
-await say("template");
-
-await scrollBy(420);
-await say("shots");
-await say("callouts");
-
-// The caretaker manual: a real phone build, annotated the same way. The groups
-// were all opened at the top, so these are page links, not group headers —
-// clicking a header again would fold the manual shut.
-await click("text=Start your day on Today");
-await overlay();
-await scrollBy(380);
-await say("mobile");
-
-// The console manuals, and the recipe behind every figure.
-await click("text=Approve a caretaker");
-await overlay();
-await scrollBy(400);
-await say("recipe");
-await say("rebuilt");
-await say("refs");
-
-// The search proof. These words are written on no page — they are a callout
-// inside a screenshot.
-await click('button:has-text("Search docs")');
-await overlay();
-await page.keyboard.type("where signing in lands you", { delay: 70 });
-await sleep(900);
-await say("search");
-await say("found");
-await say("ai");
-await page.keyboard.press("Escape");
-await sleep(400);
-
-await page.goto(`${EXTERNAL}/#/overview/intro`, { waitUntil: "networkidle" });
-await overlay();
-await say("external");
-await say("absent");
-await say("close");
+await beats({ say, click, moveTo, scrollBy, overlay, page, sleep, INTERNAL, EXTERNAL });
 
 await page.evaluate(() => window.__cap?.(""));
 await sleep(1200);
