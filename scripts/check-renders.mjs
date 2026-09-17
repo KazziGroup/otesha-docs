@@ -16,6 +16,8 @@
  */
 
 import { execFileSync, spawn } from "node:child_process";
+import { readdirSync, statSync } from "node:fs";
+import { join } from "node:path";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
@@ -65,6 +67,36 @@ for (const build of BUILDS) {
     stdio: "ignore",
   });
 
+  /*
+   * Is the stylesheet actually full of Tailwind?
+   *
+   * Mounting is not the same as being styled, and two attempts to prove this
+   * through the browser both failed. Watching `overflow-y` on the docs pane
+   * survived a near-empty stylesheet; the sidebar's width moved the wrong way
+   * (288px unstyled against 247px styled, because the measured element sits
+   * inside the padded container that carries `w-72`). Computed layout turns out
+   * to be a poor witness for "no CSS arrived".
+   *
+   * The file size is a direct one. Nearly every class that styles these pages
+   * lives in docs-viewer's components, and Tailwind does not scan
+   * `node_modules` without `@source` — drop that line and the stylesheet falls
+   * from 34 kB to 10 kB. Drop the `@import` and it falls to 1.9 kB. The floor
+   * sits well below a healthy build and well above both failures, so it needs
+   * no maintenance as the manuals grow — which only pushes the number up.
+   */
+  const MIN_CSS_BYTES = 20_000;
+  const cssDir = join(build.outDir, "assets");
+  const css = readdirSync(cssDir).filter((f) => f.endsWith(".css"));
+  const cssBytes = css.reduce((n, f) => n + statSync(join(cssDir, f)).size, 0);
+  if (cssBytes < MIN_CSS_BYTES) {
+    console.error(
+      `  FAIL  ${build.name}: built stylesheet is ${cssBytes} bytes, expected at least ` +
+        `${MIN_CSS_BYTES}. Tailwind generated almost nothing — check the @source line ` +
+        `in src/index.css.`,
+    );
+    failures++;
+  }
+
   const server = spawn(
     "npx",
     ["vite", "preview", "--outDir", build.outDir, "--port", String(build.port), "--strictPort"],
@@ -102,31 +134,6 @@ for (const build of BUILDS) {
       console.error(`  FAIL  ${build.name}: built site renders nothing (#root is empty)`);
       failures++;
     } else {
-      /*
-       * Mounting is not the same as being styled, and this check learned that
-       * the hard way: it passed on a build that rendered as unstyled HTML —
-       * serif text, no layout, icons the size of the page — because the markup
-       * was all present.
-       *
-       * `overflow-y-auto` on the docs pane is a Tailwind utility, so if
-       * Tailwind generated nothing the computed value falls back to `visible`.
-       *
-       * It is deliberately a coarse probe: it catches "Tailwind produced
-       * essentially nothing", which is the failure that happened, and it will
-       * not notice a single missing utility. A finer check would need a
-       * screenshot and a human, and would fail on every intentional restyle.
-       */
-      const overflow = await page.evaluate(() => {
-        const main = document.querySelector("main");
-        return main ? getComputedStyle(main).overflowY : null;
-      });
-      if (overflow !== "auto") {
-        console.error(
-          `  FAIL  ${build.name}: built site is unstyled — main overflow-y is "${overflow}", expected "auto"`,
-        );
-        failures++;
-      }
-
       const sidebar = await page.evaluate(() =>
         [...document.querySelectorAll("nav a, nav button")].map((e) => e.textContent.trim()),
       );

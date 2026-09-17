@@ -1,7 +1,7 @@
 {
-  "pid": 75135,
-  "port": 15662,
-  "token": "bdb53042-f054-4483-a865-a5eb6ba66fcb",
-  "startedAt": "2026-09-17T11:37:29.377Z",
+  "pid": 98687,
+  "port": 25171,
+  "token": "7ac24166-0908-451c-a4b9-72ddd9e856ee",
+  "startedAt": "2026-09-17T14:15:57.952Z",
   "serverPath": "/Users/waky/.claude/skills/gstack/browse/src/server.ts"
 }

@@ -20,7 +20,7 @@
     "check:shots": "node scripts/check-shots.mjs"
   },
   "dependencies": {
-    "@jestrux/docs-viewer": "file:../docs-viewer",
+    "@jestrux/docs-viewer": "github:jestrux/docs-viewer#figure-blocks",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.0.0"

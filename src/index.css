@@ -11,10 +11,19 @@
  * production. Removing the script tag without this line took the built CSS
  * from 34 kB to 1.9 kB and the site to unstyled HTML.
  *
- * `@source` adds docs-viewer's components to what Tailwind scans. It is worth
- * a line but it is not the fix: automatic detection already reaches most of
- * the linked package, and this only recovers about 300 bytes of utilities it
- * misses. Keeping it means a class used in exactly one docs-viewer component
- * cannot go quietly missing.
+ * **Do not delete the `@source` line below.** Nearly every class that styles
+ * these pages is written inside docs-viewer's components, and Tailwind does not
+ * scan `node_modules` on its own. Without it the built stylesheet drops from
+ * 34 kB to 10 kB and the site renders as unstyled HTML.
+ *
+ * It was genuinely optional until recently, which is the trap. While the
+ * dependency was a `file:` link to a sibling checkout, automatic detection
+ * followed the symlink out of the project and found everything, and `@source`
+ * recovered about 300 bytes. Moving to a git ref put the package in
+ * `node_modules` — where detection stops — and turned a nicety into the line
+ * holding the stylesheet up.
+ *
+ * `scripts/check-renders.mjs` opens the built site and fails when it is
+ * unstyled, so this cannot regress quietly.
  */
-@source "../../docs-viewer/src";
+@source "../node_modules/@jestrux/docs-viewer/src";

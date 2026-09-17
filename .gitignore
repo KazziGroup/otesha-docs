@@ -14,3 +14,4 @@ capture/audio/.render.py
 
 # Figures are committed on purpose — they are the deliverable, and
 # capture/provenance records which commit of which app each came from.
+.gstack/
