@@ -25,7 +25,9 @@ const { chromium } = await (async () => {
   try {
     return await import("playwright");
   } catch {
-    // Borrowed from the e2e project — see capture/walkthrough.mjs.
+    // A fallback, not the plan: playwright is a devDependency here. This only
+    // fires in a tree where dev dependencies were skipped, and borrows the copy
+    // the e2e project already has rather than failing on an import.
     const resolved = require.resolve("playwright", {
       paths: [new URL("../../otesha/e2e/", import.meta.url).pathname],
     });

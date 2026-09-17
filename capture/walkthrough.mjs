@@ -24,12 +24,11 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 /**
- * Borrowed from the e2e project rather than installed here.
+ * Playwright is a devDependency here, with a fallback to the e2e project's copy.
  *
- * Playwright pulls browser binaries, and this repo has no other use for it —
- * the capture pipeline is supposed to end up in `otesha/e2e` beside the demo
- * recorder, at which point this resolution goes away and the import is just
- * `from "playwright"`.
+ * It was borrowed outright until this repo was pushed, at which point a clone
+ * without a sibling checkout could install the site but not run its own checks
+ * — which made half the tooling something only this machine could execute.
  */
 const { chromium } = await (async () => {
   try {
