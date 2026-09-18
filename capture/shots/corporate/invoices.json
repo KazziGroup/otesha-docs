@@ -1,0 +1,76 @@
+{
+  "app": "corporate-portal",
+  "page": "corporate/invoices",
+  "note": "Signs in by SMS each run, which costs one of five codes an hour against the corporate number. Needs at least one corporate invoice to exist: the seed ships none, and the three invoices in the database are customer invoices left by e2e lanes. A bulk order raises its invoice ISSUED at submission, so placing one through the portal is how the figure gets its row.",
+  "figures": [
+    {
+      "id": "corporate-invoices-01-en",
+      "title": "The invoice list",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "+255717763373"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=code]"
+        },
+        {
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
+        },
+        {
+          "pause": 600
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/f0086ca5-abc2-40fc-8919-e74f91ca5ccb/invoices"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "pause": 1200
+        },
+        {
+          "park": true
+        }
+      ],
+      "callouts": [
+        {
+          "text": "Unpaid on this page",
+          "note": "Totals cover the rows on screen, not the account.",
+          "side": "left"
+        },
+        {
+          "text": "BLK-000001",
+          "note": "Which order the invoice is for.",
+          "side": "left"
+        },
+        {
+          "text": "PDF",
+          "note": "The invoice document, once it has been issued.",
+          "side": "right"
+        }
+      ],
+      "cropX": false
+    }
+  ]
+}

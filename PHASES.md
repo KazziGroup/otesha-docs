@@ -373,7 +373,7 @@ where the trial left us, not a head start.
 | 7 | The daily round | ✓ | 5 / 5 | 18 Sep 2026 |
 | 8 | Caretaker pay | ✓ | 5 / 5 | 18 Sep 2026 |
 | 9 | Watching your tree | ✓ | 3 / 6 | 18 Sep 2026 |
-| 10 | Money and invoices | — | 0 / 3 | |
+| 10 | Money and invoices | ✓ | 2 / 2 | 18 Sep 2026 |
 | 11 | Corporate partnership | — | 1 / 7 | |
 | 12 | The developer platform | — | 0 / 8 | |
 | 13 | Motivation and recognition | — | 0 / 5 | |

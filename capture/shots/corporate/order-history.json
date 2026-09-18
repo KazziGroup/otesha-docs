@@ -1,0 +1,76 @@
+{
+  "app": "corporate-portal",
+  "page": "corporate/order-history",
+  "note": "Signs in by SMS each run. Wants two orders on screen: one still owing trees and one finished, because Outstanding shows a dash rather than a zero when there is nothing left to plant, and a figure with only finished orders cannot show that.",
+  "figures": [
+    {
+      "id": "corporate-orders-01-en",
+      "title": "Orders and what is still owed",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "+255717763373"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=code]"
+        },
+        {
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
+        },
+        {
+          "pause": 600
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/f0086ca5-abc2-40fc-8919-e74f91ca5ccb/orders"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "pause": 1200
+        },
+        {
+          "park": true
+        }
+      ],
+      "callouts": [
+        {
+          "text": "BLK-000001",
+          "note": "The order reference, which its invoice quotes.",
+          "side": "left"
+        },
+        {
+          "text": "Outstanding",
+          "note": "Trees paid for that are not in the ground yet.",
+          "side": "left"
+        },
+        {
+          "text": "COMPLETE",
+          "note": "Finished orders show a dash, not a zero.",
+          "side": "right"
+        }
+      ],
+      "cropX": false
+    }
+  ]
+}

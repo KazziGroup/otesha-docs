@@ -1,0 +1,1 @@
+Marked on the screenshot: The order reference, which its invoice quotes. Trees paid for that are not in the ground yet. Finished orders show a dash, not a zero.
