@@ -433,6 +433,46 @@ Two id collisions went with it: corporate wanted `trees` and `tree`, both
 already owned by the caretaker manual. They became `tree-register` and
 `tree-history`. Third time that check has paid for itself.
 
+## Where the manuals are hosted
+
+<https://kazzigroup.github.io/otesha-docs/> — all five manuals, deployed from
+`main` by `.github/workflows/pages.yml` on every push.
+
+Three decisions worth remembering, because each one had an alternative:
+
+**The repo is public.** KazziGroup is on GitHub's free plan, and free-plan Pages
+only serves from a public repo. The alternatives were a second repo holding just
+the built site, Cloudflare Pages building from a private repo, or a paid plan.
+Public was chosen deliberately: the docs source, the capture recipes and these
+notes are all readable on github.com.
+
+**The site serves the internal build, not the client build.** While the manuals
+are still being written the team needs one link that reaches everything. The
+audience split is still wired up and still checked — `DOCS_AUDIENCE=external`
+produces the nine-page client manual and `npm run check` proves each build
+carries what it should — so pointing the workflow at the client build later is a
+one-word change.
+
+**The site is unlisted, not gated.** Anyone with the address can read the admin
+and caretaker manuals. If that needs to change, it needs a different host:
+Cloudflare Access in front of the site, or GitHub Enterprise.
+
+Two things a subpath deploy needed, both of which would have shipped broken and
+looked fine locally. Vite's `base` comes from `DOCS_BASE`, because a project-repo
+Pages site is served at `/otesha-docs/` rather than the root. And figure paths
+are rebased at load time in `buildDocsConfig`: the pages write `/img/name.png`,
+which is correct in the source, correct in the bundle, and a 404 the moment the
+site is not at the root — Vite never sees those paths because they live inside
+markdown loaded `?raw`.
+
+Which is what `npm run check:live` exists for. The other eight checks run
+against the source and against `dist`; this one opens the deployed URL, loads
+all 43 pages, waits for every figure, and clicks all 124 cross-links. It clicks
+rather than reading hrefs, because docs-viewer renders cross-links as
+`button.page-link` with an onClick — an href check finds nothing and reports
+success.
+
+
 ## What switching to staging cost
 
 Recorded because the cost is the argument for checking sooner rather than for

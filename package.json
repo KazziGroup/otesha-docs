@@ -18,7 +18,8 @@
     "audition": "node capture/audition.mjs",
     "shoot": "node capture/shoot.mjs",
     "check:shots": "node scripts/check-shots.mjs",
-    "assemble": "node capture/assemble.mjs"
+    "assemble": "node capture/assemble.mjs",
+    "check:live": "node scripts/check-live.mjs"
   },
   "dependencies": {
     "@jestrux/docs-viewer": "github:jestrux/docs-viewer#figure-blocks",
