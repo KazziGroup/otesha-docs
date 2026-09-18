@@ -2,7 +2,7 @@
   "url": "http://localhost:5350/login",
   "capturedFrom": "http://localhost:5350",
   "app": "corporate-portal",
-  "commit": "53cb9a9",
-  "branch": "main",
-  "documentedRef": "origin/main"
+  "commit": "b74d3cf",
+  "branch": "staging",
+  "documentedRef": "origin/staging"
 }

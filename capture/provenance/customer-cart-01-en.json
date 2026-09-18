@@ -2,7 +2,7 @@
   "url": "http://localhost:5250/cart",
   "capturedFrom": "http://localhost:5250",
   "app": "customer-app",
-  "commit": "9a5a048",
-  "branch": "main",
-  "documentedRef": "origin/main"
+  "commit": "2f298e3",
+  "branch": "staging",
+  "documentedRef": "origin/staging"
 }

@@ -1,8 +1,8 @@
 {
-  "url": "http://localhost:5250/checkout/e18d22f5-a522-44c2-9f54-35aabf2294dd/pay",
+  "url": "http://localhost:5250/checkout/87d1518b-26b5-419b-a34c-845c9cad9ef9/pay",
   "capturedFrom": "http://localhost:5250",
   "app": "customer-app",
-  "commit": "9a5a048",
-  "branch": "main",
-  "documentedRef": "origin/main"
+  "commit": "2f298e3",
+  "branch": "staging",
+  "documentedRef": "origin/staging"
 }

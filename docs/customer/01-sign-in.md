@@ -4,26 +4,40 @@ number: 1
 title: Sign in to your account
 category: customer
 categoryTitle: Customer app
-description: Get into Otesha with your phone number and a six-digit code. No password.
+description: Get into Otesha with a code sent to your phone or your email. No password.
 ---
 
 ## Who can do this
 
-Anybody with a Tanzanian mobile number. You do not need an account first —
-entering a number Otesha has never seen creates one, and takes you through
+Anybody. You do not need an account first — signing in with a number or an
+address Otesha has never seen creates one, and takes you through
 [[link:customer/welcome|two short questions]] before you land.
+
+There are two ways in, and the screen offers both:
+
+- **Phone** — chosen when the page opens. The code arrives by SMS, and the
+  number must be Tanzanian.
+- **Email** — for sponsors who cannot receive a Tanzanian SMS. The code arrives
+  in your inbox instead.
+
+Everything after the code is the same either way.
 
 ## Before you start
 
-Your phone, with signal. Nothing else.
+Whichever you chose, somewhere to receive the code — your phone with signal, or
+your inbox.
 
 ## Steps
 
-**1. Type your phone number and tap Send code.**
+**1. Choose Phone or Email, enter it, and tap Send code.**
 
-![The Otesha sign-in screen. Marked on the screenshot: Your phone number, starting 07. Sends a six-digit code by SMS.](/img/customer-sign-in-01-en.png "The sign-in screen at otesha.co.tz — the first thing you see.")
+![The Otesha sign-in screen, with the channel tabs, the number field and the Send code button marked. Marked on the screenshot: Two ways in. Phone is chosen; Email is for sponsors outside Tanzania. Your phone number, starting 07. Sends a six-digit code by SMS.](/img/customer-sign-in-01-en.png "The sign-in screen at otesha.co.tz. Phone is chosen; Email is one tap away.")
 
-Type it the way you say it, starting `07`. Otesha adds the `+255` for you.
+**Phone** is chosen when the page opens. Type your number the way you say it,
+starting `07` — Otesha adds the `+255`. The field only takes Tanzanian numbers,
+and says so.
+
+For **Email**, tap that tab first and type your address instead.
 
 **2. Enter the six digits and tap Continue.**
 
@@ -50,9 +64,13 @@ The first time you sign in you will be asked your name first. That is
 > allows five codes an hour for one number. Wait fifteen minutes and try again.
 > Asking for more codes during that window does not shorten it.
 
-> **Warning:** The screen says a code was sent but nothing arrives. Check the
-> number shown above the code box is yours — it is displayed there for exactly
-> this reason. If it is wrong, tap **Use a different number**.
+> **Warning:** The screen says a code was sent but nothing arrives. Check what is
+> shown above the code box is yours — the number or the address is displayed
+> there for exactly this reason. If you used **Email**, look in your spam folder
+> before asking for another code.
+
+> **Note:** A number Otesha will not accept is usually not Tanzanian. The field
+> says so, and **Email** is the way in for sponsors abroad.
 
 ## Related tasks
 

@@ -2,40 +2,43 @@
   "_comment": [
     "Which build each manual documents, and where to find it running.",
     "",
-    "`ref` is the branch a capture session is expected to be on. It is checked",
-    "before anything is shot, because the alternative has already happened once:",
-    "a figure was captured from a dev server left running on an unmerged feature",
-    "branch, and documented a sign-in screen that does not exist in the product.",
-    "Nothing about the image showed it.",
+    "`ref` is origin/staging, not origin/main. main is built by merging staging \u2014",
+    "every recent merge into main is a PR 'from KazziGroup/staging' \u2014 so staging",
+    "holds the product decisions that are on their way to users, and main is a",
+    "trailing snapshot of them.",
     "",
-    "As of writing, three of these four repos have a feature branch checked out,",
-    "so `npm run shoot` will refuse until somebody checks out the documented ref.",
-    "That refusal is the feature. `ALLOW_REF_DRIFT=1` overrides it and the drift",
-    "is written into every provenance file it produces, so a figure taken off-ref",
-    "says so.",
+    "This was main until 18 Sep 2026, and documenting it produced manuals for",
+    "gifts and subscriptions that staging had already deferred, while omitting the",
+    "email sign-in that staging had already added. A trailing branch is a fine",
+    "thing to deploy and a poor thing to document.",
+    "",
+    "The ref is checked before anything is shot, because the alternative has",
+    "already happened: a figure was captured from a dev server left on an unmerged",
+    "feature branch and documented a screen that does not exist. Nothing about the",
+    "image showed it. `ALLOW_REF_DRIFT=1` overrides the check and records the drift",
+    "in every provenance file it produces.",
     "",
     "`url` can be overridden per app with the named environment variable, because",
-    "dev servers move: these apps pick the next free port, and the port that",
-    "served the customer app one afternoon served the corporate portal the next."
+    "dev servers move: these apps pick the next free port."
   ],
   "apps": {
     "customer-app": {
       "dir": "../otesha/customer-app",
-      "ref": "origin/main",
+      "ref": "origin/staging",
       "url": "http://localhost:5250",
       "urlEnv": "OTESHA_CUSTOMER_URL",
       "surface": "phone"
     },
     "admin-panel": {
       "dir": "../otesha/admin-panel",
-      "ref": "origin/main",
+      "ref": "origin/staging",
       "url": "http://localhost:5200",
       "urlEnv": "OTESHA_ADMIN_URL",
       "surface": "console"
     },
     "corporate-portal": {
       "dir": "../otesha/corporate-portal",
-      "ref": "origin/main",
+      "ref": "origin/staging",
       "url": "http://localhost:5350",
       "urlEnv": "OTESHA_CORPORATE_URL",
       "surface": "console"
@@ -46,7 +49,8 @@
       "surface": "ios",
       "bundleId": "com.otesha.app.demo",
       "deviceEnv": "OTESHA_DEVICE",
-      "note": "EXPO_PUBLIC_STATIC_DEMO=1 \u2014 bundled fixtures, no backend"
+      "note": "EXPO_PUBLIC_STATIC_DEMO=1 \u2014 bundled fixtures, no backend",
+      "refNote": "main, not staging: this repo has no staging branch \u2014 origin/main is the only published ref it has."
     },
     "caretaker-mobile-app-live": {
       "dir": "../otesha/caretaker-mobile-app",
@@ -54,7 +58,8 @@
       "surface": "ios",
       "bundleId": "com.otesha.app",
       "deviceEnv": "OTESHA_DEVICE",
-      "note": "Expo dev client against the local backend \u2014 needs Metro on 8081 with EXPO_PUBLIC_API_PORT matching the API. The static-demo build cannot document signing in, because it opens already signed in."
+      "note": "Expo dev client against the local backend \u2014 needs Metro on 8081 with EXPO_PUBLIC_API_PORT matching the API. The static-demo build cannot document signing in, because it opens already signed in.",
+      "refNote": "main, not staging: this repo has no staging branch \u2014 origin/main is the only published ref it has."
     }
   },
   "surfaces": {

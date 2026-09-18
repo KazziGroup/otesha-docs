@@ -110,17 +110,17 @@ it leave behind. Page counts are rough sizing, not a contract.
 | 3 | Zones, clusters and the rota | `geography`, `fieldops` | admin, caretaker | 4 |
 | 4 | Species, pricing and the nursery | `catalogue`, `nursery` | admin, customer | 5 |
 | 5 | Sponsoring a tree | `orders`, `payments` | customer, admin | 5 |
-| 6 | Gifting a tree | `orders` | customer | 3 |
+| 6 | ~~Gifting a tree~~ — deferred in the product | `orders` | — | 0 |
 | 7 | The daily round | `fieldops` | caretaker, admin | 7 |
 | 8 | Caretaker pay | `payouts`, `ledger` | caretaker, admin | 5 |
 | 9 | Watching your tree | `registry`, `impact` | customer, corporate, caretaker | 6 |
-| 10 | Money and invoices | `payments`, `ledger` | customer, corporate, admin | 5 |
+| 10 | Money and invoices | `payments`, `ledger` | corporate, admin | 3 |
 | 11 | Corporate partnership | `corporate`, `reporting` | corporate, admin | 7 |
 | 12 | The developer platform | `partner`, `webhooks` | corporate | 8 |
 | 13 | Motivation and recognition | — (client-side) | caretaker | 5 |
 | 14 | Running the programme | `identity`, `audit`, `catalogue` | admin | 6 |
 
-Roughly 76 pages, against the ~70 the brief estimated — close enough that the
+Roughly 71 pages, against the ~70 the brief estimated — close enough that the
 estimate looks sound.
 
 ### What each one covers
@@ -212,8 +212,16 @@ that is the state a reader who got stuck is actually looking at. The customer
 pages say what it means: nothing charged, order held, no tree planted. Seeded
 data already carries paid orders, so the admin side shows the other half.
 
-**6. Gifting a tree.** Sending one and redeeming a code. Small and separable.
-*Routes:* customer `gifts`, `gifts.redeem`.
+**6. ~~Gifting a tree~~ — dropped.** Gifts and subscriptions are **deferred in
+the product**. On `staging` both are hidden from the nav *and* unregistered in
+the router, so their URLs no longer answer: *"a bookmark, an old email or a
+search result would still open a screen for something we are not offering, with
+nothing on it to say so."* Invoices got a deliberately different treatment —
+hidden from the nav but still routed, because *"the screen is finished and is
+simply not somewhere a customer should be sent yet."*
+
+It is a deferral rather than a deletion; the route files are kept and bringing
+either back is three lines. If that happens, this module comes back with it.
 
 **7. The daily round.** The caretaker's actual job: Today, logging a watering or
 a health check, working with no signal, and how flagged work reaches an admin.
@@ -323,7 +331,7 @@ where the trial left us, not a head start.
 
 ## Modules
 
-`—` not started · `▶` open · `✓` done
+`—` not started · `▶` open · `✓` done · `✕` dropped
 
 | # | Module | Status | Pages | Closed |
 |---|---|---|---|---|
@@ -333,11 +341,11 @@ where the trial left us, not a head start.
 | 3 | Zones, clusters and the rota | ✓ | 4 / 4 | 18 Sep 2026 |
 | 4 | Species, pricing and the nursery | ✓ | 5 / 5 | 18 Sep 2026 |
 | 5 | Sponsoring a tree | ✓ | 5 / 5 | 18 Sep 2026 |
-| 6 | Gifting a tree | — | 0 / 3 | |
+| 6 | Gifting a tree | ✕ | — | dropped 18 Sep 2026 |
 | 7 | The daily round | — | 1 / 7 | |
 | 8 | Caretaker pay | — | 0 / 5 | |
 | 9 | Watching your tree | — | 0 / 6 | |
-| 10 | Money and invoices | — | 0 / 5 | |
+| 10 | Money and invoices | — | 0 / 3 | |
 | 11 | Corporate partnership | — | 1 / 7 | |
 | 12 | The developer platform | — | 0 / 8 | |
 | 13 | Motivation and recognition | — | 0 / 5 | |
@@ -358,8 +366,25 @@ can reconstruct.
 | 17 Sep 2026 | **Two builds, not two repositories** | The corporate manual goes to clients; the admin manual describes payout release. That is a build question. `DOCS_AUDIENCE=external` ships a bundle the internal manuals are absent from — filtering in code leaves the text in `index-*.js`. |
 | 17 Sep 2026 | **Filed per app, phased per module** | A reader arrives holding a phone or sitting at a console, so navigation stays app-shaped. But the payout page and the earnings page are two ends of one event, and written months apart they drift — so they get written together. |
 | 17 Sep 2026 | **Prose is written, not generated** | Figures regenerate from recipes. What a reader needs told — which control matters, what an error means — is judgement, and generating it produces descriptions of screenshots rather than instructions. |
-| 17 Sep 2026 | **`origin/main` is the documented ref** | Decided per module for the apps it touches, not globally. For module 1 all four apps agree; corporate's `staging` differs only in `developers/*`, which is module 12's problem if it ever becomes one. |
+| 17 Sep 2026 | ~~`origin/main` is the documented ref~~ | **Reversed 18 Sep.** I decided this per module and checked only the apps module 1 touched, concluding the difference was "module 12's problem". It was module 1's: `staging` already had a second sign-in door. |
+| 18 Sep 2026 | **`origin/staging` is the documented ref** | `main` is built by merging `staging` — every recent merge into it is a PR *from* staging — so staging holds the decisions on their way to users and main is a trailing snapshot. Documenting main produced manuals for gifts and subscriptions the team had already deferred, while omitting the email sign-in it had already added. The caretaker app is the exception: it has no staging branch, so `main` is the only ref it has. |
 | 17 Sep 2026 | **English only** | The audience is English-speaking for now. docs-viewer has no language support at all, so parity would have meant building one first — see "English only" above. |
+
+## What switching to staging cost
+
+Recorded because the cost is the argument for checking sooner rather than for
+avoiding the switch.
+
+Every admin, corporate and caretaker figure rebuilt unchanged. **All ten
+customer figures failed**, and the cause was one rename: the sign-in field is
+`destination` now that the screen offers a phone *or* an email. Two further
+changes surfaced only by walking it — the welcome screen's email hint now offers
+to become a second sign-in method, and "Skip for now" is a submit button in a
+form whose name field is required, so it cannot actually skip.
+
+Two pages needed rewriting (sign-in, welcome), two stub pages were deleted with
+the module that would have filled them, and module 10 lost subscriptions and
+invoices. Modules 2, 3 and 4 came through untouched.
 
 ## What module 1 taught the pipeline
 

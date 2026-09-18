@@ -14,11 +14,11 @@
           "goto": "/login"
         },
         {
-          "wait": "input[name=phone]"
+          "wait": "input[name=destination]"
         },
         {
           "fill": [
-            "input[name=phone]",
+            "input[name=destination]",
             "{{uniquePhone}}"
           ]
         },
@@ -44,7 +44,13 @@
           "wait": "input[name=full_name]"
         },
         {
-          "click": "text=Skip for now"
+          "fill": [
+            "input[name=full_name]",
+            "Asha Mwinyi"
+          ]
+        },
+        {
+          "click": "button:has-text('Continue')"
         },
         {
           "pause": 1500

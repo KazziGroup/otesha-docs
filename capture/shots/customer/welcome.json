@@ -14,11 +14,11 @@
           "goto": "/login"
         },
         {
-          "wait": "input[name=phone]"
+          "wait": "input[name=destination]"
         },
         {
           "fill": [
-            "input[name=phone]",
+            "input[name=destination]",
             "{{uniquePhone}}"
           ]
         },

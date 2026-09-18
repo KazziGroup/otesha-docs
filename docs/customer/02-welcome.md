@@ -32,6 +32,10 @@ Email is optional and labelled so. It is where receipts and updates about your
 trees go — so if you want a record of what you have sponsored somewhere other
 than the app, put one in.
 
+It can also become a second way to sign in. The screen says so: *"To sign in
+with it too, verify it later in Your account."* Adding it here does not verify
+it; that is a separate step you take when you want it.
+
 **3. Tap Continue — or Skip for now.**
 
 **Skip for now** takes you straight to your trees without an email. It does not

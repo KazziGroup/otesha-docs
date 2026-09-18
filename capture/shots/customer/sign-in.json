@@ -1,7 +1,7 @@
 {
   "app": "customer-app",
   "page": "customer/sign-in",
-  "note": "The mock SMS panel prints the code on screen because SMS_PROVIDER=mock. `hide` removes it, and fails if it stops matching rather than shipping a live code into a manual.",
+  "note": "Fresh accounts throughout. The seeded customer's five codes an hour do not survive a few capture runs, and the failure reads as a broken screen rather than a spent quota.",
   "figures": [
     {
       "id": "customer-sign-in-01-en",
@@ -11,11 +11,11 @@
           "goto": "/login"
         },
         {
-          "wait": "input[name=phone]"
+          "wait": "input[name=destination]"
         },
         {
           "fill": [
-            "input[name=phone]",
+            "input[name=destination]",
             "0712 345 678"
           ]
         },
@@ -25,12 +25,17 @@
       ],
       "callouts": [
         {
-          "sel": "input[name=phone]",
+          "text": "Email",
+          "note": "Two ways in. Phone is chosen; Email is for sponsors outside Tanzania.",
+          "side": "left"
+        },
+        {
+          "sel": "input[name=destination]",
           "note": "Your phone number, starting 07.",
           "side": "left"
         },
         {
-          "sel": "button[type=submit]",
+          "text": "Send code",
           "note": "Sends a six-digit code by SMS.",
           "side": "right"
         }
@@ -44,12 +49,12 @@
           "goto": "/login"
         },
         {
-          "wait": "input[name=phone]"
+          "wait": "input[name=destination]"
         },
         {
           "fill": [
-            "input[name=phone]",
-            "0700 000 012"
+            "input[name=destination]",
+            "{{uniquePhone}}"
           ]
         },
         {
@@ -92,12 +97,12 @@
           "goto": "/login"
         },
         {
-          "wait": "input[name=phone]"
+          "wait": "input[name=destination]"
         },
         {
           "fill": [
-            "input[name=phone]",
-            "0700 000 012"
+            "input[name=destination]",
+            "{{uniquePhone}}"
           ]
         },
         {
@@ -114,6 +119,21 @@
         },
         {
           "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=full_name]"
+        },
+        {
+          "fill": [
+            "input[name=full_name]",
+            "Asha Mwinyi"
+          ]
+        },
+        {
+          "click": "button:has-text('Continue')"
+        },
+        {
+          "pause": 1500
         },
         {
           "wait": "main h1"
