@@ -114,6 +114,26 @@
   if (missing.length) return JSON.stringify({ ok: false, missing });
 
   /**
+   * A target below the fold is a callout that will never be drawn.
+   *
+   * `getBoundingClientRect` is viewport-relative, so an element further down a
+   * long page measures at a y past `innerHeight`. The crop is then clamped back
+   * to the viewport and the marker is rendered outside the window that clips
+   * the frame — which produces a figure whose legend promises a number that
+   * appears nowhere on it. On the fulfilment page a shot list matching "days
+   * late" found the shortest such pill, six hundred pixels below the fold, and
+   * shipped a legend entry with no badge.
+   *
+   * It fails the same way a missing selector does, because it is the same
+   * failure: the recipe names something the figure does not show. The fix is in
+   * the shot list — scroll to it, or name the instance that is on screen.
+   */
+  const offFrame = targets
+    .filter((t) => t.y < 0 || t.y + t.h > window.innerHeight || t.x < 0 || t.x + t.w > window.innerWidth)
+    .map((t) => `#${t.n} "${t.note}" at y=${t.y} (frame is ${window.innerWidth}x${window.innerHeight})`);
+  if (offFrame.length) return JSON.stringify({ ok: false, missing: offFrame });
+
+  /**
    * How much of the frame is worth keeping.
    *
    * The apps centre their content, so a phone screen is often a card in the

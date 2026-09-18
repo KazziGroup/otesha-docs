@@ -60,11 +60,37 @@ const CANVAS_W = FRAME_W + GUTTER * 2;
 /** The clean frame is inlined so the page has no external asset to resolve. */
 const png = readFileSync(resolve(cleanPath)).toString("base64");
 
-/**
- * Markers alternate sides only if the caller did not say. Left and right both
- * exist so two callouts at the same height do not stack on top of each other.
- */
 const BADGE = 24;
+
+/**
+ * Which gutter each badge sits in.
+ *
+ * Decided here from where the box actually is, rather than taken from the shot
+ * list. Hand-set sides were wrong often enough to be a bug of their own: on the
+ * caretaker review queue a box around the *Approve* button of the first card
+ * had its badge in the right-hand gutter, where the leader came to rest beside
+ * the *Reject* button of the second card. Nothing in the image said otherwise,
+ * so the figure read as "Reject records you as the approver" — the precise
+ * opposite of the note.
+ *
+ * Nearest gutter wins, so the leader emerges on the same side as the thing it
+ * belongs to and has the shortest possible distance to be misread over. Two
+ * badges at the same height on the same side would overlap, so the later one is
+ * sent across — which is what the two sides were for in the first place.
+ */
+function assignSides(targets) {
+  const frameMid = CROP.x + CROP.w / 2;
+  const placed = [];
+  for (const t of targets) {
+    const mid = t.y - CROP.y + t.h / 2;
+    let side = t.x + t.w / 2 < frameMid ? "left" : "right";
+    if (placed.some((p) => p.side === side && Math.abs(p.mid - mid) < BADGE + 8)) {
+      side = side === "left" ? "right" : "left";
+    }
+    placed.push({ ...t, side, mid });
+  }
+  return placed;
+}
 
 /**
  * The badge goes in the gutter, not beside the control.
@@ -77,7 +103,7 @@ const BADGE = 24;
  * and the numbers line up in a column instead of scattering.
  */
 const marker = (t) => {
-  const pad = 5;
+  const pad = 3;
   const left = GUTTER + t.x - CROP.x - pad;
   const top = t.y - CROP.y - pad;
   const w = t.w + pad * 2;
@@ -85,22 +111,41 @@ const marker = (t) => {
   const mid = t.y - CROP.y + t.h / 2;
   const onLeft = t.side === "left";
 
-  // Centred in the gutter, which is the same x for every marker on that side.
-  const badgeX = onLeft ? (GUTTER - BADGE) / 2 : CANVAS_W - (GUTTER + BADGE) / 2;
+  // The badge sits against its own box, on a stub.
+  //
+  // Two arrangements were tried before this one and both misinform. Parking
+  // every badge in the gutter with the leader stopping at the frame edge means
+  // the number comes to rest beside whatever occupies that row at the edge: on
+  // the review queue, a box around the first card's *Approve* put its badge
+  // next to the second card's *Reject*, so the figure read as the opposite of
+  // its note. Running the leader the whole way to the box fixes which box is
+  // meant and draws a horizontal rule through everything in between — across
+  // the cluster board it struck through a caretaker's name, and across the rota
+  // it struck through a column heading and a date.
+  //
+  // Anchoring the badge to the box removes the span that caused both. There is
+  // no distance to misread and nothing to cross. The badges no longer line up
+  // in a column, which is a real loss in tidiness and a small price for a
+  // figure that cannot point at the wrong thing.
+  const STUB = 10;
+  const boxLeft = left;
+  const boxRight = left + w;
 
-  // The leader stops at the edge of the frame rather than running to the
-  // control. Crossing the screenshot draws a horizontal rule through whatever
-  // is in the way, which on a row of tabs reads as a strikethrough. The outline
-  // already says which control it is; the leader only has to connect the badge
-  // to the row it belongs to.
-  const leadFrom = onLeft ? badgeX + BADGE + 4 : CANVAS_W - GUTTER;
-  const leadTo = onLeft ? GUTTER : badgeX - 4;
+  let badgeX = onLeft ? boxLeft - STUB - BADGE : boxRight + STUB;
+  // Never off the canvas: a target hard against the frame edge would otherwise
+  // put its number outside the image.
+  badgeX = Math.max(4, Math.min(badgeX, CANVAS_W - BADGE - 4));
+
+  const leadFrom = onLeft ? badgeX + BADGE : boxRight;
+  const leadTo = onLeft ? boxLeft : badgeX;
 
   return `
     <div class="frame" style="left:${left}px;top:${top}px;width:${w}px;height:${h}px"></div>
     <div class="lead"  style="left:${leadFrom}px;top:${mid - 1}px;width:${Math.max(0, leadTo - leadFrom)}px"></div>
     <div class="badge" style="left:${badgeX}px;top:${mid - 12}px">${t.n}</div>`;
 };
+
+const MARKERS = assignSides(measured.targets);
 
 const legend = measured.targets
   .filter((t) => t.note)
@@ -123,11 +168,15 @@ const html = `<!doctype html>
           overflow:hidden;border-radius:10px;box-shadow:0 1px 10px rgba(20,35,26,.13)}
   .shot{position:absolute;left:${-CROP.x}px;top:${-CROP.y}px;width:${measured.viewport.w}px;display:block}
   .frame{position:absolute;border:2px solid ${ACCENT};border-radius:8px;
-         box-shadow:0 0 0 3px rgba(255,255,255,.85)}
-  .lead{position:absolute;height:2px;background:${ACCENT}}
+         box-shadow:0 0 0 2px rgba(255,255,255,.85)}
+  /* The halo is what lets the leader cross the screenshot without reading as
+     a strikethrough through whatever it passes over. */
+  .lead{position:absolute;height:2px;background:${ACCENT};
+        box-shadow:0 0 0 2px rgba(255,255,255,.85)}
   .badge{position:absolute;width:24px;height:24px;border-radius:50%;
          background:${ACCENT};color:#fff;font-weight:700;font-size:13px;
-         line-height:24px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+         line-height:24px;text-align:center;
+         box-shadow:0 0 0 2px rgba(255,255,255,.9),0 1px 3px rgba(0,0,0,.25)}
   /* The legend travels inside the image, so a figure pasted into a chat or
      printed to PDF still explains its own numbers. */
   .key{position:absolute;left:14px;width:${CANVAS_W - 28}px;
@@ -139,7 +188,7 @@ const html = `<!doctype html>
 </style>
 <div class="stage" id="stage">
   <div class="window"><img class="shot" src="data:image/png;base64,${png}" alt=""></div>
-  ${measured.targets.map(marker).join("")}
+  ${MARKERS.map(marker).join("")}
   ${legend ? `<ul class="key" id="key">${legend}</ul>` : ""}
 </div>
 <script>
