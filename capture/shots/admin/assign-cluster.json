@@ -1,0 +1,66 @@
+{
+  "app": "admin-panel",
+  "page": "admin/assign-cluster",
+  "figures": [
+    {
+      "id": "admin-assign-cluster-01-en",
+      "title": "The rota, by caretaker",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/assignments"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1500
+        }
+      ],
+      "callouts": [
+        {
+          "sel": "table th",
+          "note": "Everybody working this zone.",
+          "side": "left"
+        },
+        {
+          "sel": "table th:nth-child(3)",
+          "note": "Which cluster each caretaker tends.",
+          "side": "right"
+        },
+        {
+          "text": "no section",
+          "note": "An active caretaker with no section gets no tasks and no pay.",
+          "side": "right"
+        }
+      ],
+      "note": "Headers are targeted by selector, not text: case-insensitive matching makes \"SECTION\" match the \"no section\" pill as well, and the pill is smaller so it wins."
+    }
+  ]
+}

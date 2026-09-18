@@ -1,7 +1,7 @@
 ---
-id: release-payout
-number: 5
-title: Release a payout run
+id: permissions
+number: 10
+title: Edit the permissions matrix
 category: admin
 categoryTitle: Admin portal
 description: Placeholder.

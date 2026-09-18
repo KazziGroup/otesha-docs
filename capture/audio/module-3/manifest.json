@@ -1,0 +1,68 @@
+[
+  {
+    "id": "open",
+    "text": "Module three. Where the trees are, and who tends them.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-3/open.wav",
+    "seconds": 3.008
+  },
+  {
+    "id": "zone",
+    "text": "A zone is a site — a school, a woodlot, a strip of open land — with its area, its trees, and the survival rate that follows from those.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-3/zone.wav",
+    "seconds": 8.64
+  },
+  {
+    "id": "provisional",
+    "text": "Some boundaries were drawn rather than walked. They are marked, and the warning says what that costs: their hectares overstate the real site.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-3/provisional.wav",
+    "seconds": 8.32
+  },
+  {
+    "id": "esg",
+    "text": "That matters beyond this page. A provisional area that reaches an ESG figure overstates what Otesha actually manages.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-3/esg.wav",
+    "seconds": 8.064
+  },
+  {
+    "id": "rota",
+    "text": "The rota is per zone. One row per caretaker, and the section they tend.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-3/rota.wav",
+    "seconds": 4.352
+  },
+  {
+    "id": "nosection",
+    "text": "This is the row the amber banner is about. Approved, active, and holding no section.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-3/nosection.wav",
+    "seconds": 5.376
+  },
+  {
+    "id": "cost",
+    "text": "Which costs more than it sounds. Their app lists no trees, the six o'clock compiler gives them no tasks, and the evening sweep then holds their pay for work nobody assigned.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-3/cost.wav",
+    "seconds": 10.901333
+  },
+  {
+    "id": "clusters",
+    "text": "The same rota read the other way round. By block rather than by person, with the date each caretaker took it on — useful for finding a cluster nobody is on.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-3/clusters.wav",
+    "seconds": 9.962667
+  },
+  {
+    "id": "phone",
+    "text": "And on the phone, that assignment is simply the list. Every tree in your section, and a filter for the ones asking for something.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-3/phone.wav",
+    "seconds": 7.36
+  },
+  {
+    "id": "map",
+    "text": "One page is deliberately missing. Tracing a boundary needs a map, and there is no Mapbox token here — so rather than photograph an error, it stays a stub.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-3/map.wav",
+    "seconds": 9.706667
+  },
+  {
+    "id": "close",
+    "text": "Four pages. The banner from module two, followed to where it is cleared.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-3/close.wav",
+    "seconds": 4.352
+  }
+]

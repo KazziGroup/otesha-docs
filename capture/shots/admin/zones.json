@@ -1,0 +1,64 @@
+{
+  "app": "admin-panel",
+  "page": "admin/zones",
+  "note": "Hides the 'map is unavailable' notice, which is this machine's missing MAPBOX_TOKEN rather than anything a reader would meet. The zone list is the subject.",
+  "figures": [
+    {
+      "id": "admin-zones-01-en",
+      "title": "The zone list",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/zones"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "hideText": "The map is unavailable"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1200
+        }
+      ],
+      "callouts": [
+        {
+          "text": "provisional boundary on this page",
+          "note": "Provisional boundaries overstate their hectares.",
+          "side": "left"
+        },
+        {
+          "text": "SURVEYED",
+          "note": "When somebody last walked the perimeter.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

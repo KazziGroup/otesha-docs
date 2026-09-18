@@ -107,7 +107,7 @@ it leave behind. Page counts are rough sizing, not a contract.
 |---|---|---|---|---|
 | 1 | Getting in | `identity` | all four | 6 |
 | 2 | Caretaker onboarding & standing | `identity`, `fieldops` | admin, caretaker | 4 |
-| 3 | Zones, clusters and the rota | `geography`, `fieldops` | admin, caretaker | 5 |
+| 3 | Zones, clusters and the rota | `geography`, `fieldops` | admin, caretaker | 4 |
 | 4 | Species, pricing and the nursery | `catalogue`, `nursery` | admin, customer | 5 |
 | 5 | Sponsoring a tree | `orders`, `payments` | customer, admin | 7 |
 | 6 | Gifting a tree | `orders` | customer | 3 |
@@ -120,7 +120,7 @@ it leave behind. Page counts are rough sizing, not a contract.
 | 13 | Motivation and recognition | — (client-side) | caretaker | 5 |
 | 14 | Running the programme | `identity`, `audit`, `catalogue` | admin | 6 |
 
-Roughly 79 pages, against the ~70 the brief estimated — close enough that the
+Roughly 78 pages, against the ~70 the brief estimated — close enough that the
 estimate looks sound.
 
 ### What each one covers
@@ -178,8 +178,15 @@ record of who decided; the other defers it.
 
 **3. Zones, clusters and the rota.** Where trees live and who tends them.
 Directly downstream of 2 — an approved caretaker with no section is the warning
-banner the admin console already shows.
-*Routes:* admin `zones`, `map`, `assignments`.
+banner the admin console already shows, and this module is what clears it.
+*Routes:* admin `zones`, `assignments` (by caretaker and by cluster); caretaker
+`(tabs)/trees`.
+
+**Tracing a boundary is deferred, not skipped.** `MAPBOX_TOKEN` is empty in
+every `.env` here, so the console says the map is unavailable and no honest
+screenshot of it can be taken. The zone *list* does not need the map and is
+documented; `admin/zone-boundary` stays a stub until somebody supplies a token.
+Four pages rather than five.
 
 **4. Species, pricing and the nursery.** What can be sponsored, what it costs,
 and the seedlings behind it. Must precede sponsorship: you cannot buy what is
@@ -309,7 +316,7 @@ where the trial left us, not a head start.
 | 0 | Phase 0 — refs, shot lists, deep links | ✓ | — | 17 Sep 2026 |
 | 1 | Getting in | ✓ | 6 / 6 | 17 Sep 2026 |
 | 2 | Caretaker onboarding & standing | ✓ | 4 / 4 | 18 Sep 2026 |
-| 3 | Zones, clusters and the rota | — | 0 / 5 | |
+| 3 | Zones, clusters and the rota | ✓ | 4 / 4 | 18 Sep 2026 |
 | 4 | Species, pricing and the nursery | — | 0 / 5 | |
 | 5 | Sponsoring a tree | — | 0 / 7 | |
 | 6 | Gifting a tree | — | 0 / 3 | |

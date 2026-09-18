@@ -38,6 +38,7 @@
   function find({ sel, text, nth }) {
     if (sel) return document.querySelector(sel);
     if (!text) return null;
+    const wanted = text.toLowerCase();
 
     // Anything that can carry words a reader would recognise. The narrow list
     // this replaced — buttons, links and table cells — missed labels, help
@@ -54,9 +55,14 @@
     ].filter((el) => {
       const r = el.getBoundingClientRect();
       if (r.width <= 0 || r.height <= 0) return false;
+      // Case-insensitive, because `text-transform: uppercase` is common and
+      // what a shot list names is what somebody read off the screen. A column
+      // header showing SURVEYED holds the text "Surveyed", and a recipe that
+      // has to know that is a recipe written from the DOM rather than from the
+      // page.
       return (
-        (el.textContent || "").includes(text) ||
-        (el.getAttribute && (el.getAttribute("placeholder") || "").includes(text))
+        (el.textContent || "").toLowerCase().includes(wanted) ||
+        (el.getAttribute && (el.getAttribute("placeholder") || "").toLowerCase().includes(wanted))
       );
     });
 
@@ -70,7 +76,7 @@
     // `nth: 0` over the raw list framed a box the height of the screen.
     if (Number.isInteger(nth)) {
       const innermost = candidates.filter(
-        (el) => ![...el.children].some((child) => (child.textContent || "").includes(text)),
+        (el) => ![...el.children].some((child) => (child.textContent || "").toLowerCase().includes(wanted)),
       );
       return innermost[nth] ?? null;
     }

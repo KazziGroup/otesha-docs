@@ -1,7 +1,7 @@
 ---
-id: assign-cluster
-number: 6
-title: Assign a caretaker to a cluster
+id: publish-price
+number: 8
+title: Publish a price
 category: admin
 categoryTitle: Admin portal
 description: Placeholder.

@@ -1,0 +1,43 @@
+{
+  "app": "caretaker-mobile-app-live",
+  "page": "caretaker/trees",
+  "note": "The dev client against the local backend. Trees here are the caretaker's section \u2014 what the rota gave them.",
+  "figures": [
+    {
+      "id": "caretaker-trees-01-en",
+      "title": "Your section",
+      "steps": [
+        {
+          "pause": 2000
+        },
+        {
+          "tapIfPresent": ".*8081.*"
+        },
+        {
+          "pause": 12000
+        },
+        {
+          "tapIfPresent": "Back"
+        },
+        {
+          "tapIfPresent": "Trees"
+        },
+        {
+          "pause": 4000
+        }
+      ],
+      "callouts": [
+        {
+          "match": "Your trees",
+          "note": "Every tree in your section.",
+          "side": "left"
+        },
+        {
+          "match": "Needs attention",
+          "note": "Narrow to the ones asking for something.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

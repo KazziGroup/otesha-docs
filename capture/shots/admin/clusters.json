@@ -1,0 +1,66 @@
+{
+  "app": "admin-panel",
+  "page": "admin/clusters",
+  "figures": [
+    {
+      "id": "admin-clusters-01-en",
+      "title": "The rota, by cluster",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/assignments"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "click": "button:has-text('Clusters')"
+        },
+        {
+          "wait": "text=Block A"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1500
+        }
+      ],
+      "callouts": [
+        {
+          "text": "Block A",
+          "note": "One cluster, and how many trees are in it.",
+          "side": "left"
+        },
+        {
+          "text": "since",
+          "note": "When each caretaker took this cluster on.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}
