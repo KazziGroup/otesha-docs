@@ -1,0 +1,86 @@
+[
+  {
+    "id": "open",
+    "text": "Module eleven. The administrative half of being a client.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/open.wav",
+    "seconds": 3.562667
+  },
+  {
+    "id": "roles",
+    "text": "Three roles. Owners administer; administrators and viewers read. And they are per organisation — the same colleague can own one account and merely view another.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/roles.wav",
+    "seconds": 10.304
+  },
+  {
+    "id": "number",
+    "text": "A colleague is added by number, not by email, because the number is what they sign in with.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/number.wav",
+    "seconds": 5.589333
+  },
+  {
+    "id": "lockout",
+    "text": "Two removals are simply refused, and the table says so rather than offering a button. Your own row reads You; a sole owner reads Only owner. Locking every human out of an account is a support request, not a click.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/lockout.wav",
+    "seconds": 13.781333
+  },
+  {
+    "id": "settings",
+    "text": "Settings splits the same way. Your name, your email, your language — yours to change.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/settings.wav",
+    "seconds": 5.12
+  },
+  {
+    "id": "ask",
+    "text": "The organisation's name and tax number are not. They are how finance and an auditor identify this account, so they change by asking us, with a record of who asked. An organisation cannot change its own status at all.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/ask.wav",
+    "seconds": 14.506667
+  },
+  {
+    "id": "tier",
+    "text": "Underneath, the tier. Sapling, and a discount of nothing — which is the answer to a question module ten left open.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/tier.wav",
+    "seconds": 7.232
+  },
+  {
+    "id": "stamped",
+    "text": "Because a discount is stamped on an order when it is placed. Reaching a new tier does not reprice what you already bought, and losing trees claws nothing back.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/stamped.wav",
+    "seconds": 9.109333
+  },
+  {
+    "id": "certificate",
+    "text": "A certificate is the last of them, and the definition is the whole page: a certificate is a period, signed.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/certificate.wav",
+    "seconds": 6.592
+  },
+  {
+    "id": "preparing",
+    "text": "The record is immediate and the document follows — the column reads Preparing while the file is made.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/preparing.wav",
+    "seconds": 5.952
+  },
+  {
+    "id": "admin",
+    "text": "And the staff side. Two kinds of organisation kept on separate tabs: accounts that buy trees, and partners that embed Otesha through the API.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/admin.wav",
+    "seconds": 9.237333
+  },
+  {
+    "id": "living",
+    "text": "With one number worth stopping on. Trees reads living over ordered — three hundred and six of three hundred and forty-six. The forty is the order placed while writing module ten, and it is the same outstanding figure the client sees on their own orders page.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/living.wav",
+    "seconds": 16.234667
+  },
+  {
+    "id": "cut",
+    "text": "One planned page is missing on purpose. The phone's More screen is navigation overflow, computed from the same config as the tab bar. There is no task on it.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/cut.wav",
+    "seconds": 10.56
+  },
+  {
+    "id": "close",
+    "text": "Five pages. The account behind the trees.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-11/close.wav",
+    "seconds": 2.709333
+  }
+]
