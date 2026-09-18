@@ -1,0 +1,92 @@
+[
+  {
+    "id": "open",
+    "text": "Module twelve. Otesha Connect — the API a partner builds against.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/open.wav",
+    "seconds": 4.501333
+  },
+  {
+    "id": "grant",
+    "text": "None of it existed until somebody granted it. A partner is not a second organisation: it is a corporate account with API access, so granting creates the partner identity, issues sandbox credentials and links them in one call.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/grant.wav",
+    "seconds": 15.274667
+  },
+  {
+    "id": "withdraw",
+    "text": "And withdrawing keeps the settlement history. It suspends the partner and unlinks it — a statement about who may call the API, not a reason to lose what they were owed.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/withdraw.wav",
+    "seconds": 10.581333
+  },
+  {
+    "id": "console",
+    "text": "On the client's side, a console with six steps in the order they have to happen. Create a sandbox key, get a token, link a test customer, place an order, listen for webhooks, go live.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/console.wav",
+    "seconds": 11.669333
+  },
+  {
+    "id": "secret",
+    "text": "The key's secret is shown once, when the key is created. Lose it and you make another — that is the intended path, not a failure of it.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/secret.wav",
+    "seconds": 8.106667
+  },
+  {
+    "id": "sandbox",
+    "text": "The sandbox is a world you can break. Reset wipes it and re-seeds two hundred trees across all ten lifecycle states, five caretakers, five customers, and a year of back-dated visits.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/sandbox.wav",
+    "seconds": 12.181333
+  },
+  {
+    "id": "clock",
+    "text": "And you can move a tree's clock — ninety days, a year — to exercise milestones in an afternoon. The tree's clock, not the server's: a shared clock would mean your test changed somebody else's data.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/clock.wav",
+    "seconds": 12.48
+  },
+  {
+    "id": "webhooks",
+    "text": "Webhooks are HTTPS only, because over plain HTTP the payload and its signature are both readable by anything on the path, which makes the signature pointless.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/webhooks.wav",
+    "seconds": 11.221333
+  },
+  {
+    "id": "producer",
+    "text": "Three of the events are marked no producer yet. They are declared so an integration can be written against them, and marked so nobody waits on a call that never comes.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/producer.wav",
+    "seconds": 9.536
+  },
+  {
+    "id": "usage",
+    "text": "Usage separates two questions people conflate. New accounts are the ones your integration opened; customers linked includes people who already had Otesha before they met your app.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/usage.wav",
+    "seconds": 11.136
+  },
+  {
+    "id": "settlement",
+    "text": "And a settlement statement is compiled from the same basis as that usage report, so the two agree. Once issued it is never edited — a correction is issued beside it, because somebody has already filed the original.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/settlement.wav",
+    "seconds": 13.589333
+  },
+  {
+    "id": "stubs",
+    "text": "Writing this module found something worse than a missing page. Six pages were still saying Placeholder — this page is a stub for the structural trial — on the live site.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/stubs.wav",
+    "seconds": 10.517333
+  },
+  {
+    "id": "passed",
+    "text": "All eight checks had passed the whole time. They ask whether links resolve and whether figures rebuild. A stub has neither, so it sails through every one of them.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/passed.wav",
+    "seconds": 9.514667
+  },
+  {
+    "id": "fixed",
+    "text": "Two are now written, one was deleted for restating another page, one became this module's credentials page, and two are genuinely blocked — so they say so, in the words of the thing blocking them.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/fixed.wav",
+    "seconds": 12.117333
+  },
+  {
+    "id": "close",
+    "text": "Eight pages, and a ninth check that would have caught the other six.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-12/close.wav",
+    "seconds": 3.349333
+  }
+]

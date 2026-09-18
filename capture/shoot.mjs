@@ -415,7 +415,13 @@ async function shootIos(browser, list, appName, app, provenance) {
     execFileSync(
       "node",
       [join(HERE, "mobile-measure.mjs"), device, cleanPath, targetsPath, calloutsPath],
-      { stdio: ["ignore", "ignore", "inherit"] },
+      {
+        stdio: ["ignore", "ignore", "inherit"],
+        // `stopBefore` keeps the crop above something that must not be in the
+        // figure — on the caretaker app, the surfaces fenced behind
+        // `<StaticOnly>`, which exist in the demo build and nowhere else.
+        env: { ...process.env, ...(figure.stopBefore ? { STOP_BEFORE: figure.stopBefore } : {}) },
+      },
     );
 
     const parsed = JSON.parse(readFileSync(targetsPath, "utf8"));

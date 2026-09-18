@@ -126,6 +126,31 @@ let crop = { y: Math.round(top) - PAD_ABOVE, h: Math.round(bottom - top) + PAD_A
 crop.y = Math.max(0, Math.min(crop.y, viewport.h - 1));
 crop.h = Math.min(crop.h, viewport.h - crop.y);
 
+/**
+ * Stop the crop before something that must not appear.
+ *
+ * The caretaker app fences everything invented behind `<StaticOnly>`, so those
+ * surfaces render in the demo build and nowhere else — and the demo build is
+ * what two of these figures are shot against. The profile screen's padding
+ * happened to carry the certification ladder's heading into the bottom of the
+ * frame: a ladder no caretaker on a real build can see, in a manual about the
+ * real build.
+ *
+ * `stopBefore` names an element the crop must end above. It is deliberately a
+ * failure to name something that is not there — a guard that silently does
+ * nothing is worse than no guard, because the figure looks checked.
+ */
+const stopBefore = process.env.STOP_BEFORE;
+if (stopBefore) {
+  const blocker = nodes.find((n) => (n.label || "").toLowerCase().includes(stopBefore.toLowerCase()));
+  if (!blocker) {
+    console.error(`MISSING: stopBefore ${JSON.stringify(stopBefore)} is not on this screen`);
+    process.exit(1);
+  }
+  const limit = blocker.rect.y - 12;
+  if (limit > crop.y) crop.h = Math.min(crop.h, limit - crop.y);
+}
+
 const commit = (() => {
   try {
     return execFileSync(

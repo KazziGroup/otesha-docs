@@ -376,7 +376,7 @@ where the trial left us, not a head start.
 | 10 | Money and invoices | ✓ | 2 / 2 | 18 Sep 2026 |
 | 11 | Corporate partnership | ✓ | 6 / 7 | 18 Sep 2026 |
 | 12 | The developer platform | ✓ | 8 / 8 | 18 Sep 2026 |
-| 13 | Motivation and recognition | — | 0 / 5 | |
+| 13 | Motivation and recognition | ✓ | 1 / 5 | 18 Sep 2026 |
 | 14 | Running the programme | — | 0 / 6 | |
 
 A page counts once it meets the definition of done above — seven parts filled,
@@ -432,6 +432,33 @@ phase 0, and the sentence was rewritten to state the fact rather than link to it
 Two id collisions went with it: corporate wanted `trees` and `tree`, both
 already owned by the caretaker manual. They became `tree-register` and
 `tree-history`. Third time that check has paid for itself.
+
+## Module 13 is one page, because the module is not built
+
+Streaks, challenges, milestones, Species IQ, the wishlist, the poster. Five
+pages were planned. One was written, and it explains why the other four are not.
+
+Every one of those screens imports from `@/mocks/` and is wrapped in
+`StaticOnly`, which the caretaker app documents as *"the gate for everything in
+this app that is not real yet"* — a surface behind it renders in a demo build
+and nowhere else. Module 2 had already cut the certification ladder on the same
+grounds; this is the rest of the same answer.
+
+The codebase makes this easy to be sure about, deliberately: *"grep for
+`StaticOnly` and you have the inventory"*. Nineteen files. So
+`caretaker/not-yet-real` lists exactly what is fenced and what is real on the
+same screens, rather than the manual going quiet in five places.
+
+It also found a leak. `caretaker/profile` is shot against the demo build, and
+the crop's padding carried the certification ladder's heading into the bottom of
+the frame — a ladder no caretaker on a real build can see, in a manual about the
+real build. Figures can now declare `stopBefore`, which ends the crop above a
+named element and fails if that element is not on screen.
+
+And both caretaker demo recipes are now state-independent. `launchApp` resumes
+wherever the app was left, so "wait for the Today screen" worked until a
+previous run ended on Profile. They tap Today first.
+
 
 ## Six pages were still saying "Placeholder"
 
