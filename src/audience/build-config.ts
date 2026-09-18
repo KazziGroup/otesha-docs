@@ -15,10 +15,31 @@ type Section = { title: string; categoryIds: string[] };
  * that cannot work. What is safe to share is everything after the glob, which
  * is this.
  */
+/**
+ * Point the figures at wherever this build is being served from.
+ *
+ * Every page writes its figures as `/img/name.png`, which is right when the
+ * site is at the root and wrong the moment it is not: GitHub Pages serves a
+ * project repo at `/<repo>/`, where a root-absolute path resolves against the
+ * domain and every screenshot 404s. Vite rewrites asset URLs it can see in JS
+ * and CSS, but these live inside markdown loaded `?raw`, so they are just text
+ * to it.
+ *
+ * Rewriting here rather than in the markdown keeps the source portable: the
+ * pages stay readable on GitHub, and the same files build for the root, for a
+ * subpath, or for a custom domain without editing 43 of them.
+ */
+function withBase(content: string): string {
+  const base = import.meta.env.BASE_URL;
+  if (base === "/") return content;
+  // Markdown `](/img/…)` and any raw HTML `src="/img/…"`.
+  return content.replace(/(\]\(|["'])\/img\//g, `$1${base}img/`);
+}
+
 export function buildDocsConfig(modules: Modules, sections: Section[]): DocsConfig {
   const files = Object.entries(modules)
     .map(([path, content]) => ({
-      content: content as string,
+      content: withBase(content as string),
       path: path.replace("../../docs/", ""),
     }))
     // Sorted so the sidebar order is the filename order, which is what the

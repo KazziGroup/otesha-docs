@@ -22,7 +22,15 @@ const AUDIENCE = process.env.DOCS_AUDIENCE === "external" ? "external" : "intern
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/",
+  /**
+   * Where the site will be served from.
+   *
+   * Root locally and on any custom domain. GitHub Pages for a project repo
+   * serves at `/<repo>/` instead, so the deploy workflow passes `/otesha-docs/`
+   * and every asset URL is rewritten to match. Markdown figure paths are not
+   * Vite's to rewrite — see `audience/build-config`.
+   */
+  base: process.env.DOCS_BASE || "/",
   resolve: {
     /**
      * One copy of each of these, or the production build renders nothing.

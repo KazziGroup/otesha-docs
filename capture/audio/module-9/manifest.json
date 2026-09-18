@@ -1,0 +1,68 @@
+[
+  {
+    "id": "open",
+    "text": "Module nine. What a sponsor sees of the trees they paid for.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-9/open.wav",
+    "seconds": 3.626667
+  },
+  {
+    "id": "headline",
+    "text": "Two figures, and they answer different questions. Trees is how many you have and how many are living. Survival is the share of trees ever in the ground that are still alive.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-9/headline.wav",
+    "seconds": 10.474667
+  },
+  {
+    "id": "risk",
+    "text": "Which is why survival can read a hundred percent while twenty-six trees are at risk. At risk is alive — it is a caretaker saying this one needs attention, not a death.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-9/risk.wav",
+    "seconds": 10.688
+  },
+  {
+    "id": "register",
+    "text": "The same data listed rather than summarised. One row per tree, with the site it stands on and when it went in the ground.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-9/register.wav",
+    "seconds": 7.274667
+  },
+  {
+    "id": "statuses",
+    "text": "Seven states, and the last three are the ones nobody puts on a brochure. Deceased, replaced, refunded — what happens when a tree does not make it.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-9/statuses.wav",
+    "seconds": 9.130667
+  },
+  {
+    "id": "tree",
+    "text": "And one tree on its own. Its species, its site, the care level that was bought, and the caretaker who was there most recently.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-9/tree.wav",
+    "seconds": 7.637333
+  },
+  {
+    "id": "photos",
+    "text": "This line is the whole module. No photographs of this tree yet — caretakers add them from the field as they tend it. A photograph is optional when work is logged, so their absence says nothing about the tree.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-9/photos.wav",
+    "seconds": 12.565333
+  },
+  {
+    "id": "history",
+    "text": "Underneath, every state change with its date. Planted in September, flagged at risk in October. That is the audit trail behind the number on the dashboard.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-9/history.wav",
+    "seconds": 9.749333
+  },
+  {
+    "id": "cut",
+    "text": "Three pages, not the six that were planned. The customer's own tree page has no subject — every seeded tree belongs to a corporate account, and a capture cannot buy one, because the mock payment provider only settles through a signed webhook.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-9/cut.wav",
+    "seconds": 15.210667
+  },
+  {
+    "id": "map",
+    "text": "And the map is the same Mapbox hole that stubbed a page in module three. Photographing an error box would be worse than shipping nothing.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-9/map.wav",
+    "seconds": 8.234667
+  },
+  {
+    "id": "close",
+    "text": "Three pages. Half a module, and honest about which half.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-9/close.wav",
+    "seconds": 3.605333
+  }
+]

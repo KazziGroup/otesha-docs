@@ -1,0 +1,59 @@
+# Publish the client manual to GitHub Pages.
+#
+# Only the external build is deployed. The repository is public and carries all
+# five manuals, but the site a client is handed shows the nine corporate and
+# overview pages and nothing else — the split is `DOCS_AUDIENCE`, and it happens
+# at the module graph, so the internal text is not in the bundle at all.
+#
+# `DOCS_BASE` is set because a project-repo Pages site is served at /<repo>/.
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Enough to publish, and nothing else.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish rather than cancelling it half-published.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build the client manual
+        env:
+          DOCS_AUDIENCE: external
+          DOCS_BASE: /otesha-docs/
+        run: npx vite build
+      - name: Refuse to publish a build containing the internal manuals
+        # The audience split is the whole reason this repo builds twice, and a
+        # mistake here is not a broken page, it is the admin manual on a public
+        # website. Cheaper to check than to retract.
+        run: scripts/check-dist-audience.sh dist external
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
