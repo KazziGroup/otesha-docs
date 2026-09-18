@@ -1,0 +1,60 @@
+{
+  "app": "admin-panel",
+  "page": "admin/programme",
+  "note": "The seeded programme has most settings unset, which is what makes the default marker visible.",
+  "figures": [
+    {
+      "id": "admin-programme-01-en",
+      "title": "Programme settings",
+      "cropX": false,
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/settings/programme"
+        },
+        {
+          "wait": "text=Organisation-wide settings"
+        },
+        {
+          "pause": 1500
+        },
+        {
+          "park": true
+        }
+      ],
+      "callouts": [
+        {
+          "text": "Every change is recorded with who made it",
+          "note": "The audit trail is the setting's own history, not a separate screen."
+        },
+        {
+          "text": "nobody has set this",
+          "note": "A default in use says so, rather than looking like a choice somebody made."
+        }
+      ]
+    }
+  ]
+}

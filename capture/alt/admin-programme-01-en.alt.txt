@@ -1,0 +1,1 @@
+Marked on the screenshot: The audit trail is the setting's own history, not a separate screen. A default in use says so, rather than looking like a choice somebody made.

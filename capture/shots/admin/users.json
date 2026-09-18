@@ -1,0 +1,60 @@
+{
+  "app": "admin-panel",
+  "page": "admin/users",
+  "note": "Staff accounts only \u2014 customers and caretakers are elsewhere.",
+  "figures": [
+    {
+      "id": "admin-users-01-en",
+      "title": "Staff users",
+      "cropX": false,
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/users"
+        },
+        {
+          "wait": "text=Who is in the console"
+        },
+        {
+          "pause": 1500
+        },
+        {
+          "park": true
+        }
+      ],
+      "callouts": [
+        {
+          "sel": "table th:nth-child(3)",
+          "note": "Which zones a person's role reaches."
+        },
+        {
+          "text": "Who is in the console, and what each role can do",
+          "note": "People and roles are counted separately, and both are here."
+        }
+      ]
+    }
+  ]
+}

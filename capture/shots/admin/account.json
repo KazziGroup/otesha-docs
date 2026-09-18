@@ -1,0 +1,60 @@
+{
+  "app": "admin-panel",
+  "page": "admin/account",
+  "note": "Your own staff account, not somebody else's \u2014 changing another person's is on the users page.",
+  "figures": [
+    {
+      "id": "admin-account-01-en",
+      "title": "Your account",
+      "cropX": false,
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/settings/account"
+        },
+        {
+          "wait": "text=Your details, your password"
+        },
+        {
+          "pause": 1500
+        },
+        {
+          "park": true
+        }
+      ],
+      "callouts": [
+        {
+          "text": "an unattended laptop is the reason",
+          "note": "Your current password is asked for even though you are signed in."
+        },
+        {
+          "text": "Changed by an administrator",
+          "note": "Your phone links your records, so it is not yours to edit."
+        }
+      ]
+    }
+  ]
+}

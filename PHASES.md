@@ -377,7 +377,7 @@ where the trial left us, not a head start.
 | 11 | Corporate partnership | ✓ | 6 / 7 | 18 Sep 2026 |
 | 12 | The developer platform | ✓ | 8 / 8 | 18 Sep 2026 |
 | 13 | Motivation and recognition | ✓ | 1 / 5 | 18 Sep 2026 |
-| 14 | Running the programme | — | 0 / 6 | |
+| 14 | Running the programme | ✓ | 4 / 6 | 18 Sep 2026 |
 
 A page counts once it meets the definition of done above — seven parts filled,
 figures captured from a pinned ref with a shot list behind them, links
@@ -432,6 +432,46 @@ phase 0, and the sentence was rewritten to state the fact rather than link to it
 Two id collisions went with it: corporate wanted `trees` and `tree`, both
 already owned by the caretaker manual. They became `tree-register` and
 `tree-history`. Third time that check has paid for itself.
+
+## Module 14, and the end of the plan
+
+Four pages: programme settings, the permissions matrix, staff users, and your
+own account.
+
+Two of the six planned are not pages, for the same reason `$org.more` was not.
+The settings index is a menu — three cards pointing at the three screens above —
+and **the audit trail is not a screen at all**. *"Every change is recorded with
+who made it and what it was before"* describes the setting's own history, shown
+on the field. Documenting it separately would send a reader looking for a page
+that does not exist.
+
+Worth keeping from this module: a field reading **"Using the default — nobody
+has set this"** is not the same as a field somebody chose, and the console says
+which. And **scope is not role** — two Site Supervisors can hold identical
+permissions and reach different zones, so the role answers *what* and the scope
+answers *where*.
+
+---
+
+## All fourteen modules are written
+
+60 pages across five manuals, 61 figures, nine checks. Every figure rebuilds
+from its recipe; every page that has no figure says why it has none.
+
+What the manuals do not cover, and why, in one place:
+
+- **Maps.** `admin/zone-boundary` and the corporate map need a Mapbox token this
+  environment does not have.
+- **A customer's own tree.** Every seeded tree belongs to a corporate account,
+  and the mock payment provider only settles through a signed webhook, so a
+  capture cannot buy one.
+- **Gifts, subscriptions and customer invoices.** Unregistered on staging on
+  purpose; the route files are kept because it is a deferral.
+- **The caretaker app's motivation features.** Fenced behind `StaticOnly` — real
+  in a demo build and nowhere else.
+- **Navigation surfaces.** `$org.more` and the admin settings index are menus,
+  not tasks.
+
 
 ## Module 13 is one page, because the module is not built
 
