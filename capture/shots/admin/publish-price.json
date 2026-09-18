@@ -1,0 +1,75 @@
+{
+  "app": "admin-panel",
+  "page": "admin/publish-price",
+  "figures": [
+    {
+      "id": "admin-publish-price-01-en",
+      "title": "Care plans and prices",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/species"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "click": "td:has-text('Baobab')"
+        },
+        {
+          "wait": "[role=dialog]"
+        },
+        {
+          "park": true
+        },
+        {
+          "click": "button:has-text('Care plans')"
+        },
+        {
+          "wait": "text=Change price"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1200
+        }
+      ],
+      "callouts": [
+        {
+          "text": "since 28 Aug 2025",
+          "note": "Prices carry the date they came into force.",
+          "side": "left"
+        },
+        {
+          "text": "Change price",
+          "note": "A new price; the old one stays on orders already placed.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

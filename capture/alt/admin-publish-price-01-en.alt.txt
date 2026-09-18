@@ -1,0 +1,1 @@
+Marked on the screenshot: Prices carry the date they came into force. A new price; the old one stays on orders already placed.

@@ -1,0 +1,8 @@
+{
+  "url": "http://localhost:5200/nursery",
+  "capturedFrom": "http://localhost:5200",
+  "app": "admin-panel",
+  "commit": "e3764fe",
+  "branch": "main",
+  "documentedRef": "origin/main"
+}

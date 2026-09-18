@@ -1,0 +1,60 @@
+{
+  "app": "admin-panel",
+  "page": "admin/nursery",
+  "figures": [
+    {
+      "id": "admin-nursery-01-en",
+      "title": "The nursery",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/nursery"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1500
+        }
+      ],
+      "callouts": [
+        {
+          "sel": "table th:nth-child(5)",
+          "note": "The tree IDs this batch reserved.",
+          "side": "left"
+        },
+        {
+          "text": "Waiting on tags",
+          "note": "Batches whose tags have not been printed.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

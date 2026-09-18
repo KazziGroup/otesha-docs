@@ -1,0 +1,66 @@
+{
+  "app": "admin-panel",
+  "page": "admin/species-record",
+  "figures": [
+    {
+      "id": "admin-species-record-01-en",
+      "title": "A species record",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/species"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "click": "td:has-text('Baobab')"
+        },
+        {
+          "wait": "[role=dialog]"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1200
+        }
+      ],
+      "callouts": [
+        {
+          "text": "Withdraw from sale",
+          "note": "A catalogue decision. Trees already in the ground are unaffected.",
+          "side": "right"
+        },
+        {
+          "text": "a correction is a new species",
+          "note": "The three names are fixed once trees point at them.",
+          "side": "left"
+        }
+      ]
+    }
+  ]
+}

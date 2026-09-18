@@ -1,0 +1,60 @@
+{
+  "app": "admin-panel",
+  "page": "admin/species",
+  "figures": [
+    {
+      "id": "admin-species-01-en",
+      "title": "The species catalogue",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/species"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1200
+        }
+      ],
+      "callouts": [
+        {
+          "text": "On sale only",
+          "note": "Narrow to what customers can actually buy.",
+          "side": "left"
+        },
+        {
+          "sel": "table th:nth-child(7)",
+          "note": "Whether it is offered for sale today.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

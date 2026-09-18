@@ -1,7 +1,7 @@
 ---
-id: publish-price
-number: 8
-title: Publish a price
+id: release-payout
+number: 12
+title: Release a payout run
 category: admin
 categoryTitle: Admin portal
 description: Placeholder.

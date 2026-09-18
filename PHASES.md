@@ -193,6 +193,13 @@ and the seedlings behind it. Must precede sponsorship: you cannot buy what is
 not published.
 *Routes:* admin `species`, `nursery`; customer `species`, `species.detail`.
 
+Three things the screens say that a route list does not. A species' three names
+are **fixed** once trees point at them — *"a correction is a new species and a
+decision about those trees"*. Withdrawing from sale is **a catalogue decision,
+not a botanical one**: trees already in the ground are unaffected. And every
+price carries the date it came into force, because a new price does not reprice
+what has already been sold.
+
 **5. Sponsoring a tree.** The money path: browse, cart, checkout, pay, and what
 the order looks like from the fulfilment side.
 *Routes:* customer `cart`, `checkout`, `checkout.pay`, `checkout.status`,
@@ -317,7 +324,7 @@ where the trial left us, not a head start.
 | 1 | Getting in | ✓ | 6 / 6 | 17 Sep 2026 |
 | 2 | Caretaker onboarding & standing | ✓ | 4 / 4 | 18 Sep 2026 |
 | 3 | Zones, clusters and the rota | ✓ | 4 / 4 | 18 Sep 2026 |
-| 4 | Species, pricing and the nursery | — | 0 / 5 | |
+| 4 | Species, pricing and the nursery | ✓ | 5 / 5 | 18 Sep 2026 |
 | 5 | Sponsoring a tree | — | 0 / 7 | |
 | 6 | Gifting a tree | — | 0 / 3 | |
 | 7 | The daily round | — | 1 / 7 | |

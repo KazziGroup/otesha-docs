@@ -1,0 +1,151 @@
+{
+  "app": "customer-app",
+  "page": "customer/browse-species",
+  "note": "Signs in on a fresh number and skips the welcome step: browsing needs no history, and reusing the seeded customer exhausts its five codes an hour within a few capture runs.",
+  "figures": [
+    {
+      "id": "customer-browse-species-01-en",
+      "title": "Choosing a species",
+      "steps": [
+        {
+          "goto": "/logout"
+        },
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "{{uniquePhone}}"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=code]"
+        },
+        {
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
+        },
+        {
+          "pause": 600
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=full_name]"
+        },
+        {
+          "click": "text=Skip for now"
+        },
+        {
+          "pause": 1500
+        },
+        {
+          "goto": "/species"
+        },
+        {
+          "wait": "text=Choose a species"
+        },
+        {
+          "pause": 1200
+        }
+      ],
+      "callouts": [
+        {
+          "text": "All species",
+          "note": "Filter by what the tree is for.",
+          "side": "left"
+        },
+        {
+          "text": "care plan",
+          "note": "How many ways this species can be looked after.",
+          "side": "right"
+        }
+      ]
+    },
+    {
+      "id": "customer-browse-species-02-en",
+      "title": "A species, and its care plan",
+      "steps": [
+        {
+          "goto": "/logout"
+        },
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "{{uniquePhone}}"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=code]"
+        },
+        {
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
+        },
+        {
+          "pause": 600
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=full_name]"
+        },
+        {
+          "click": "text=Skip for now"
+        },
+        {
+          "pause": 1500
+        },
+        {
+          "goto": "/species"
+        },
+        {
+          "wait": "text=Choose a species"
+        },
+        {
+          "click": "a:has-text('Baobab')"
+        },
+        {
+          "wait": "text=Care plans"
+        },
+        {
+          "pause": 1200
+        }
+      ],
+      "callouts": [
+        {
+          "text": "indicative",
+          "note": "The carbon figure is an estimate, and says so.",
+          "side": "left"
+        },
+        {
+          "text": "Add to cart",
+          "note": "Starts a sponsorship at this plan's price.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}
