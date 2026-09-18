@@ -1,0 +1,62 @@
+[
+  {
+    "id": "open",
+    "text": "Module fourteen, and the last. Programme settings, the permissions matrix, staff users, and your own account.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-14/open.wav",
+    "seconds": 6.528
+  },
+  {
+    "id": "audit",
+    "text": "Every change is recorded with who made it and what it was before — and that is the audit trail. Not a screen you go to, but the setting's own history, shown on the field.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-14/audit.wav",
+    "seconds": 10.24
+  },
+  {
+    "id": "default",
+    "text": "This is the detail worth keeping. A field reading using the default — nobody has set this — is not the same as a field somebody chose, and the console says which.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-14/default.wav",
+    "seconds": 10.645333
+  },
+  {
+    "id": "permissions",
+    "text": "Permissions are what the API actually checks, so changing a role here changes what people can do with no deploy. Which cuts both ways: there is no release to catch a mistake.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-14/permissions.wav",
+    "seconds": 11.434667
+  },
+  {
+    "id": "system",
+    "text": "Some cannot be changed. System roles cannot be deleted, because sign-in and the seed data both depend on them.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-14/system.wav",
+    "seconds": 6.933333
+  },
+  {
+    "id": "scope",
+    "text": "On the users list, scope is not role. Two site supervisors can hold identical permissions and reach different zones — the role answers what, the scope answers where.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-14/scope.wav",
+    "seconds": 10.666667
+  },
+  {
+    "id": "invite",
+    "text": "And no password yet, next to a last seen of never, is an invitation nobody took up. A person to chase, not an account to re-create.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-14/invite.wav",
+    "seconds": 8.384
+  },
+  {
+    "id": "password",
+    "text": "Your own account asks for your current password even though you are already signed in. The reason given is an unattended laptop, not distrust.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-14/password.wav",
+    "seconds": 9.066667
+  },
+  {
+    "id": "notpages",
+    "text": "Two planned pages are not pages. The settings index is a menu, and the audit trail is not a screen at all. Documenting either would send a reader looking for something that does not exist.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-14/notpages.wav",
+    "seconds": 11.989333
+  },
+  {
+    "id": "close",
+    "text": "Four pages. Fourteen modules. Sixty pages, sixty-one figures, and nine checks that all have to pass.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-14/close.wav",
+    "seconds": 6.976
+  }
+]
