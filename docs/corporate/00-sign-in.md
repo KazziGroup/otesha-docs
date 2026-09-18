@@ -52,5 +52,5 @@ exist.
 
 ## Related tasks
 
-- [[link:corporate/invite-colleague|Invite a colleague]]
+- [[link:corporate/team|Add or remove a colleague]]
 - [[link:corporate/esg-report|Download an ESG report]]

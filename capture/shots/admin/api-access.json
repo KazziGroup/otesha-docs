@@ -1,0 +1,66 @@
+{
+  "app": "admin-panel",
+  "page": "admin/api-access",
+  "note": "Shot against Serengeti Breweries, not Kilima Bank, on purpose. Granting is a one-way door for the figure: once an account has API access the 'Not granted' copy and the grant form are gone, and the recipe can never rebuild this picture. Serengeti stays ungranted so it can.",
+  "figures": [
+    {
+      "id": "admin-api-access-01-en",
+      "title": "Granting API access",
+      "cropX": false,
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/partners?q=Serengeti"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "click": "td:has-text('Serengeti Breweries')"
+        },
+        {
+          "wait": "text=Otesha Connect"
+        },
+        {
+          "pause": 1500
+        },
+        {
+          "park": true
+        }
+      ],
+      "callouts": [
+        {
+          "text": "everybody in the organisation gets the developer console",
+          "note": "Granting issues sandbox credentials and draws the developer console."
+        },
+        {
+          "text": "Grant API access",
+          "note": "One call: the partner identity, the keys and the link."
+        }
+      ]
+    }
+  ]
+}

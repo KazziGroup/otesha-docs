@@ -10,7 +10,7 @@
     "build:external": "DOCS_AUDIENCE=external vite build --outDir dist-external",
     "check:links": "node scripts/check-links.mjs",
     "check:audience": "bash scripts/check-audience-builds.sh",
-    "check": "npm run check:links && npm run check:alt && npm run check:shots && npm run check:audience && npm run check:renders",
+    "check": "npm run check:stubs && npm run check:links && npm run check:alt && npm run check:shots && npm run check:audience && npm run check:renders",
     "check:alt": "node scripts/check-alt-text.mjs",
     "check:renders": "node scripts/check-renders.mjs",
     "narrate": "node capture/narration.mjs",
@@ -19,7 +19,8 @@
     "shoot": "node capture/shoot.mjs",
     "check:shots": "node scripts/check-shots.mjs",
     "assemble": "node capture/assemble.mjs",
-    "check:live": "node scripts/check-live.mjs"
+    "check:live": "node scripts/check-live.mjs",
+    "check:stubs": "node scripts/check-stubs.mjs"
   },
   "dependencies": {
     "@jestrux/docs-viewer": "github:jestrux/docs-viewer#figure-blocks",

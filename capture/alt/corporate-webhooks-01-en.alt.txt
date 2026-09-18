@@ -1,0 +1,1 @@
+Marked on the screenshot: Over plain HTTP the payload and its signature are readable in transit. The events Otesha will send you.

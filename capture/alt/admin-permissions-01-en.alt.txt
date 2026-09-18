@@ -1,0 +1,1 @@
+Marked on the screenshot: Changing a role changes what people can do, with no deploy. Account types are a separate list from staff roles.

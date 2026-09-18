@@ -375,7 +375,7 @@ where the trial left us, not a head start.
 | 9 | Watching your tree | ✓ | 3 / 6 | 18 Sep 2026 |
 | 10 | Money and invoices | ✓ | 2 / 2 | 18 Sep 2026 |
 | 11 | Corporate partnership | ✓ | 6 / 7 | 18 Sep 2026 |
-| 12 | The developer platform | — | 0 / 8 | |
+| 12 | The developer platform | ✓ | 8 / 8 | 18 Sep 2026 |
 | 13 | Motivation and recognition | — | 0 / 5 | |
 | 14 | Running the programme | — | 0 / 6 | |
 
@@ -432,6 +432,49 @@ phase 0, and the sentence was rewritten to state the fact rather than link to it
 Two id collisions went with it: corporate wanted `trees` and `tree`, both
 already owned by the caretaker manual. They became `tree-register` and
 `tree-history`. Third time that check has paid for itself.
+
+## Six pages were still saying "Placeholder"
+
+Phase 0 scaffolded every planned page as a stub so the structure could be built
+and navigated before any of it was written. Six of those stubs were still live
+when module 12 went looking for the API key page and found *"Placeholder — this
+page is a stub for the structural trial."*
+
+The overview was one of them until it was rewritten a few hours earlier — the
+first page anybody opening the link sees. Worse, `corporate/bulk-order` and
+`corporate/invite-colleague` were stubs that newer pages had begun linking to as
+though they said something, so a reader following *Place a bulk order* from the
+orders page arrived at a placeholder.
+
+**Every other check passed the whole time.** They ask whether links resolve and
+whether figures rebuild. A stub has no links and no figures, so it sails through
+all eight. `check-stubs` now fails the build on placeholder text, and runs first.
+
+What the six became: `bulk-order` and `permissions` were simply unwritten and are
+now written, with figures. `invite-colleague` only ever restated the team page
+and was deleted, its three inbound links repointed. `api-key` became
+`credentials` in module 12. And `zone-boundary` and `customer/tree-detail` are
+genuinely blocked — no Mapbox token, and no customer who owns a tree — so they
+now say that, in the words of the thing blocking them, which is what the
+overview promises a reader they will find where a gap exists.
+
+## Module 12, and the grant that unblocked it
+
+The developer console is gated on a scope, so before any of it could be
+captured, Kilima Bank had to be granted Otesha Connect from the admin console.
+That grant is itself a task, and it is now `admin/api-access`.
+
+Its figure is shot against **Serengeti Breweries**, not Kilima. Granting is a
+one-way door for a picture: once an account has API access the "Not granted"
+copy and the grant form are gone, and the recipe could never rebuild the figure.
+Serengeti stays ungranted so it can.
+
+Two guards came out of this module. A callout whose anchor sits below the fold
+now fails — the API reference is one long page and "Your two tokens" measured
+400px past the frame. And two callouts resolving to the same element now fails:
+two phrases from one sentence on the settlements page produced a figure that
+boxed that sentence once and hung two badges off it, pointing at each other.
+
 
 ## Module 11, and the one page it does not have
 

@@ -50,5 +50,5 @@ sign in immediately, on their own number.
 
 ## Related tasks
 
-- [[link:corporate/invite-colleague|Invite a colleague]]
+- [[link:corporate/team|Add or remove a colleague]]
 - [[link:corporate/settings|Change your details]]

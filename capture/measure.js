@@ -114,6 +114,31 @@
   if (missing.length) return JSON.stringify({ ok: false, missing });
 
   /**
+   * Two callouts on one element is a mistake every time.
+   *
+   * Two phrases from the same paragraph resolve to the same innermost node, so
+   * the composer draws one box and hangs two badges off it — pointing at each
+   * other across the same words. On the settlements page a note about how a
+   * statement is compiled and a note about it being immutable were both in one
+   * sentence, and the figure marked that sentence twice.
+   *
+   * Cheaper to refuse than to notice by eye later.
+   */
+  const seen = new Map();
+  const doubled = [];
+  spec.forEach((item, i) => {
+    const el = find(item);
+    if (!el) return;
+    const first = seen.get(el);
+    if (first !== undefined) {
+      doubled.push(`#${first + 1} and #${i + 1} both resolve to the same element`);
+    } else {
+      seen.set(el, i);
+    }
+  });
+  if (doubled.length) return JSON.stringify({ ok: false, missing: doubled });
+
+  /**
    * A target below the fold is a callout that will never be drawn.
    *
    * `getBoundingClientRect` is viewport-relative, so an element further down a

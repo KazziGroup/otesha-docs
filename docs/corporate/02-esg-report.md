@@ -46,4 +46,4 @@ indicative — the CO₂ number is marked ±10% on the page for the same reason.
 ## Related tasks
 
 - [[link:corporate/bulk-order|Place a bulk order]]
-- [[link:corporate/invite-colleague|Invite a colleague]]
+- [[link:corporate/team|Add or remove a colleague]]

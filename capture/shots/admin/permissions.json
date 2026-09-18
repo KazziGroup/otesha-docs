@@ -1,0 +1,60 @@
+{
+  "app": "admin-panel",
+  "page": "admin/permissions",
+  "note": "The roles matrix lives under Settings, not on a page of its own.",
+  "figures": [
+    {
+      "id": "admin-permissions-01-en",
+      "title": "The permissions matrix",
+      "cropX": false,
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/settings/roles"
+        },
+        {
+          "wait": "text=A role is a set of permissions"
+        },
+        {
+          "pause": 1500
+        },
+        {
+          "park": true
+        }
+      ],
+      "callouts": [
+        {
+          "text": "permissions are what the API actually checks",
+          "note": "Changing a role changes what people can do, with no deploy."
+        },
+        {
+          "text": "What an account is, not a job",
+          "note": "Account types are a separate list from staff roles."
+        }
+      ]
+    }
+  ]
+}

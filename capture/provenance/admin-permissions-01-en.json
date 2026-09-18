@@ -1,0 +1,8 @@
+{
+  "url": "http://localhost:5200/settings/roles",
+  "capturedFrom": "http://localhost:5200",
+  "app": "admin-panel",
+  "commit": "dc1db59",
+  "branch": "staging",
+  "documentedRef": "origin/staging"
+}
