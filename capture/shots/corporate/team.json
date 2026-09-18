@@ -1,0 +1,73 @@
+{
+  "app": "corporate-portal",
+  "page": "corporate/team",
+  "note": "Signs in by SMS. The seeded account has one member, who is also the only owner \u2014 which is what makes the two anti-lockout rules visible.",
+  "figures": [
+    {
+      "id": "corporate-team-01-en",
+      "title": "The team",
+      "cropX": false,
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "+255717763373"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=code]"
+        },
+        {
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
+        },
+        {
+          "pause": 600
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/f0086ca5-abc2-40fc-8919-e74f91ca5ccb/team"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "pause": 1200
+        },
+        {
+          "park": true
+        }
+      ],
+      "callouts": [
+        {
+          "text": "Administrator",
+          "note": "Three roles. Owners administer; everybody else reads."
+        },
+        {
+          "text": "They sign in with a code on this number",
+          "note": "A colleague is added by number, not by email."
+        },
+        {
+          "text": "You",
+          "note": "You cannot remove yourself, and the last owner cannot be removed at all."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "app": "admin-panel",
+  "page": "admin/partners",
+  "note": "Filtered to Kilima on purpose. Unfiltered, the list is mostly E2E fixtures \u2014 'E2E Closed 12175' and friends \u2014 and a figure of those documents the test suite rather than the product.",
+  "figures": [
+    {
+      "id": "admin-partners-01-en",
+      "title": "Corporate accounts and integration partners",
+      "cropX": false,
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/partners?q=Kilima"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "pause": 1500
+        },
+        {
+          "park": true
+        }
+      ],
+      "callouts": [
+        {
+          "text": "Integration partners",
+          "note": "A different relationship: partners embed Otesha through the API."
+        },
+        {
+          "sel": "table th:nth-child(3)",
+          "note": "The tier that sets the discount on their orders."
+        }
+      ]
+    }
+  ]
+}

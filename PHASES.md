@@ -374,7 +374,7 @@ where the trial left us, not a head start.
 | 8 | Caretaker pay | ✓ | 5 / 5 | 18 Sep 2026 |
 | 9 | Watching your tree | ✓ | 3 / 6 | 18 Sep 2026 |
 | 10 | Money and invoices | ✓ | 2 / 2 | 18 Sep 2026 |
-| 11 | Corporate partnership | — | 1 / 7 | |
+| 11 | Corporate partnership | ✓ | 6 / 7 | 18 Sep 2026 |
 | 12 | The developer platform | — | 0 / 8 | |
 | 13 | Motivation and recognition | — | 0 / 5 | |
 | 14 | Running the programme | — | 0 / 6 | |
@@ -432,6 +432,27 @@ phase 0, and the sentence was rewritten to state the fact rather than link to it
 Two id collisions went with it: corporate wanted `trees` and `tree`, both
 already owned by the caretaker manual. They became `tree-register` and
 `tree-history`. Third time that check has paid for itself.
+
+## Module 11, and the one page it does not have
+
+Five new pages — the team and its roles, settings, the tier, certificates, and
+the admin side of partner accounts — on top of the dashboard, orders, ESG and
+invite pages earlier modules had already written.
+
+The seventh planned page was `$org.more`, and it is deliberately not written. It
+is the phone's navigation overflow: the four tabs the bottom bar fits, and this
+page for the remainder, both computed from the same config. There is no task on
+it. Documenting navigation as though it were a task is how a manual gets long
+without getting more useful.
+
+Two things the module surfaced that belong to other pages. The admin partner
+list reads trees as *living / ordered*, and Kilima Bank now shows **306 / 346** —
+the forty-tree order placed while writing module 10, seen from the staff side as
+the same outstanding number the client sees on their own orders page. And the
+tier panel explains module 10's arithmetic: at *sapling* the discount is 0.0%,
+which is why the order form's estimate and the invoice total were the same
+figure.
+
 
 ## What the figure audit found
 

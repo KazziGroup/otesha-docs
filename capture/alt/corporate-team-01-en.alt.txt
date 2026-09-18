@@ -1,0 +1,1 @@
+Marked on the screenshot: A colleague is added by number, not by email. Three roles. Owners administer; everybody else reads. You cannot remove yourself, and the last owner cannot be removed at all.
