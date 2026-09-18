@@ -21,6 +21,8 @@ Nothing. It lists what the app last downloaded, so it opens without signal.
 
 **1. Tap Trees.**
 
+![The caretaker app's tree list, with the heading and the Needs attention filter marked. Marked on the screenshot: Every tree in your section. Narrow to the ones asking for something.](/img/caretaker-trees-01-en.png "Your trees. Your zone and the count are under the heading.")
+
 Under the heading is your zone and how many trees are in your care. Each row is
 one tree: its code, how old it is, when it was last watered, and how far along
 it is — **Growing**, **Mature**, and so on.

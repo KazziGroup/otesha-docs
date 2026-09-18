@@ -20,9 +20,11 @@ without signal.
 
 **1. Tap Profile.**
 
+![The caretaker profile screen, with the zone and status line and the work counts marked. Marked on the screenshot: Your zone, and whether you are active. Trees in your care, logs this month, days worked.](/img/caretaker-profile-01-en.png "Profile. Your standing, and what this month adds up to.")
+
 **2. Read the line under your name.**
 
-It says your zone and your status — *Zone 87 · Active*. **Active** is what lets
+It says your zone and your status — *Zone 1 · Active*. **Active** is what lets
 you be given trees and be paid; if it says anything else, that is the thing to
 ask your supervisor about before anything else on this screen.
 

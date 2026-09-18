@@ -1,8 +1,8 @@
 {
-  "app": "caretaker-mobile-app-live",
+  "app": "caretaker-mobile-app",
   "platform": "ios-simulator",
   "bundleId": "com.otesha.app.demo",
-  "note": "Expo dev client against the local backend — needs Metro on 8081 with EXPO_PUBLIC_API_PORT matching the API. The static-demo build cannot document signing in, because it opens already signed in.",
+  "note": "EXPO_PUBLIC_STATIC_DEMO=1 — bundled fixtures, no backend",
   "device": "F4E2CA7A-DFD7-4DEC-9A58-09DC96CF749D",
   "commit": "4f7227e",
   "branch": "honest-app",

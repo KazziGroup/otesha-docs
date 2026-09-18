@@ -465,12 +465,21 @@ pay".
 **Two caretaker figures showed the splash screen.** `caretaker/trees` and
 `caretaker/profile` photographed the app before it had finished starting, with
 the callouts marking empty space on the background photograph. Both recipes
-counted seconds instead of waiting for anything; they now wait for the screen to
-render, and both failed immediately when re-run — which is the correct
-behaviour. They could not be re-shot: the dev client will not bind to this
-machine's Metro, and the static demo build launches but does not respond to tab
-taps under Maestro. Both figures are withdrawn from their pages, their recipes
-are kept and marked `pending`, and `check-shots` reports them on every run.
+counted seconds instead of waiting for anything.
+
+Both now shoot against the **static demo build** rather than the dev client. The
+dev client needs a reachable packager, and when it cannot find one it sits on
+its server picker while the capture photographs whatever is behind it; the demo
+build carries bundled fixtures and opens already signed in, which is what it was
+made for. The trade is that these two figures show demo data — Salma in Zone 1
+with six trees — rather than the seeded database, and the prose on those pages
+follows the figures.
+
+The anchors are now `waitFor` assertions, and one detail cost an hour: **Maestro
+matches text as a whole-string regex**, so `"Today's tasks"` never matches a node
+labelled `"Today's tasks · 1 of 6 · trees done · 5 watering"`. It has to be
+`".*Today's tasks.*"`. A `waitFor` that can never match is a recipe that always
+fails, which is better than one that always passes, but only just.
 
 `capture/recompose.mjs` came out of this. It redraws every figure from the
 frames `shoot.mjs` already caches, so changing how markers are drawn costs no

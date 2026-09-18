@@ -1,47 +1,32 @@
 {
-  "app": "caretaker-mobile-app-live",
+  "app": "caretaker-mobile-app",
   "page": "caretaker/profile",
-  "note": "The dev client against the local backend, signed in as the seeded caretaker on 0700 000 011. The static-demo build shows fixture numbers rather than a real record.",
+  "note": "The static demo build: bundled fixtures, no backend. Its figures show demo data rather than the seeded database, which is the trade for a capture that does not depend on a packager being reachable.",
   "figures": [
     {
       "id": "caretaker-profile-01-en",
       "title": "Your standing",
       "steps": [
         {
-          "pause": 2000
+          "waitFor": ".*Today's tasks.*"
         },
         {
-          "tapIfPresent": ".*8081.*"
+          "tap": "Profile"
         },
         {
-          "waitFor": "Profile"
-        },
-        {
-          "tapIfPresent": "Back"
-        },
-        {
-          "tapIfPresent": "Profile"
-        },
-        {
-          "waitFor": "Zone 87"
-        },
-        {
-          "pause": 1500
+          "pause": 2500
         }
       ],
       "callouts": [
         {
-          "match": "Zone 87 \u00b7 Active",
-          "note": "Your zone, and whether you are active.",
-          "side": "right"
+          "match": "Zone 1 \u00b7 Active",
+          "note": "Your zone, and whether you are active."
         },
         {
           "match": "Your trees",
-          "note": "Trees in your care, logs this month, days worked.",
-          "side": "left"
+          "note": "Trees in your care, logs this month, days worked."
         }
-      ],
-      "pending": "the capture photographed the splash screen; recipe now waits for the screen, needs a re-shoot on a working handset"
+      ]
     }
   ]
 }
