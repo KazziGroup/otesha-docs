@@ -1,9 +1,14 @@
-# Publish the client manual to GitHub Pages.
+# Publish the manuals to GitHub Pages.
 #
-# Only the external build is deployed. The repository is public and carries all
-# five manuals, but the site a client is handed shows the nine corporate and
-# overview pages and nothing else — the split is `DOCS_AUDIENCE`, and it happens
-# at the module graph, so the internal text is not in the bundle at all.
+# The internal build is what ships, so the site carries all five manuals — the
+# team needs one link that reaches everything, and while the manuals are still
+# being written that matters more than the audience split. The site is public:
+# unlisted, not gated. Anyone with the address can read it.
+#
+# The split itself is not going anywhere. `DOCS_AUDIENCE=external` still builds
+# the nine-page client manual and `npm run check` still proves each build
+# contains what it should, so pointing this workflow at the client build later
+# is a one-word change rather than a rebuild.
 #
 # `DOCS_BASE` is set because a project-repo Pages site is served at /<repo>/.
 name: Pages
@@ -34,16 +39,16 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Build the client manual
+      - name: Build the manuals
         env:
-          DOCS_AUDIENCE: external
+          DOCS_AUDIENCE: internal
           DOCS_BASE: /otesha-docs/
         run: npx vite build
-      - name: Refuse to publish a build containing the internal manuals
-        # The audience split is the whole reason this repo builds twice, and a
-        # mistake here is not a broken page, it is the admin manual on a public
-        # website. Cheaper to check than to retract.
-        run: scripts/check-dist-audience.sh dist external
+      - name: Refuse to publish a build that is missing manuals
+        # A build that silently loses the admin manual still renders, still
+        # deploys, and reads as a complete site — the team would just find
+        # nothing where the payout pages should be. Assert the bytes.
+        run: scripts/check-dist-audience.sh dist internal
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
