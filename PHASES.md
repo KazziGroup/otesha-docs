@@ -372,7 +372,7 @@ where the trial left us, not a head start.
 | 6 | Gifting a tree | ✕ | — | dropped 18 Sep 2026 |
 | 7 | The daily round | ✓ | 5 / 5 | 18 Sep 2026 |
 | 8 | Caretaker pay | ✓ | 5 / 5 | 18 Sep 2026 |
-| 9 | Watching your tree | — | 0 / 6 | |
+| 9 | Watching your tree | ✓ | 3 / 6 | 18 Sep 2026 |
 | 10 | Money and invoices | — | 0 / 3 | |
 | 11 | Corporate partnership | — | 1 / 7 | |
 | 12 | The developer platform | — | 0 / 8 | |
@@ -397,6 +397,41 @@ can reconstruct.
 | 17 Sep 2026 | ~~`origin/main` is the documented ref~~ | **Reversed 18 Sep.** I decided this per module and checked only the apps module 1 touched, concluding the difference was "module 12's problem". It was module 1's: `staging` already had a second sign-in door. |
 | 18 Sep 2026 | **`origin/staging` is the documented ref** | `main` is built by merging `staging` — every recent merge into it is a PR *from* staging — so staging holds the decisions on their way to users and main is a trailing snapshot. Documenting main produced manuals for gifts and subscriptions the team had already deferred, while omitting the email sign-in it had already added. The caretaker app is the exception: it has no staging branch, so `main` is the only ref it has. |
 | 17 Sep 2026 | **English only** | The audience is English-speaking for now. docs-viewer has no language support at all, so parity would have meant building one first — see "English only" above. |
+
+## Module 9 shipped at half size
+
+Six pages were planned; three shipped. The three that did not are not deferred
+for tidiness, they are blocked, and the reasons are worth keeping:
+
+**The customer side has no subject.** `customer/tree-detail` — a sponsor looking
+at their own tree — cannot be captured because in the seeded database *no
+customer owns a tree*. All 306 trees belong to Kilima Bank, a corporate account.
+Creating one by hand would mean completing a sponsorship, and the mock payment
+provider only settles through a signed webhook, so a capture cannot get past
+checkout. Unblocking this needs a seed that gives some customer a tree, not a
+change to the capture tooling.
+
+**The corporate map is still the Mapbox hole.** Same missing `MAPBOX_TOKEN` that
+stubbed a page in module 3. Photographing an error box is worse than shipping
+nothing.
+
+What the three pages that did ship gave us was the module's best find anyway:
+the corporate tree dialog says *"No photographs of this tree yet. Caretakers add
+them from the field as they tend it."* That is module 7's optional photo step
+seen from the other end of the programme — the sponsor is told, in the product's
+own words, that the absence of a photo is not evidence of neglect.
+
+## The checker caught a cross-audience link, at last
+
+Module 9 was the first time a corporate page wanted to link into the admin
+manual — "see how sections are assigned". The external build does not ship the
+admin manual, so that link would have been a dead end for the only reader the
+corporate manual is written for. `check-links` failed the build, as designed in
+phase 0, and the sentence was rewritten to state the fact rather than link to it.
+
+Two id collisions went with it: corporate wanted `trees` and `tree`, both
+already owned by the caretaker manual. They became `tree-register` and
+`tree-history`. Third time that check has paid for itself.
 
 ## What switching to staging cost
 
@@ -435,6 +470,29 @@ than in a note somebody has to remember:
   in, by design. The live dev client is registered separately as
   `caretaker-mobile-app-live`, and the recipe signs out first so it works from
   either state.
+
+## A stray click, and what it cost
+
+On 18 Sep a payout run was approved by accident. Commands meant for the customer
+app ran while the browse session had drifted to the admin console, and
+`button[type=submit]` on that page is **Approve**. The run moved from *Awaiting
+approval* to *Approved*; nothing was disbursed, and all 31 rows stayed
+`PENDING`.
+
+Two things went wrong and both are worth keeping:
+
+- **A generic selector was clicked without asserting the page.** `submit` means
+  something different on every screen. Exploration should name what it expects
+  to be looking at before it touches anything — the capture recipes do this
+  (`wait` before `click`), and the ad-hoc exploration around them did not.
+- **A recipe depended on shared state.** `admin/release-payout` needed the
+  seeded run to still be unapproved, so one click elsewhere invalidated a
+  figure. It now reads what the page says whatever state its runs are in, the
+  same way the customer recipes moved to fresh accounts rather than the seeded
+  one.
+
+The underlying lesson is the one from phase 0 in a new coat: assume nothing
+about where the browser is, and depend on nothing a second party can advance.
 
 ## Open questions
 

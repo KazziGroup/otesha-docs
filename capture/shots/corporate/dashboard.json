@@ -1,0 +1,70 @@
+{
+  "app": "corporate-portal",
+  "page": "corporate/dashboard",
+  "note": "Signs in by SMS each run, which costs one of five codes an hour against the corporate number. The organisation id is the seeded Kilima Bank account.",
+  "figures": [
+    {
+      "id": "corporate-dashboard-01-en",
+      "title": "Your programme",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "+255717763373"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=code]"
+        },
+        {
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
+        },
+        {
+          "pause": 600
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/f0086ca5-abc2-40fc-8919-e74f91ca5ccb"
+        },
+        {
+          "wait": "text=SURVIVAL"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1500
+        }
+      ],
+      "callouts": [
+        {
+          "text": "SURVIVAL",
+          "note": "Of trees ever in the ground, how many are alive.",
+          "side": "left"
+        },
+        {
+          "text": "TREES",
+          "note": "How many you have, and how many are living.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

@@ -22,14 +22,14 @@ decided, so a run compiled before those decisions leaves people short.
 
 **1. Compile a run.**
 
-![The payouts page in the admin console, with the nothing-paid-yet note and the run status marked. Marked on the screenshot: Compiling only works out what is owed. A compiled run waits for somebody else.](/img/admin-release-payout-01-en.png "Payouts. Compile a run, approve it, then disburse it.")
+![The payouts page in the admin console, with the compile form marked. Marked on the screenshot: Compiling only works out what is owed. Reads the rates in force and sums the work in the period.](/img/admin-release-payout-01-en.png "Payouts. Compile a run, approve it, then disburse it.")
 
 Compiling *"reads the rates in force, sums the work in the period and subtracts
 anything held. **Nothing is paid yet.**"* It is arithmetic, not money.
 
 **2. Have somebody else approve it.**
 
-![A compiled payout run in the admin console, with the separation-of-duties note and the held total marked. Marked on the screenshot: The person who compiles cannot approve. Anything held back is subtracted before the net.](/img/admin-release-payout-02-en.png "A run: gross, held, net, and everybody in it.")
+![A compiled payout run in the admin console, with the gross and net totals marked. Marked on the screenshot: What the work came to before anything was held. What will actually be disbursed.](/img/admin-release-payout-02-en.png "A run: gross, held, net, and everybody in it.")
 
 *"A run has to be approved by somebody other than whoever compiled it."* That is
 the whole reason this is three steps rather than one button.

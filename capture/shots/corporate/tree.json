@@ -1,0 +1,76 @@
+{
+  "app": "corporate-portal",
+  "page": "corporate/tree",
+  "note": "Signs in by SMS each run, which costs one of five codes an hour against the corporate number. The organisation id is the seeded Kilima Bank account.",
+  "figures": [
+    {
+      "id": "corporate-tree-01-en",
+      "title": "One tree",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "+255717763373"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=code]"
+        },
+        {
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
+        },
+        {
+          "pause": 600
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/f0086ca5-abc2-40fc-8919-e74f91ca5ccb/trees"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "click": "td:has-text('DOD-03-SC-001-0002')"
+        },
+        {
+          "wait": "text=Last tended this tree"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1500
+        }
+      ],
+      "callouts": [
+        {
+          "text": "Last tended this tree",
+          "note": "The caretaker who was there most recently.",
+          "side": "left"
+        },
+        {
+          "text": "Caretakers add them from the field",
+          "note": "Photographs come from the logging step, not the office.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

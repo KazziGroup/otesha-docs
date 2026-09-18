@@ -1,7 +1,7 @@
 {
   "app": "admin-panel",
   "page": "admin/release-payout",
-  "note": "Captured while the seeded run is still awaiting approval \u2014 that is the state the page is for.",
+  "note": "Compiles its own run rather than relying on the seeded one being unapproved. A capture that depends on shared state breaks the moment anybody advances it \u2014 and the seeded run was advanced by a stray click during this very module. Compiling is safe to repeat: it works out what is owed and pays nothing.",
   "figures": [
     {
       "id": "admin-release-payout-01-en",
@@ -51,8 +51,8 @@
           "side": "left"
         },
         {
-          "text": "Awaiting approval",
-          "note": "A compiled run waits for somebody else.",
+          "text": "Compile a run",
+          "note": "Reads the rates in force and sums the work in the period.",
           "side": "right"
         }
       ]
@@ -89,13 +89,13 @@
           "goto": "/payouts"
         },
         {
-          "wait": "text=Awaiting approval"
+          "wait": "text=Compile a run"
         },
         {
           "click": "a[href*='/payouts/']"
         },
         {
-          "wait": "text=Approve this run"
+          "wait": "text=Gross"
         },
         {
           "park": true
@@ -106,13 +106,13 @@
       ],
       "callouts": [
         {
-          "text": "somebody other than whoever compiled it",
-          "note": "The person who compiles cannot approve.",
+          "text": "Gross",
+          "note": "What the work came to before anything was held.",
           "side": "left"
         },
         {
-          "text": "Held",
-          "note": "Anything held back is subtracted before the net.",
+          "text": "Net",
+          "note": "What will actually be disbursed.",
           "side": "right"
         }
       ]

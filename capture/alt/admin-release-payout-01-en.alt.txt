@@ -1,1 +1,1 @@
-Marked on the screenshot: Compiling only works out what is owed. A compiled run waits for somebody else.
+Marked on the screenshot: Compiling only works out what is owed. Reads the rates in force and sums the work in the period.
