@@ -14,7 +14,7 @@
           "tapIfPresent": ".*8081.*"
         },
         {
-          "pause": 10000
+          "waitFor": "Profile"
         },
         {
           "tapIfPresent": "Back"
@@ -23,7 +23,10 @@
           "tapIfPresent": "Profile"
         },
         {
-          "pause": 3000
+          "waitFor": "Zone 87"
+        },
+        {
+          "pause": 1500
         }
       ],
       "callouts": [
@@ -37,7 +40,8 @@
           "note": "Trees in your care, logs this month, days worked.",
           "side": "left"
         }
-      ]
+      ],
+      "pending": "the capture photographed the splash screen; recipe now waits for the screen, needs a re-shoot on a working handset"
     }
   ]
 }

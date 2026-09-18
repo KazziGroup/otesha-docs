@@ -63,6 +63,30 @@ for (const figure of wanted) {
     continue;
   }
 
+  /**
+   * Positions come from the cache; the words come from the shot list.
+   *
+   * The measured file holds both, because measuring is when they were last
+   * together. But a note is authored and a rect is observed: rewording a
+   * callout should not mean signing in and re-running the recipe, and if it
+   * did, the fast path would quietly keep shipping the old wording. Only the
+   * text is overlaid — if the anchor changed, the geometry is stale and the
+   * figure genuinely does need re-shooting.
+   */
+  const measured = JSON.parse(readFileSync(targetsPath, "utf8"));
+  const authored = figure.callouts ?? [];
+  if (measured.ok && measured.targets?.length === authored.length) {
+    let changed = false;
+    measured.targets.forEach((t, i) => {
+      const note = authored[i]?.note ?? "";
+      if (note && note !== t.note) {
+        t.note = note;
+        changed = true;
+      }
+    });
+    if (changed) writeFileSync(targetsPath, JSON.stringify(measured));
+  }
+
   const htmlPath = join(WORK, `${figure.id}.html`);
   execFileSync(
     "node",

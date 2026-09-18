@@ -27,7 +27,7 @@ total. **Place order** creates the order — it does not take any money.
 
 **2. Choose how to pay, and which number to charge.**
 
-![The payment step in the customer app, with the payment methods and the number-to-charge note marked. Marked on the screenshot: Six ways to pay, including card and bank transfer. The number charged need not be the one you signed in with.](/img/customer-checkout-02-en.png "How would you like to pay. Six methods, and the number to prompt.")
+![The payment step in the customer app, with the payment methods and the number-to-charge note marked. Marked on the screenshot: M-Pesa is chosen. Tigo, Airtel, Halo, card and bank transfer are the rest. The number charged need not be the one you signed in with.](/img/customer-checkout-02-en.png "How would you like to pay. Six methods, and the number to prompt.")
 
 Six methods: M-Pesa, Tigo Pesa, Airtel Money, Halo Pesa, card and bank transfer.
 The **number to charge** is separate from your account: *"You can pay from a

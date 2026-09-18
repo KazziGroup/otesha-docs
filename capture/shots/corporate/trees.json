@@ -55,16 +55,19 @@
       ],
       "callouts": [
         {
-          "text": "At risk",
-          "note": "Seven states a tree can be in, including ones nobody wants.",
-          "side": "left"
+          "text": "All statuses",
+          "note": "Filter by state. Seven of them, including the ones nobody wants."
         },
         {
-          "sel": "table th:nth-child(5)",
-          "note": "When it went in the ground.",
-          "side": "right"
+          "text": "AT RISK",
+          "note": "Flagged by a caretaker. Still alive, and still counted as surviving."
+        },
+        {
+          "sel": "table th:nth-child(1)",
+          "note": "The tree's code \u2014 the same one on the tag in the field."
         }
-      ]
+      ],
+      "cropX": false
     }
   ]
 }

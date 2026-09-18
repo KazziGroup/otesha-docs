@@ -19,10 +19,12 @@ Nothing, or a tree's code if you are looking for one in particular.
 
 **1. Open Trees.**
 
-![The corporate tree register, with the status filters and the planted date marked. Marked on the screenshot: Seven states a tree can be in, including ones nobody wants. When it went in the ground.](/img/corporate-trees-01-en.png "The register. One row per tree, with where it is and how it is doing.")
+![The corporate tree register, with the status filter, a tree's code and an at-risk tree marked. Marked on the screenshot: Filter by state. Seven of them, including the ones nobody wants. The tree's code — the same one on the tag in the field. Flagged by a caretaker. Still alive, and still counted as surviving.](/img/corporate-trees-01-en.png "The register. One row per tree, with where it is and how it is doing.")
 
 Each row is one tree: its code, species, the site it stands on, its state, and
-when it was planted.
+when it was planted. The code is the same one printed on the tag in the field,
+so a question about a specific tree can be traced from this screen to the person
+who last tended it.
 
 **2. Filter by state.**
 

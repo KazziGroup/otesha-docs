@@ -20,8 +20,6 @@ without signal.
 
 **1. Tap Profile.**
 
-![The caretaker profile screen, with the zone and status line and the work counts marked. Marked on the screenshot: Your zone, and whether you are active. Trees in your care, logs this month, days worked.](/img/caretaker-profile-01-en.png "Profile. Your standing, and what this month adds up to.")
-
 **2. Read the line under your name.**
 
 It says your zone and your status — *Zone 87 · Active*. **Active** is what lets
@@ -42,6 +40,13 @@ server, which for work recorded [[link:caretaker/offline|with no signal]] is
 when you are next in range rather than when you tapped save.
 
 ## If it goes wrong
+
+>  **Note:** The screenshot for this page has been pulled. The capture ran
+> before the app had finished starting and photographed the splash screen,
+> with the callouts marking empty space on the background image — a picture
+> of nothing, presented as this screen. The recipe now waits for the screen
+> to render rather than counting seconds, so the figure returns the next
+> time the capture runs against a working handset.
 
 > **Note:** Your trees reads zero and you have been given a section. The app
 > lists what it last downloaded — open it somewhere with signal and give it a

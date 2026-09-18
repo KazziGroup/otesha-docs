@@ -1,1 +1,1 @@
-Marked on the screenshot: Compiling only works out what is owed. Reads the rates in force and sums the work in the period.
+Marked on the screenshot: Reads the rates in force and sums the work in the period. Compiling only works out what is owed.

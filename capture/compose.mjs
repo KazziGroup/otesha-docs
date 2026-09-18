@@ -78,6 +78,28 @@ const BADGE = 24;
  * badges at the same height on the same side would overlap, so the later one is
  * sent across — which is what the two sides were for in the first place.
  */
+/**
+ * Number the callouts the way the figure is read.
+ *
+ * The shot list is written in whatever order made sense while writing it, and
+ * that is frequently not the order the eye meets things. On the corporate
+ * dashboard the second badge sat to the left of the first; on the nursery it
+ * sat above it. A reader scanning the picture finds the numbers out of sequence
+ * and concludes the annotation is broken, which as far as they can tell it is.
+ *
+ * Top to bottom, then left to right among things on the same line. The band is
+ * generous because two controls a reader takes in side by side are rarely
+ * aligned to the pixel. Renumbering here rather than in each shot list means
+ * the markers, the legend and the alt text are built from one ordered list and
+ * cannot disagree with each other.
+ */
+function inReadingOrder(targets) {
+  const BAND = 40;
+  return [...targets]
+    .sort((a, b) => Math.round(a.y / BAND) - Math.round(b.y / BAND) || a.x - b.x)
+    .map((t, i) => ({ ...t, n: i + 1 }));
+}
+
 function assignSides(targets) {
   const frameMid = CROP.x + CROP.w / 2;
   const placed = [];
@@ -145,9 +167,10 @@ const marker = (t) => {
     <div class="badge" style="left:${badgeX}px;top:${mid - 12}px">${t.n}</div>`;
 };
 
-const MARKERS = assignSides(measured.targets);
+const ORDERED = inReadingOrder(measured.targets);
+const MARKERS = assignSides(ORDERED);
 
-const legend = measured.targets
+const legend = ORDERED
   .filter((t) => t.note)
   .map((t) => `<li><span class="b">${t.n}</span><span>${t.note}</span></li>`)
   .join("");
@@ -247,7 +270,7 @@ if (provenance.url || provenance.commit) {
   );
 }
 
-const notes = measured.targets.filter((t) => t.note);
+const notes = ORDERED.filter((t) => t.note);
 if (notes.length) {
   const sentences = notes
     .map((t) => (/[.!?]$/.test(t.note) ? t.note : `${t.note}.`))

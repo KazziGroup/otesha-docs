@@ -14,7 +14,7 @@
           "tapIfPresent": ".*8081.*"
         },
         {
-          "pause": 12000
+          "waitFor": "Trees"
         },
         {
           "tapIfPresent": "Back"
@@ -23,7 +23,10 @@
           "tapIfPresent": "Trees"
         },
         {
-          "pause": 4000
+          "waitFor": "Your trees"
+        },
+        {
+          "pause": 1500
         }
       ],
       "callouts": [
@@ -37,7 +40,8 @@
           "note": "Narrow to the ones asking for something.",
           "side": "right"
         }
-      ]
+      ],
+      "pending": "the capture photographed the splash screen; recipe now waits for the screen, needs a re-shoot on a working handset"
     }
   ]
 }

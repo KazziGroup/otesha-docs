@@ -21,8 +21,6 @@ Nothing. It lists what the app last downloaded, so it opens without signal.
 
 **1. Tap Trees.**
 
-![The caretaker app's tree list, with the heading and the Needs attention filter marked. Marked on the screenshot: Every tree in your section. Narrow to the ones asking for something.](/img/caretaker-trees-01-en.png "Your trees. Your zone and the count are under the heading.")
-
 Under the heading is your zone and how many trees are in your care. Each row is
 one tree: its code, how old it is, when it was last watered, and how far along
 it is — **Growing**, **Mature**, and so on.
@@ -41,6 +39,13 @@ The count under the heading matches what the office thinks you have. If it does
 not, that is a rota question rather than an app one.
 
 ## If it goes wrong
+
+>  **Note:** The screenshot for this page has been pulled. The capture ran
+> before the app had finished starting and photographed the splash screen,
+> with the callouts marking empty space on the background image — a picture
+> of nothing, presented as this screen. The recipe now waits for the screen
+> to render rather than counting seconds, so the figure returns the next
+> time the capture runs against a working handset.
 
 > **Note:** A tree reads *never watered*. That is the record, not an accusation
 > — it means no watering has been logged against it, which for a newly assigned

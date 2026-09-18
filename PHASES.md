@@ -433,6 +433,51 @@ Two id collisions went with it: corporate wanted `trees` and `tree`, both
 already owned by the caretaker manual. They became `tree-register` and
 `tree-history`. Third time that check has paid for itself.
 
+## What the figure audit found
+
+Every figure was opened and compared against its own note. The markers were
+wrong often enough that the machinery, not the recipes, was the problem.
+
+**Badges pointed at the wrong control.** The badge sat in the gutter and its
+leader stopped at the frame edge, so on a wide console it came to rest beside
+whatever occupied that row at the edge. A box around the first caretaker card's
+*Approve* had its badge against the second card's *Reject*: the figure stated
+the opposite of its note. Running the leader to the box fixed the aim and drew a
+rule through everything between — a caretaker's name, a column heading, a date.
+Badges are now anchored to their own box on a short stub. Nothing to cross.
+
+**One figure listed a callout it never drew.** `admin/fulfilment` shipped a
+legend entry with no badge anywhere on the image: "days late" matched the
+shortest such pill, 150px below the fold, and the marker rendered outside the
+window that clips the frame. `measure.js` now fails on any target outside the
+frame, the same way it fails on a selector that matches nothing.
+
+**Eight figures numbered against reading order** — the second badge to the left
+of the first, or above it. Renumbering happens in the composer now, so markers,
+legend and alt text come from one ordered list.
+
+**Three notes promised more than their box held.** The cluster board pointed at
+a name while promising a tree count. The corporate register pointed at one
+status pill while claiming to show all seven — they live in a filter dropdown,
+which can only ever display one. Checkout boxed *M-Pesa* and said "six ways to
+pay".
+
+**Two caretaker figures showed the splash screen.** `caretaker/trees` and
+`caretaker/profile` photographed the app before it had finished starting, with
+the callouts marking empty space on the background photograph. Both recipes
+counted seconds instead of waiting for anything; they now wait for the screen to
+render, and both failed immediately when re-run — which is the correct
+behaviour. They could not be re-shot: the dev client will not bind to this
+machine's Metro, and the static demo build launches but does not respond to tab
+taps under Maestro. Both figures are withdrawn from their pages, their recipes
+are kept and marked `pending`, and `check-shots` reports them on every run.
+
+`capture/recompose.mjs` came out of this. It redraws every figure from the
+frames `shoot.mjs` already caches, so changing how markers are drawn costs no
+sign-ins and cannot disturb the data the figures document. Positions come from
+the cache; the words come from the shot list.
+
+
 ## Where the manuals are hosted
 
 <https://kazzigroup.github.io/otesha-docs/> — all five manuals, deployed from

@@ -42,6 +42,7 @@ const CONFIG = JSON.parse(readFileSync(join(ROOT, "capture", "apps.json"), "utf8
 
 let failures = 0;
 const declared = new Map(); // figure id → the shot list that builds it
+const pending = new Map(); // figure id → why it is withdrawn from the manual
 
 if (existsSync(SHOTS)) {
   for (const rel of readdirSync(SHOTS, { recursive: true })) {
@@ -87,6 +88,8 @@ if (existsSync(SHOTS)) {
         failures++;
       }
 
+      if (figure.pending) pending.set(figure.id, figure.pending);
+
       for (const callout of figure.callouts ?? []) {
         for (const problem of calloutProblems(callout)) {
           console.error(`  FAIL  capture/shots/${rel}: ${figure.id} callout ${problem}`);
@@ -105,6 +108,19 @@ for (const [id, page] of used) {
 
 for (const [id, list] of declared) {
   if (used.has(id)) continue;
+  /**
+   * A figure can be withdrawn without deleting its recipe.
+   *
+   * When a capture is found to have photographed the wrong thing, the figure
+   * has to come off the page immediately, but throwing the recipe away throws
+   * away the fix that stops it happening again. `"pending"` keeps the recipe,
+   * keeps it out of the manual, and says so on every run — an orphan that
+   * announces itself, rather than one that passes quietly.
+   */
+  if (pending.has(id)) {
+    console.warn(`  note  ${id} is pending: ${pending.get(id)}`);
+    continue;
+  }
   console.error(`  FAIL  capture/shots/${list}: builds ${id}, which no page uses`);
   failures++;
 }
