@@ -1,0 +1,8 @@
+{
+  "url": "http://localhost:5200/payouts/8b2026d1-4c0f-4f07-8a16-877a4c50073e",
+  "capturedFrom": "http://localhost:5200",
+  "app": "admin-panel",
+  "commit": "dc1db59",
+  "branch": "staging",
+  "documentedRef": "origin/staging"
+}

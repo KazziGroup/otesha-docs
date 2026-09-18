@@ -1,0 +1,60 @@
+{
+  "app": "admin-panel",
+  "page": "admin/payment-holds",
+  "figures": [
+    {
+      "id": "admin-payment-holds-01-en",
+      "title": "Payment holds",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/holds"
+        },
+        {
+          "wait": "text=Place a hold"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1200
+        }
+      ],
+      "callouts": [
+        {
+          "text": "Only a person can lift one",
+          "note": "A hold never expires on its own.",
+          "side": "left"
+        },
+        {
+          "text": "Reason",
+          "note": "Required, and read by whoever is asked about it later.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

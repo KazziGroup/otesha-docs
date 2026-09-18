@@ -1,0 +1,121 @@
+{
+  "app": "admin-panel",
+  "page": "admin/release-payout",
+  "note": "Captured while the seeded run is still awaiting approval \u2014 that is the state the page is for.",
+  "figures": [
+    {
+      "id": "admin-release-payout-01-en",
+      "title": "Compiling a run",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/payouts"
+        },
+        {
+          "wait": "text=Compile a run"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1200
+        }
+      ],
+      "callouts": [
+        {
+          "text": "Nothing is paid yet",
+          "note": "Compiling only works out what is owed.",
+          "side": "left"
+        },
+        {
+          "text": "Awaiting approval",
+          "note": "A compiled run waits for somebody else.",
+          "side": "right"
+        }
+      ]
+    },
+    {
+      "id": "admin-release-payout-02-en",
+      "title": "Approving a run",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/payouts"
+        },
+        {
+          "wait": "text=Awaiting approval"
+        },
+        {
+          "click": "a[href*='/payouts/']"
+        },
+        {
+          "wait": "text=Approve this run"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1200
+        }
+      ],
+      "callouts": [
+        {
+          "text": "somebody other than whoever compiled it",
+          "note": "The person who compiles cannot approve.",
+          "side": "left"
+        },
+        {
+          "text": "Held",
+          "note": "Anything held back is subtracted before the net.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

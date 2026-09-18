@@ -1,0 +1,38 @@
+{
+  "app": "caretaker-mobile-app-live",
+  "page": "caretaker/earnings",
+  "note": "Shows the empty state, which is the truthful one here: the seeded payout run is compiled but not yet approved, so nobody has been paid. Approving it would produce richer figures at the cost of mutating seed state the e2e suite relies on.",
+  "figures": [
+    {
+      "id": "caretaker-earnings-01-en",
+      "title": "Earnings",
+      "steps": [
+        {
+          "pause": 2000
+        },
+        {
+          "tapIfPresent": ".*8081.*"
+        },
+        {
+          "waitFor": "Habari.*"
+        },
+        {
+          "tap": "Open earnings"
+        },
+        {
+          "waitFor": "Earnings"
+        },
+        {
+          "pause": 2000
+        }
+      ],
+      "callouts": [
+        {
+          "match": "Paid monthly via M-Pesa",
+          "note": "How and how often the money arrives.",
+          "side": "left"
+        }
+      ]
+    }
+  ]
+}

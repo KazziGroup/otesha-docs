@@ -243,10 +243,25 @@ needs the API stopped mid-capture, which the shared backend on :8000 is serving
 every other app's figures from. Worth doing when the capture harness moves into
 `otesha/e2e`, where `offline-sync.sh` already does exactly that.
 
-**8. Caretaker pay.** Earnings on the phone, and releasing a payout run from the
-console — two ends of one event, and the clearest argument for doing this
-module-wise. Requires 7, since there must be logged work to pay for.
-*Routes:* caretaker `earnings`, `earn-more`; admin `transactions`.
+**8. Caretaker pay.** Earnings on the phone, and the three-step release on the
+console. Requires 7, since there must be logged work to pay for.
+*Routes:* caretaker `earnings`; admin `payouts`, `payouts/$runId`, `rates`,
+`holds`.
+
+**Three rules the console states and enforces.** Compiling *"reads the rates in
+force, sums the work in the period and subtracts anything held — nothing is paid
+yet"*. A run *"has to be approved by somebody other than whoever compiled it"*.
+And a hold *"withholds everything for this subject from every run, until
+somebody releases it"* — **only a person can lift one**. Rates are *"published
+as a version, never edited in place"*, so work keeps the rate in force when it
+was done.
+
+**The earnings page documents its empty state, deliberately.** The seeded run is
+compiled but not approved, so nobody has been paid — and approving it would
+mutate seed state the e2e suite compiles against. That turned out to be the more
+useful page anyway: logged work is not paid work, and a caretaker looking at an
+empty screen with forty-five logs this month needs to be told why rather than
+shown somebody else's money.
 
 **9. Watching your tree.** The sponsor's view of a living tree, the same tree in
 the caretaker's list, and the corporate map. One subject, three audiences.
@@ -356,7 +371,7 @@ where the trial left us, not a head start.
 | 5 | Sponsoring a tree | ✓ | 5 / 5 | 18 Sep 2026 |
 | 6 | Gifting a tree | ✕ | — | dropped 18 Sep 2026 |
 | 7 | The daily round | ✓ | 5 / 5 | 18 Sep 2026 |
-| 8 | Caretaker pay | — | 0 / 5 | |
+| 8 | Caretaker pay | ✓ | 5 / 5 | 18 Sep 2026 |
 | 9 | Watching your tree | — | 0 / 6 | |
 | 10 | Money and invoices | — | 0 / 3 | |
 | 11 | Corporate partnership | — | 1 / 7 | |

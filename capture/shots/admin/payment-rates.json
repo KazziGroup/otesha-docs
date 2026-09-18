@@ -1,0 +1,60 @@
+{
+  "app": "admin-panel",
+  "page": "admin/payment-rates",
+  "figures": [
+    {
+      "id": "admin-payment-rates-01-en",
+      "title": "Payment rates",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/rates"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1200
+        }
+      ],
+      "callouts": [
+        {
+          "text": "never edited in place",
+          "note": "A rate change is a new version, not an edit.",
+          "side": "left"
+        },
+        {
+          "sel": "table th:nth-child(4)",
+          "note": "When this version came into force.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

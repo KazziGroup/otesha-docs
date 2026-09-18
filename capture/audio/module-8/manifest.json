@@ -1,0 +1,68 @@
+[
+  {
+    "id": "open",
+    "text": "Module eight. What happens between doing the work and being paid for it.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-8/open.wav",
+    "seconds": 4.032
+  },
+  {
+    "id": "rates",
+    "text": "It starts with the rates. What each activity pays — watering, mulching — and the date each version came into force.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-8/rates.wav",
+    "seconds": 6.954667
+  },
+  {
+    "id": "version",
+    "text": "Rates are published as a version, never edited in place. Changing what watering pays does not rewrite history: work keeps the rate that was in force when it was done.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-8/version.wav",
+    "seconds": 10.048
+  },
+  {
+    "id": "compile",
+    "text": "Then a run is compiled. It reads the rates in force, sums the work in the period, and subtracts anything held. Nothing is paid yet — it is arithmetic, not money.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-8/compile.wav",
+    "seconds": 10.666667
+  },
+  {
+    "id": "approve",
+    "text": "And a run has to be approved by somebody other than whoever compiled it. That is the whole reason this is three steps rather than one button.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-8/approve.wav",
+    "seconds": 8.554667
+  },
+  {
+    "id": "holds",
+    "text": "Money can also be held back, from one caretaker or a whole zone, with a reason recorded against it.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-8/holds.wav",
+    "seconds": 6.122667
+  },
+  {
+    "id": "lift",
+    "text": "A hold withholds everything for that subject from every run, and only a person can lift it. It does not expire when the problem is fixed.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-8/lift.wav",
+    "seconds": 8.384
+  },
+  {
+    "id": "phone",
+    "text": "On the phone, all of that arrives as one screen. Paid monthly, via M-Pesa.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-8/phone.wav",
+    "seconds": 4.928
+  },
+  {
+    "id": "empty",
+    "text": "And here it is empty — while the same caretaker's profile shows forty-five logs this month.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-8/empty.wav",
+    "seconds": 5.418667
+  },
+  {
+    "id": "why",
+    "text": "Which is the thing worth telling somebody plainly. Logged work is not paid work. The money appears when a run covering it has been compiled, approved and disbursed.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-8/why.wav",
+    "seconds": 10.133333
+  },
+  {
+    "id": "close",
+    "text": "Five pages. Three steps, two people, and one screen that has to explain a wait.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-8/close.wav",
+    "seconds": 5.141333
+  }
+]
