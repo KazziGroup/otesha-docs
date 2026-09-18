@@ -1,6 +1,6 @@
 ---
 id: send-gift
-number: 5
+number: 7
 title: Send a tree as a gift
 category: customer
 categoryTitle: Customer app

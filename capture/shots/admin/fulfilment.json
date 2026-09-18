@@ -1,0 +1,60 @@
+{
+  "app": "admin-panel",
+  "page": "admin/fulfilment",
+  "figures": [
+    {
+      "id": "admin-fulfilment-01-en",
+      "title": "Fulfilment",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/fulfilment"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1500
+        }
+      ],
+      "callouts": [
+        {
+          "text": "no site chosen",
+          "note": "Paid for, but nobody has said where it goes.",
+          "side": "left"
+        },
+        {
+          "text": "days late",
+          "note": "How long past its planting date the order is.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

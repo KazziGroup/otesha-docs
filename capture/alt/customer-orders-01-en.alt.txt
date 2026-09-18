@@ -1,0 +1,1 @@
+Marked on the screenshot: An unpaid order is held, not lost. Picks the payment up where you left it.

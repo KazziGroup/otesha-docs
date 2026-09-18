@@ -1,0 +1,8 @@
+{
+  "url": "http://localhost:5250/checkout/e18d22f5-a522-44c2-9f54-35aabf2294dd/pay",
+  "capturedFrom": "http://localhost:5250",
+  "app": "customer-app",
+  "commit": "9a5a048",
+  "branch": "main",
+  "documentedRef": "origin/main"
+}

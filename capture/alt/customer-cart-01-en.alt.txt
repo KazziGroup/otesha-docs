@@ -1,0 +1,1 @@
+Marked on the screenshot: The total is worked out server-side at checkout. Goes to a confirmation; nothing is charged here.

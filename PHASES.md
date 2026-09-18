@@ -109,7 +109,7 @@ it leave behind. Page counts are rough sizing, not a contract.
 | 2 | Caretaker onboarding & standing | `identity`, `fieldops` | admin, caretaker | 4 |
 | 3 | Zones, clusters and the rota | `geography`, `fieldops` | admin, caretaker | 4 |
 | 4 | Species, pricing and the nursery | `catalogue`, `nursery` | admin, customer | 5 |
-| 5 | Sponsoring a tree | `orders`, `payments` | customer, admin | 7 |
+| 5 | Sponsoring a tree | `orders`, `payments` | customer, admin | 5 |
 | 6 | Gifting a tree | `orders` | customer | 3 |
 | 7 | The daily round | `fieldops` | caretaker, admin | 7 |
 | 8 | Caretaker pay | `payouts`, `ledger` | caretaker, admin | 5 |
@@ -120,7 +120,7 @@ it leave behind. Page counts are rough sizing, not a contract.
 | 13 | Motivation and recognition | — (client-side) | caretaker | 5 |
 | 14 | Running the programme | `identity`, `audit`, `catalogue` | admin | 6 |
 
-Roughly 78 pages, against the ~70 the brief estimated — close enough that the
+Roughly 76 pages, against the ~70 the brief estimated — close enough that the
 estimate looks sound.
 
 ### What each one covers
@@ -200,10 +200,17 @@ not a botanical one**: trees already in the ground are unaffected. And every
 price carries the date it came into force, because a new price does not reprice
 what has already been sold.
 
-**5. Sponsoring a tree.** The money path: browse, cart, checkout, pay, and what
+**5. Sponsoring a tree.** The money path: cart, confirmation, payment, and what
 the order looks like from the fulfilment side.
 *Routes:* customer `cart`, `checkout`, `checkout.pay`, `checkout.status`,
-`orders`; admin `fulfilment`, `transactions`.
+`orders`; admin `fulfilment`, `transactions`. Five pages rather than seven —
+confirm, pay and wait are three screens of one task, not three tasks.
+
+**The unpaid order is documented on purpose.** `PAYMENT_PROVIDER=mock` settles
+only through a signed webhook, so a capture stops at "Check your phone" — and
+that is the state a reader who got stuck is actually looking at. The customer
+pages say what it means: nothing charged, order held, no tree planted. Seeded
+data already carries paid orders, so the admin side shows the other half.
 
 **6. Gifting a tree.** Sending one and redeeming a code. Small and separable.
 *Routes:* customer `gifts`, `gifts.redeem`.
@@ -325,7 +332,7 @@ where the trial left us, not a head start.
 | 2 | Caretaker onboarding & standing | ✓ | 4 / 4 | 18 Sep 2026 |
 | 3 | Zones, clusters and the rota | ✓ | 4 / 4 | 18 Sep 2026 |
 | 4 | Species, pricing and the nursery | ✓ | 5 / 5 | 18 Sep 2026 |
-| 5 | Sponsoring a tree | — | 0 / 7 | |
+| 5 | Sponsoring a tree | ✓ | 5 / 5 | 18 Sep 2026 |
 | 6 | Gifting a tree | — | 0 / 3 | |
 | 7 | The daily round | — | 1 / 7 | |
 | 8 | Caretaker pay | — | 0 / 5 | |

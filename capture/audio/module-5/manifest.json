@@ -1,0 +1,68 @@
+[
+  {
+    "id": "open",
+    "text": "Module five. The money path — from a tree in a cart to somebody having to go and plant it.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-5/open.wav",
+    "seconds": 5.226667
+  },
+  {
+    "id": "cart",
+    "text": "The cart holds care plans, not bare species. A tree and the looking-after that goes with it.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-5/cart.wav",
+    "seconds": 5.546667
+  },
+  {
+    "id": "total",
+    "text": "And the subtotal here is arithmetic done on your phone. The amount you are actually asked for is worked out by Otesha when you check out.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-5/total.wav",
+    "seconds": 8.192
+  },
+  {
+    "id": "confirm",
+    "text": "The confirmation says nothing has been charged yet, twice — above the total and below it. Placing the order takes no money.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-5/confirm.wav",
+    "seconds": 7.573333
+  },
+  {
+    "id": "pay",
+    "text": "Then six ways to pay. And the number charged need not be the one you signed in with — a parent's, or your own second line.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-5/pay.wav",
+    "seconds": 7.232
+  },
+  {
+    "id": "held",
+    "text": "If you stop here, nothing is lost. The order is held, nothing is charged, and no tree is planted until it is paid.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-5/held.wav",
+    "seconds": 7.082667
+  },
+  {
+    "id": "dontretry",
+    "text": "Which is the thing worth telling somebody plainly: pay the order that already exists. A second order is a second tree and a second charge.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-5/dontretry.wav",
+    "seconds": 8.469333
+  },
+  {
+    "id": "transactions",
+    "text": "On the console, every payment and what the provider said about it. The statuses describe where a payment stopped, not merely whether it worked.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-5/transactions.wav",
+    "seconds": 8.384
+  },
+  {
+    "id": "links",
+    "text": "Filters live in the address bar, so a filtered view is a link somebody can send.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-5/links.wav",
+    "seconds": 4.778667
+  },
+  {
+    "id": "fulfil",
+    "text": "And then the part that is not software. Paid orders, waiting on a planting site, counted in days late — against a date the customer was already given.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-5/fulfil.wav",
+    "seconds": 9.002667
+  },
+  {
+    "id": "close",
+    "text": "Five pages. The promise, and where it comes due.",
+    "path": "/Users/waky/Documents/web/otesha-docs/capture/audio/module-5/close.wav",
+    "seconds": 2.901333
+  }
+]

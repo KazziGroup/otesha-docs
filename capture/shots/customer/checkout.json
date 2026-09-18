@@ -1,0 +1,186 @@
+{
+  "app": "customer-app",
+  "page": "customer/checkout",
+  "figures": [
+    {
+      "id": "customer-checkout-01-en",
+      "title": "Confirm your order",
+      "steps": [
+        {
+          "goto": "/logout"
+        },
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "{{uniquePhone}}"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=code]"
+        },
+        {
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
+        },
+        {
+          "pause": 600
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=full_name]"
+        },
+        {
+          "click": "text=Skip for now"
+        },
+        {
+          "pause": 1500
+        },
+        {
+          "goto": "/species"
+        },
+        {
+          "wait": "text=Choose a species"
+        },
+        {
+          "click": "a:has-text('Baobab')"
+        },
+        {
+          "wait": "text=Add to cart"
+        },
+        {
+          "click": "text=Add to cart"
+        },
+        {
+          "wait": "text=Your cart"
+        },
+        {
+          "goto": "/checkout"
+        },
+        {
+          "wait": "text=Confirm your order"
+        },
+        {
+          "pause": 900
+        }
+      ],
+      "callouts": [
+        {
+          "text": "Nothing has been charged yet",
+          "note": "Said twice on this screen, and true.",
+          "side": "left"
+        },
+        {
+          "text": "Place order",
+          "note": "Creates the order, then asks how to pay.",
+          "side": "right"
+        }
+      ]
+    },
+    {
+      "id": "customer-checkout-02-en",
+      "title": "How would you like to pay",
+      "steps": [
+        {
+          "goto": "/logout"
+        },
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "{{uniquePhone}}"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=code]"
+        },
+        {
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
+        },
+        {
+          "pause": 600
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=full_name]"
+        },
+        {
+          "click": "text=Skip for now"
+        },
+        {
+          "pause": 1500
+        },
+        {
+          "goto": "/species"
+        },
+        {
+          "wait": "text=Choose a species"
+        },
+        {
+          "click": "a:has-text('Baobab')"
+        },
+        {
+          "wait": "text=Add to cart"
+        },
+        {
+          "click": "text=Add to cart"
+        },
+        {
+          "wait": "text=Your cart"
+        },
+        {
+          "goto": "/checkout"
+        },
+        {
+          "wait": "text=Place order"
+        },
+        {
+          "click": "button:has-text('Place order')"
+        },
+        {
+          "wait": "text=How would you like to pay"
+        },
+        {
+          "pause": 1200
+        }
+      ],
+      "callouts": [
+        {
+          "text": "M-Pesa",
+          "note": "Six ways to pay, including card and bank transfer.",
+          "side": "left"
+        },
+        {
+          "text": "pay from a different number",
+          "note": "The number charged need not be the one you signed in with.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

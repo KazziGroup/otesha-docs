@@ -1,0 +1,88 @@
+{
+  "app": "customer-app",
+  "page": "customer/cart",
+  "note": "A fresh account each run \u2014 see customer/browse-species for why.",
+  "figures": [
+    {
+      "id": "customer-cart-01-en",
+      "title": "Your cart",
+      "steps": [
+        {
+          "goto": "/logout"
+        },
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "{{uniquePhone}}"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=code]"
+        },
+        {
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
+        },
+        {
+          "pause": 600
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=full_name]"
+        },
+        {
+          "click": "text=Skip for now"
+        },
+        {
+          "pause": 1500
+        },
+        {
+          "goto": "/species"
+        },
+        {
+          "wait": "text=Choose a species"
+        },
+        {
+          "click": "a:has-text('Baobab')"
+        },
+        {
+          "wait": "text=Add to cart"
+        },
+        {
+          "click": "text=Add to cart"
+        },
+        {
+          "wait": "text=Your cart"
+        },
+        {
+          "pause": 1000
+        }
+      ],
+      "callouts": [
+        {
+          "text": "calculated by our server",
+          "note": "The total is worked out server-side at checkout.",
+          "side": "left"
+        },
+        {
+          "text": "Check out",
+          "note": "Goes to a confirmation; nothing is charged here.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

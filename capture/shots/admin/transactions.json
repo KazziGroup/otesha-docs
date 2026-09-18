@@ -1,0 +1,60 @@
+{
+  "app": "admin-panel",
+  "page": "admin/transactions",
+  "figures": [
+    {
+      "id": "admin-transactions-01-en",
+      "title": "Transactions",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/transactions"
+        },
+        {
+          "wait": "text=Every customer payment"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1500
+        }
+      ],
+      "callouts": [
+        {
+          "text": "Filters live in the address bar",
+          "note": "A filtered view is a link you can send.",
+          "side": "left"
+        },
+        {
+          "text": "Needs review",
+          "note": "Payments the system could not settle on its own.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

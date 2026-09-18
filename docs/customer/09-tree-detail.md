@@ -1,7 +1,7 @@
 ---
-id: redeem-gift
-number: 6
-title: Redeem a gift code
+id: tree-detail
+number: 9
+title: See how your tree is doing
 category: customer
 categoryTitle: Customer app
 description: Placeholder.

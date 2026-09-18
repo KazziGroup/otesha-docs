@@ -1,0 +1,106 @@
+{
+  "app": "customer-app",
+  "page": "customer/orders",
+  "note": "Shows an unpaid order on purpose. It is the state a reader who got stuck is looking at, and the mock payment provider settles only through a signed webhook.",
+  "figures": [
+    {
+      "id": "customer-orders-01-en",
+      "title": "Your orders",
+      "steps": [
+        {
+          "goto": "/logout"
+        },
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=phone]"
+        },
+        {
+          "fill": [
+            "input[name=phone]",
+            "{{uniquePhone}}"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=code]"
+        },
+        {
+          "eval": "(() => { const p = [...document.querySelectorAll('*')].find(e => e.children.length === 0 && /^\\d{6}$/.test(e.textContent.trim())); if (p) window.__code = p.textContent.trim(); })()"
+        },
+        {
+          "eval": "(() => { const i = document.querySelector('input[name=code]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(i, window.__code); i.dispatchEvent(new Event('input', { bubbles: true })); })()"
+        },
+        {
+          "pause": 600
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "input[name=full_name]"
+        },
+        {
+          "click": "text=Skip for now"
+        },
+        {
+          "pause": 1500
+        },
+        {
+          "goto": "/species"
+        },
+        {
+          "wait": "text=Choose a species"
+        },
+        {
+          "click": "a:has-text('Baobab')"
+        },
+        {
+          "wait": "text=Add to cart"
+        },
+        {
+          "click": "text=Add to cart"
+        },
+        {
+          "wait": "text=Your cart"
+        },
+        {
+          "goto": "/checkout"
+        },
+        {
+          "wait": "text=Place order"
+        },
+        {
+          "click": "button:has-text('Place order')"
+        },
+        {
+          "wait": "text=How would you like to pay"
+        },
+        {
+          "goto": "/orders"
+        },
+        {
+          "wait": "text=Your orders"
+        },
+        {
+          "pause": 1200
+        }
+      ],
+      "callouts": [
+        {
+          "text": "no tree is planted until it is paid",
+          "note": "An unpaid order is held, not lost.",
+          "side": "left"
+        },
+        {
+          "text": "Pay for this order",
+          "note": "Picks the payment up where you left it.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}
