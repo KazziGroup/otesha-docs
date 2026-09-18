@@ -1,6 +1,6 @@
 ---
 id: earnings
-number: 3
+number: 7
 title: See what you have earned
 category: caretaker
 categoryTitle: Caretaker app

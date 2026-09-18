@@ -21,11 +21,15 @@ goes up when you are back in range.
 
 **1. Open the app.**
 
-![The Today screen in the caretaker app, with the task card and the earnings card marked. Marked on the screenshot: What needs doing today, and how much is done. What you have earned this month.](/img/caretaker-today-01-en.png "Today. The task card counts the trees, not the visits.")
+![The Today screen in the caretaker app, with the task card and the earnings card marked. Marked on the screenshot: What needs doing today, counted in trees rather than visits. What the month has come to so far.](/img/caretaker-today-01-en.png "Today. The task card counts the trees, not the visits.")
 
 **Today** is where the app opens. The top card is the day's work — how many
-trees are done out of how many, and what kind of work it is. The count is trees,
-not visits: a tree needing both a watering and a check counts once.
+trees are done out of how many, and what kind of work it is: *5 watering, 4
+weeding, 2 pruning*. The count is trees, not visits: a tree needing both a
+watering and a check counts once.
+
+Anything past its date is marked **overdue** in the list below. That is a
+statement about the date, not about you.
 
 **2. Check what needs attention.**
 
@@ -44,5 +48,6 @@ so far** is what you have earned, and it updates as work is accepted.
 
 ## Related tasks
 
+- [[link:caretaker/tree|Open a tree]]
+- [[link:caretaker/log-watering|Log a watering]]
 - [[link:caretaker/offline|Work with no signal]]
-- [[link:caretaker/earnings|See what you have earned]]

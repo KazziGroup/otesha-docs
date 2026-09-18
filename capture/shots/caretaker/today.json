@@ -1,34 +1,43 @@
 {
-  "app": "caretaker-mobile-app",
+  "app": "caretaker-mobile-app-live",
   "page": "caretaker/today",
+  "note": "The live build against the local backend, not the static-demo one \u2014 the demo shows fixture counts and never anything overdue.",
   "figures": [
     {
       "id": "caretaker-today-01-en",
       "title": "Today",
       "steps": [
         {
+          "pause": 2000
+        },
+        {
+          "tapIfPresent": ".*8081.*"
+        },
+        {
+          "waitFor": "Habari.*"
+        },
+        {
+          "tapIfPresent": "Back"
+        },
+        {
+          "tapIfPresent": "Today"
+        },
+        {
           "pause": 2500
-        },
-        {
-          "tapIfPresent": "Open"
-        },
-        {
-          "pause": 3000
         }
       ],
       "callouts": [
         {
           "match": "Today's tasks",
-          "note": "What needs doing today, and how much is done.",
+          "note": "What needs doing today, counted in trees rather than visits.",
           "side": "right"
         },
         {
           "match": "Open earnings",
-          "note": "What you have earned this month.",
+          "note": "What the month has come to so far.",
           "side": "left"
         }
-      ],
-      "note": "`tapIfPresent: Open` dismisses the simulator's 'Open in Otesha (Demo)?' prompt, which appears on some launches and not others and blocks the app when it does."
+      ]
     }
   ]
 }

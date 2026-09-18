@@ -111,7 +111,7 @@ it leave behind. Page counts are rough sizing, not a contract.
 | 4 | Species, pricing and the nursery | `catalogue`, `nursery` | admin, customer | 5 |
 | 5 | Sponsoring a tree | `orders`, `payments` | customer, admin | 5 |
 | 6 | ~~Gifting a tree~~ — deferred in the product | `orders` | — | 0 |
-| 7 | The daily round | `fieldops` | caretaker, admin | 7 |
+| 7 | The daily round | `fieldops` | caretaker, admin | 5 |
 | 8 | Caretaker pay | `payouts`, `ledger` | caretaker, admin | 5 |
 | 9 | Watching your tree | `registry`, `impact` | customer, corporate, caretaker | 6 |
 | 10 | Money and invoices | `payments`, `ledger` | corporate, admin | 3 |
@@ -120,7 +120,7 @@ it leave behind. Page counts are rough sizing, not a contract.
 | 13 | Motivation and recognition | — (client-side) | caretaker | 5 |
 | 14 | Running the programme | `identity`, `audit`, `catalogue` | admin | 6 |
 
-Roughly 71 pages, against the ~70 the brief estimated — close enough that the
+Roughly 69 pages, against the ~70 the brief estimated — close enough that the
 estimate looks sound.
 
 ### What each one covers
@@ -223,12 +223,25 @@ simply not somewhere a customer should be sent yet."*
 It is a deferral rather than a deletion; the route files are kept and bringing
 either back is three lines. If that happens, this module comes back with it.
 
-**7. The daily round.** The caretaker's actual job: Today, logging a watering or
-a health check, working with no signal, and how flagged work reaches an admin.
-The offline round trip is the one flow Maestro cannot drive alone — the existing
-`offline-sync.sh` stops and starts the API around it.
-*Routes:* caretaker `(tabs)/today`, `(tabs)/activities`, `log/watering`,
-`log/health-check`, `scan`; admin `review`.
+**7. The daily round.** The caretaker's actual job, and the thread that runs
+through it: a log is only worth anything if the handset knew where it was.
+*Routes:* caretaker `(tabs)/today`, `tree/[id]`, `log/watering`; admin `review`.
+
+The two ends of one fact. The watering form promises *"GPS + time recorded
+automatically · works offline, syncs later"*, and the console's flagged-work
+queue lists what happens when that fails: *"the handset never got a fix"*,
+*"the position could not be checked"* — under a heading that says **none of it
+can be paid until somebody decides**. The caretaker sees *"1 log was not
+accepted. Show a supervisor."* That is one story told from both sides, which is
+the argument for module-wise phasing in a single screenshot.
+
+**Two constraints the capture found.** Logging needs the simulator's location
+set inside Tanzania or the API rejects the coordinates outright —
+`xcrun simctl location <udid> set -6.1871451,35.7677985`. And the offline page
+reuses the watering figure rather than showing a queued log: a dedicated one
+needs the API stopped mid-capture, which the shared backend on :8000 is serving
+every other app's figures from. Worth doing when the capture harness moves into
+`otesha/e2e`, where `offline-sync.sh` already does exactly that.
 
 **8. Caretaker pay.** Earnings on the phone, and releasing a payout run from the
 console — two ends of one event, and the clearest argument for doing this
@@ -342,7 +355,7 @@ where the trial left us, not a head start.
 | 4 | Species, pricing and the nursery | ✓ | 5 / 5 | 18 Sep 2026 |
 | 5 | Sponsoring a tree | ✓ | 5 / 5 | 18 Sep 2026 |
 | 6 | Gifting a tree | ✕ | — | dropped 18 Sep 2026 |
-| 7 | The daily round | — | 1 / 7 | |
+| 7 | The daily round | ✓ | 5 / 5 | 18 Sep 2026 |
 | 8 | Caretaker pay | — | 0 / 5 | |
 | 9 | Watching your tree | — | 0 / 6 | |
 | 10 | Money and invoices | — | 0 / 3 | |

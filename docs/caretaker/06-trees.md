@@ -1,6 +1,6 @@
 ---
 id: trees
-number: 3
+number: 6
 title: See your section
 category: caretaker
 categoryTitle: Caretaker app

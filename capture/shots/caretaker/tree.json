@@ -1,0 +1,52 @@
+{
+  "app": "caretaker-mobile-app-live",
+  "page": "caretaker/tree",
+  "note": "Task rows are labelled with the tree code the seed produced, so a reseed changes them and this recipe fails loudly rather than photographing the wrong row.",
+  "figures": [
+    {
+      "id": "caretaker-tree-01-en",
+      "title": "A tree",
+      "steps": [
+        {
+          "pause": 2000
+        },
+        {
+          "tapIfPresent": ".*8081.*"
+        },
+        {
+          "waitFor": "Habari.*"
+        },
+        {
+          "tapIfPresent": "Back"
+        },
+        {
+          "tapIfPresent": "Today"
+        },
+        {
+          "pause": 2500
+        },
+        {
+          "tap": "DOD-03-SC-002-0003 Watering Zone 87"
+        },
+        {
+          "waitFor": "Log activity"
+        },
+        {
+          "pause": 1500
+        }
+      ],
+      "callouts": [
+        {
+          "match": "Cluster",
+          "note": "Where the tree is, to the metre.",
+          "side": "left"
+        },
+        {
+          "match": "Log activity",
+          "note": "Records work against this tree.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

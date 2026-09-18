@@ -1,0 +1,63 @@
+{
+  "app": "caretaker-mobile-app-live",
+  "page": "caretaker/log-watering",
+  "note": "Task rows are labelled with the tree code the seed produced, so a reseed changes them and this recipe fails loudly rather than photographing the wrong row. The simulator's location must be inside Tanzania or the API rejects the log: xcrun simctl location <udid> set -6.1871451,35.7677985",
+  "figures": [
+    {
+      "id": "caretaker-log-watering-01-en",
+      "title": "Logging a watering",
+      "steps": [
+        {
+          "pause": 2000
+        },
+        {
+          "tapIfPresent": ".*8081.*"
+        },
+        {
+          "waitFor": "Habari.*"
+        },
+        {
+          "tapIfPresent": "Back"
+        },
+        {
+          "tapIfPresent": "Today"
+        },
+        {
+          "pause": 2500
+        },
+        {
+          "tap": "DOD-03-SC-002-0003 Watering Zone 87"
+        },
+        {
+          "waitFor": "Log activity"
+        },
+        {
+          "tap": "Log activity"
+        },
+        {
+          "waitFor": "Water applied"
+        },
+        {
+          "pause": 1500
+        }
+      ],
+      "callouts": [
+        {
+          "match": "GPS locked",
+          "note": "The handset has a fix, and how good it is.",
+          "side": "left"
+        },
+        {
+          "match": "works offline",
+          "note": "Position and time are recorded for you, with or without signal.",
+          "side": "left"
+        },
+        {
+          "match": "Bucket",
+          "note": "How the water was carried.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

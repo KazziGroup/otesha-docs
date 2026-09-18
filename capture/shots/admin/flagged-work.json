@@ -1,0 +1,60 @@
+{
+  "app": "admin-panel",
+  "page": "admin/flagged-work",
+  "figures": [
+    {
+      "id": "admin-flagged-work-01-en",
+      "title": "Flagged work",
+      "steps": [
+        {
+          "goto": "/login"
+        },
+        {
+          "wait": "input[name=email]"
+        },
+        {
+          "fill": [
+            "input[name=email]",
+            "admin@otesha.co.tz"
+          ]
+        },
+        {
+          "fill": [
+            "input[name=password]",
+            "otesha-dev-2026"
+          ]
+        },
+        {
+          "click": "button[type=submit]"
+        },
+        {
+          "wait": "nav"
+        },
+        {
+          "goto": "/review"
+        },
+        {
+          "wait": "table"
+        },
+        {
+          "park": true
+        },
+        {
+          "pause": 1500
+        }
+      ],
+      "callouts": [
+        {
+          "text": "None of it can be paid until somebody decides",
+          "note": "Flagged work is unpaid work until it is decided.",
+          "side": "left"
+        },
+        {
+          "sel": "table th:nth-child(5)",
+          "note": "Why the log could not be placed.",
+          "side": "right"
+        }
+      ]
+    }
+  ]
+}

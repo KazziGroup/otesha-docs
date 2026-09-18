@@ -1,6 +1,6 @@
 ---
 id: profile
-number: 2
+number: 5
 title: See how you are doing
 category: caretaker
 categoryTitle: Caretaker app

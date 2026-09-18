@@ -380,6 +380,17 @@ async function shootIos(browser, list, appName, app, provenance) {
             : `- tapOn: ${JSON.stringify(arg)}\n`;
         writeFileSync(flow, `appId: ${app.bundleId}\n---\n${body}`);
         execFileSync("maestro", ["--device", device, "test", flow], { stdio: "ignore" });
+      } else if (verb === "waitFor") {
+        // A condition, not a guess. Pauses were what the phone steps had, and a
+        // pause is either longer than it needs to be or occasionally shorter
+        // than the app takes — and the short case captures the previous screen,
+        // which looks like a real screenshot of the wrong thing.
+        const flow = join(WORK, `${figure.id}.wait.yml`);
+        writeFileSync(
+          flow,
+          `appId: ${app.bundleId}\n---\n- extendedWaitUntil:\n    visible: ${JSON.stringify(arg)}\n    timeout: 30000\n`,
+        );
+        execFileSync("maestro", ["--device", device, "test", flow], { stdio: "ignore" });
       } else if (verb === "scroll") {
         // Repeated rather than parameterised by distance: Maestro scrolls by a
         // screenful, and "three screens down" is the unit a shot list actually
